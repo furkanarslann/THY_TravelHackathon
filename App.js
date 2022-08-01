@@ -1,10 +1,12 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./src/redux/store";
+import axios from "axios";
+import { getAirports } from "./src/redux/api/airport";
 
 function Feed() {
   const count = useSelector((state) => state.counter.value);
@@ -45,11 +47,22 @@ function MyDrawer() {
 }
 
 export default function App() {
+  const airports=useSelector((state)=>state.airport.airports)
+  const loading=useSelector((state)=>state.airport.loadingState)
+  console.log(loading);
+
+  const dispatch=useDispatch();
+  axios.defaults.headers.common = {
+    apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
+    apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
+  };
+ console.log(airports);
   return (
-    <Provider store={store}>
+    
       <NavigationContainer>
         <MyDrawer />
+        <Button title="Press" onPress={()=>dispatch(getAirports)}> </Button>
       </NavigationContainer>
-    </Provider>
+   
   );
 }
