@@ -50,7 +50,8 @@ export default function App() {
   const airports=useSelector((state)=>state.airport.airports)
   const loading=useSelector((state)=>state.airport.loadingState)
   console.log(loading);
-
+  const ct=useSelector((state)=>state.counter.value)
+console.log(ct);
   const dispatch=useDispatch();
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -61,7 +62,8 @@ export default function App() {
     
       <NavigationContainer>
         <MyDrawer />
-        <Button title="Press" onPress={()=>dispatch(getAirports)}> </Button>
+       
+        <Button title="Press" onPress={()=>dispatch(getAirports())}> </Button>
       </NavigationContainer>
    
   );

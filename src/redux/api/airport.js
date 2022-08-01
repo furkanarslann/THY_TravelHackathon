@@ -20,6 +20,5 @@ export const getAirports = createAsyncThunk("api/airports", async () => {
   
 
     
-  console.log(response.data);
-  return response.data;
+   return response.data.data.Port;
 });
