@@ -7,6 +7,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./src/redux/store";
 import axios from "axios";
 import { getAirports } from "./src/redux/api/airport";
+import AirportList from "./src/components/AirportList/AirportList";
 
 function Feed() {
   const count = useSelector((state) => state.counter.value);
@@ -20,9 +21,9 @@ function Feed() {
 
 function Article() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Article Screen</Text>
-    </View>
+    <View>
+{/*       <AirportList />
+ */}    </View>
   );
 }
 
@@ -47,24 +48,25 @@ function MyDrawer() {
 }
 
 export default function App() {
-  const airports=useSelector((state)=>state.airport.airports)
-  const loading=useSelector((state)=>state.airport.loadingState)
+  const airports = useSelector((state) => state.airport.airports);
+  const loading = useSelector((state) => state.airport.loadingState);
   console.log(loading);
-  const ct=useSelector((state)=>state.counter.value)
-console.log(ct);
-  const dispatch=useDispatch();
+  const ct = useSelector((state) => state.counter.value);
+  console.log(ct);
+  const dispatch = useDispatch();
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
     apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
   };
- console.log(airports);
+  console.log(airports.length);
+  React.useEffect(() => {
+    dispatch(getAirports());
+  }, []);
   return (
-    
-      <NavigationContainer>
-        <MyDrawer />
-       
-        <Button title="Press" onPress={()=>dispatch(getAirports())}> </Button>
-      </NavigationContainer>
-   
+    <NavigationContainer>
+      <MyDrawer />
+
+      <Button title="Press"> </Button>
+    </NavigationContainer>
   );
 }
