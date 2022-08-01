@@ -5,7 +5,7 @@ export const getAirports = createAsyncThunk("api/airports", async () => {
 
    const response= await axios
    .post(
-     "https://api.turkishairlines.com/test/getPortList",
+    process.env.API_URL+"/test/getPortList",
      
      {
        "requestHeader": {
