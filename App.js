@@ -8,14 +8,13 @@ import { store } from "./src/redux/store";
 import axios from "axios";
 import { getAirports } from "./src/redux/api/airport";
 import AirportList from "./src/components/AirportList/AirportList";
+import Flights from "./src/components/Flights/Flights";
 
 function Feed() {
   const count = useSelector((state) => state.counter.value);
   console.log(count);
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Feed Screen</Text>
-    </View>
+   <Flights/>
   );
 }
 
