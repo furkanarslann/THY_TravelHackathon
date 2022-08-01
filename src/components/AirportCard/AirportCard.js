@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-
-const AirportCard = ({airport}) => {
+import styles from './AirportCard.style'
+const AirportCard = ({item}) => {
   return (
-    <View>
-      <Text>AirportCard</Text>
+    <View style={styles.container}>
+      <Text>{item}</Text>
     </View>
   )
 }
