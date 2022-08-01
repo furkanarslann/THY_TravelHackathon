@@ -9,11 +9,14 @@ import axios from "axios";
 import { getAirports } from "./src/redux/api/airport";
 import AirportList from "./src/components/AirportList/AirportList";
 import Flights from "./src/components/Flights/Flights";
+import { getFlightsByDate } from "./src/redux/api/flight";
 
 function Feed() {
-  const count = useSelector((state) => state.counter.value);
-  console.log(count);
-  return (
+  const dispatch=useDispatch();
+  React.useEffect(() => {
+    dispatch(getFlightsByDate())
+  }, [])
+   return (
    <Flights/>
   );
 }
@@ -47,19 +50,23 @@ function MyDrawer() {
 }
 
 export default function App() {
+  
+  const dispatch = useDispatch();
   const airports = useSelector((state) => state.airport.airports);
   const loading = useSelector((state) => state.airport.loadingState);
   console.log(loading);
   const ct = useSelector((state) => state.counter.value);
   console.log(ct);
-  const dispatch = useDispatch();
+  
+ 
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
     apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
   };
-  console.log(airports.length);
   React.useEffect(() => {
     dispatch(getAirports());
+  
+
   }, []);
   return (
     <NavigationContainer>

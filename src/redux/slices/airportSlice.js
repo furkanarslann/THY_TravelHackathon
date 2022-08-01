@@ -24,7 +24,7 @@ export const airportSlice = createSlice({
       builder.addCase(getAirports.fulfilled, (state, action) => {
         // Add user to the state array
         state.loadingState="idle";
-        console.log(state);
+       
         state.airports=action.payload
 
        });

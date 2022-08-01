@@ -1,13 +1,28 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
+import { FlatList } from 'react-native-gesture-handler'
+import FlightCard from '../FlightCard/FlightCard';
+import { useSelector } from 'react-redux';
 
 const Flights = () => {
+    const flights = useSelector((state) => state.flight.flights);
+
   return (
     <View>
-        <View style={{paddingVertical:20,paddingHorizontal:10,backgroundColor:"#b91c1c"}}>
+
+
+        <View style={{flexDirection:"row",alignItems:"center",paddingVertical:20,paddingHorizontal:10,backgroundColor:"#b91c1c"}}>
             <Text style={{color:"#ffffff",fontSize:24,fontWeight:"bold"}}>Uçuş Bul</Text>
         </View>
-      <Text>Flights</Text>
+        <FlatList
+         
+      numColumns={2}
+      data={flights}
+      renderItem={({ item, index }) => {
+       return  <FlightCard item={item}/>
+      }
+      }
+    />
     </View>
   )
 }

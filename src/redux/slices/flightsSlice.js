@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getFlightsByDate } from "../api/flight";
  
 const initialState = {
   flights: [],
@@ -11,25 +12,25 @@ export const flightSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(getAirports.pending, (state, action) => {
+    builder.addCase(getFlightsByDate.pending, (state, action) => {
       // Add user to the state array
         state.loadingState="loading";
     }),
-      builder.addCase(getAirports.rejected, (state, action) => {
+      builder.addCase(getFlightsByDate.rejected, (state, action) => {
         // Add user to the state array
         state.loadingState="loading";
 
        }),
-      builder.addCase(getAirports.fulfilled, (state, action) => {
+      builder.addCase(getFlightsByDate.fulfilled, (state, action) => {
         // Add user to the state array
         state.loadingState="idle";
-        console.log(state);
-        state.airports=action.payload
+
+        state.flights=action.payload
 
        });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {} = flight.actions;
+export const {} = flightSlice.actions;
 export default flightSlice.reducer;
