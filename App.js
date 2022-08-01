@@ -22,8 +22,8 @@ function Feed() {
 function Article() {
   return (
     <View>
-{/*       <AirportList />
- */}    </View>
+      <AirportList />
+    </View>
   );
 }
 
@@ -66,7 +66,7 @@ export default function App() {
     <NavigationContainer>
       <MyDrawer />
 
-      <Button title="Press"> </Button>
+      <Button title="Press"></Button>
     </NavigationContainer>
   );
 }
