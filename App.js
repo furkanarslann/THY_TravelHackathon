@@ -3,8 +3,12 @@ import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Provider, useSelector } from "react-redux";
+import { store } from "./src/redux/store";
 
 function Feed() {
+  const count = useSelector((state) => state.counter.value);
+  console.log(count);
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>Feed Screen</Text>
@@ -42,8 +46,10 @@ function MyDrawer() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <MyDrawer />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MyDrawer />
+      </NavigationContainer>
+    </Provider>
   );
 }
