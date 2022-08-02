@@ -12,21 +12,24 @@ const AirportList = () => {
   /* useEffect(() => {
   airports.forEach((item)=>{
     console.log(item.City.LanguageInfo.Language[0].Name);
-  })
+  }) 
 }, []) */
   useEffect(() => {
     const arr = airports.map((item) => {
-      return Array.isArray(item.City.PortsInCity.Port)
-        ? item.City.PortsInCity.Port[0].Code
-        : item.City.PortsInCity.Port.Code;
+      return item.City.LanguageInfo!==""
+        ? {code:item.Code,city:(Array.isArray(item.City.LanguageInfo.Language)?item.City.LanguageInfo.Language[0].Name:(item.City.LanguageInfo.Language.Name))}
+        : {code:item.City.PortsInCity.Port.Code,city:item.LanguageInfo.Language };
     });
-    dispatch(setTags(arr.sort()));
-
+    dispatch(setTags(arr)); 
+console.log(airports);
     console.log(arr);
   }, []);
 
   return (
-    <FlatList
+    <View>
+
+    </View>
+   /*  <FlatList
       numColumns={2}
       data={airports}
       initialNumToRender={7}
@@ -34,7 +37,7 @@ const AirportList = () => {
       renderItem={({ item, index }) => {
         return <AirportCard item={item} />;
       }}
-    />
+    /> */
   );
 };
 

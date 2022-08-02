@@ -4,24 +4,24 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
-const ModalPicker = ({ changeModalVisibility, setWhere,setCity }) => {
+const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
   const WIDTH = Dimensions.get("window").width;
   const HEIGHT = Dimensions.get("window").height;
   const tags = useSelector((state) => state.airport.tags);
   const where = useSelector((state) => state.airport.where);
   const dispatch = useDispatch();
   const onPressItem = (option) => {
-   setWhere(option.code);
-   setCity(option.city)
-    changeModalVisibility(false);
+    setTo(option.code);
+    setToCity(option.city);
+    changeModalVisibilityTo(false);
   };
 
   return (
     <Pressable
-      onPress={() => changeModalVisibility(false)}
+      onPress={() => changeModalVisibilityTo(false)}
       style={styles.touchableOpacity}
     >
-      <View style={[styles.modal, { width: WIDTH/1.5, height: HEIGHT / 2 }]}>
+      <View style={[styles.modal, { width: WIDTH / 1.5, height: HEIGHT / 2 }]}>
         {/*    {tags.map((option,index)=>{
                 return <TouchableOpacity     
                 style={styles.option} key={index}  onPress={()=>onPressItem(option)}>
@@ -47,7 +47,7 @@ const ModalPicker = ({ changeModalVisibility, setWhere,setCity }) => {
   );
 };
 
-export default ModalPicker;
+export default ToModalPicker;
 const styles = StyleSheet.create({
   touchableOpacity: {
     width: "100%",
