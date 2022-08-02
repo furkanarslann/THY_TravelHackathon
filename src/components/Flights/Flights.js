@@ -29,7 +29,7 @@ const Flights = () => {
         
         data={countries}
           onSelect={(selectedItem, index) => {
-            console.log(selectedItem, index);
+         
           }}
           buttonTextAfterSelection={(selectedItem, index) => {
             // text represented after item is selected

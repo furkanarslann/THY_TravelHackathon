@@ -12,13 +12,14 @@ export const getAirports = createAsyncThunk("api/airports", async () => {
          "clientUsername": "OPENAPI",
          "clientTransactionId": "CLIENT_TEST_1",
          "channel": "WEB",
-         "languageCode":"TR",
+         "languageCode":"EN",
          "airlineCode":"TK"
        }
      }
    )
   
+ 
+ 
 
-    
    return response.data.data.Port;
 });

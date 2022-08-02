@@ -11,6 +11,5 @@ export const getFlightsByDate = createAsyncThunk("api/flights", async () => {
 	scheduledArrivalAirport:"JFK"
 }
   );
-console.log(response.data);
-  return response.data.data;
+   return response.data.data.Port;
 });
