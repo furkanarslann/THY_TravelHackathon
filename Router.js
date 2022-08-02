@@ -42,8 +42,13 @@ const App = () => {
   console.log(airports);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="home" component={Carousel} />
+      <Stack.Navigator
+       screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen       screenOptions={{
+        headerShown: false
+      }} name="home" component={Carousel} />
         <Stack.Screen name="flights" component={Flights} />
       </Stack.Navigator>
     </NavigationContainer>
