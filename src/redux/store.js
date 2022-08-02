@@ -9,4 +9,9 @@ export const store = configureStore({
     airport: airportReducer,
     flight: flightReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      
+      serializableCheck: false,
+    }),
 });

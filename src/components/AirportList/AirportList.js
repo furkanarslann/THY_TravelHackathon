@@ -29,6 +29,8 @@ const AirportList = () => {
     <FlatList
       numColumns={2}
       data={airports}
+      initialNumToRender={7}
+
       renderItem={({ item, index }) => {
         return <AirportCard item={item} />;
       }}

@@ -1,8 +1,9 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Dimensions, FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { setWhere } from "../../redux/slices/airportSlice";
+import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const ModalPicker = ({ changeModalVisibility,setGG }) => {
     const WIDTH=Dimensions.get("window").width;
@@ -19,24 +20,35 @@ const dispatch=useDispatch();
     
     
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => changeModalVisibility(false)}
       style={styles.touchableOpacity}
     >
         <View style={[styles.modal,{width:WIDTH-20,height:HEIGHT/2}]} >
-            <ScrollView>
+ 
 
-
-            {tags.map((option,index)=>{
-                return <TouchableOpacity style={styles.option} key={index}  onPress={()=>onPressItem(option)}>
+         {/*    {tags.map((option,index)=>{
+                return <TouchableOpacity     
+                style={styles.option} key={index}  onPress={()=>onPressItem(option)}>
                     <Text style={styles.text}>{option}</Text>
                 </TouchableOpacity>
-            })}
+            })} */}
+             <FlatList
 
-            </ScrollView>
-        </View>
+      data={tags}
+      initialNumToRender={1}
 
-    </TouchableOpacity>
+      renderItem={({ item }) => {
+        return <Pressable     
+        style={styles.option}   onPress={()=>onPressItem(item)}>
+            <Text style={styles.text}>{item}</Text>
+        </Pressable> 
+      }}
+    />
+
+         </View>
+
+    </Pressable>
   );
 };
 
