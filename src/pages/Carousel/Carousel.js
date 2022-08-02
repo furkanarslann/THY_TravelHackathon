@@ -14,8 +14,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../../components/CarouselCard/Card";
 import Pagination from "../../components/PaginationDots/Pagination";
 
-const Carousel = ({navigation}) => {
-  
+const Carousel = ({ navigation }) => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   const setSliderPage = (event) => {
@@ -33,7 +32,7 @@ const Carousel = ({navigation}) => {
   const { currentPage: pageIndex } = sliderState;
 
   return (
-    <SafeAreaView style={{ flex: 1,backgroundColor:"#ffffff" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff" }}>
       <ScrollView
         contentContainerStyle={{
           justifyContent: "center",
@@ -68,11 +67,6 @@ const Carousel = ({navigation}) => {
           paragraph="ben massaka"
           imageLocation={require("../../assets/images/aircraft.png")}
         />
-        <Card
-          header="selam dünya"
-          paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
-        />
       </ScrollView>
 
       <TouchableOpacity
@@ -80,8 +74,10 @@ const Carousel = ({navigation}) => {
         opacity={0.5}
         onPress={() => console.log("Next page")}
       >
-        <Text style={{ textAlign: "center" }}         onPress={() => navigation.navigate('flights')}
->
+        <Text
+          style={{ textAlign: "center" }}
+          onPress={() => navigation.navigate("flights")}
+        >
           <Ionicons
             name="arrow-forward-circle-outline"
             size={55}
