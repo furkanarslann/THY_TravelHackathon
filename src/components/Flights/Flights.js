@@ -3,11 +3,13 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import FlightCard from "../FlightCard/FlightCard";
 import { useSelector } from "react-redux";
+import { SearchBar } from "react-native-screens";
+import Search from "../Search";
+import AirportList from "../AirportList/AirportList";
 
 const Flights = () => {
   const flights = useSelector((state) => state.flight.flights);
-  const countries = ["Egypt", "Canada", "Australia", "Ireland"];
-
+ 
   return (
     <View style={{backgroundColor:"#ffffff" }}>
       <View
@@ -23,7 +25,8 @@ const Flights = () => {
           Uçuş Bul
         </Text>
       </View>
-      
+      <Search/>
+      <AirportList/>
       <FlatList
       style={{backgroundColor:"red"}}
         numColumns={2}

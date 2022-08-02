@@ -22,7 +22,7 @@ const AirportList = () => {
     });
     dispatch(setTags(arr.sort()));
 
-    
+    console.log(arr);
   }, []);
 
   return (
