@@ -14,7 +14,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../../components/CarouselCard/Card";
 import Pagination from "../../components/PaginationDots/Pagination";
 
-const Carousel = () => {
+const Carousel = ({navigation}) => {
   
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
@@ -33,7 +33,7 @@ const Carousel = () => {
   const { currentPage: pageIndex } = sliderState;
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,backgroundColor:"#ffffff" }}>
       <ScrollView
         contentContainerStyle={{
           justifyContent: "center",
@@ -80,7 +80,8 @@ const Carousel = () => {
         opacity={0.5}
         onPress={() => console.log("Next page")}
       >
-        <Text style={{ textAlign: "center" }}>
+        <Text style={{ textAlign: "center" }}         onPress={() => navigation.navigate('flights')}
+>
           <Ionicons
             name="arrow-forward-circle-outline"
             size={55}

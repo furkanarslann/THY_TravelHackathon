@@ -25,10 +25,24 @@ import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Carousel from "./src/pages/Carousel/Carousel";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
-import { createStackNavigator } from '@react-navigation/stack';
-export default function App() {
+import { createStackNavigator } from "@react-navigation/stack";
 
-  /*  const dispatch = useDispatch();
+const App = () => {
+  const Stack = createStackNavigator();
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="home" component={Carousel} />
+        <Stack.Screen name="flights" component={Flights} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+export default App;
+
+/*  const dispatch = useDispatch();
   const airports = useSelector((state) => state.airport.airports);
   const loading = useSelector((state) => state.airport.loadingState);
   console.log(loading);
@@ -42,17 +56,5 @@ export default function App() {
   React.useEffect(() => {
     dispatch(getAirports());
   }, []); */
-  const Stack = createStackNavigator();
-  return (
-    <NavigationContainer>
-      <DrawerNav />
-      
-    </NavigationContainer>
-  );
-}
-
-/* const App = () => {
-  return <Carousel />;
-}; */
 
 const styles = StyleSheet.create({});

@@ -9,7 +9,7 @@ const Flights = () => {
   const countries = ["Egypt", "Canada", "Australia", "Ireland"];
 
   return (
-    <View>
+    <View style={{backgroundColor:"#ffffff" }}>
       <View
         style={{
           flexDirection: "row",
@@ -25,6 +25,7 @@ const Flights = () => {
       </View>
       
       <FlatList
+      style={{backgroundColor:"red"}}
         numColumns={2}
         data={flights}
         renderItem={({ item, index }) => {
