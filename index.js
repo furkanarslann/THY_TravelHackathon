@@ -7,7 +7,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./src/redux/store";
 import axios from "axios";
 import { getAirports } from "./src/redux/api/airport";
-import App from "./App";
+import App from "./Router";
 
 export default function ReactApp() {
     return (
