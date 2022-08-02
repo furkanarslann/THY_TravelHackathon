@@ -22,16 +22,32 @@ import AirportList from "./src/components/AirportList/AirportList";
 import Flights from "./src/components/Flights/Flights";
 import { getFlightsByDate } from "./src/redux/api/flight";
 import { useState } from "react";
+import Search from "./src/components/Search";
 
 function Feed() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(getFlightsByDate());
+   
+    dispatch(getAirports());
+
   }, []);
-  return <Flights />;
+  return (
+    <>
+      <Search />
+
+      <View></View>
+    </>
+  );
 }
 
 function Article() {
+  const dispatch=useDispatch();
+  React.useEffect(() => {
+    dispatch(getAirports());
+
+  }, [])
+  const airports=useSelector((state)=>state.airport.airports)
+ 
   return (
     <View>
       <AirportList />
@@ -88,6 +104,10 @@ function MyDrawer() {
 } */
 
 const App = () => {
+  axios.defaults.headers.common = {
+    apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
+    apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
+  };
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const { height } = Dimensions.get("window");
   const { width } = Dimensions.get("window");
@@ -108,6 +128,11 @@ const App = () => {
 
   return (
     <>
+      <NavigationContainer>
+        <MyDrawer />
+
+        <Button title="Press"></Button>
+      </NavigationContainer>
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
           style={{ flex: 1 }}
@@ -124,7 +149,7 @@ const App = () => {
             setSliderPage(event);
           }}
         >
-           <View style={{ width, height,marginTop:150 }}>
+          <View style={{ width, height, marginTop: 150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -136,7 +161,7 @@ const App = () => {
               </Text>
             </View>
           </View>
-          <View style={{ width, height,marginTop:150 }}>
+          <View style={{ width, height, marginTop: 150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -148,7 +173,7 @@ const App = () => {
               </Text>
             </View>
           </View>
-          <View style={{ width, height,marginTop:150 }}>
+          <View style={{ width, height, marginTop: 150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -160,7 +185,7 @@ const App = () => {
               </Text>
             </View>
           </View>
-          <View style={{ width, height,marginTop:150 }}>
+          <View style={{ width, height, marginTop: 150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -172,7 +197,7 @@ const App = () => {
               </Text>
             </View>
           </View>
-          <View style={{ width, height,marginTop:150 }}>
+          <View style={{ width, height, marginTop: 150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -205,7 +230,7 @@ const styles = StyleSheet.create({
   imageStyle: {
     height: "20%",
     width: "100%",
-justifyContent:"center",
+    justifyContent: "center",
     alignSelf: "center",
   },
   wrapper: {
