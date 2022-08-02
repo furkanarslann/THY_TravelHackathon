@@ -89,7 +89,8 @@ function MyDrawer() {
 
 const App = () => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
-  const { width, height } = Dimensions.get("window");
+  const { height } = Dimensions.get("window");
+  const { width } = Dimensions.get("window");
 
   const setSliderPage = (event) => {
     const { currentPage } = sliderState;
@@ -110,6 +111,11 @@ const App = () => {
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
           style={{ flex: 1 }}
+          contentContainerStyle={{
+            justifyContent: "center",
+            alignItems: "center",
+            paddingTop: "70%",
+          }}
           horizontal
           scrollEventThrottle={16}
           pagingEnabled={true}
@@ -118,17 +124,7 @@ const App = () => {
             setSliderPage(event);
           }}
         >
-          <View style={{ width, height }}>
-            <Image
-              source={require("./src/assets/images/aircraft.png")}
-              style={styles.imageStyle}
-            />
-            <View style={styles.wrapper}>
-              <Text style={styles.header}>Nature Imitates Art</Text>
-              <Text style={styles.paragraph}>....something like that</Text>
-            </View>
-          </View>
-          <View style={{ width, height }}>
+           <View style={{ width, height,marginTop:150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
@@ -140,34 +136,52 @@ const App = () => {
               </Text>
             </View>
           </View>
-          <View style={{ width, height }}>
+          <View style={{ width, height,marginTop:150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
-              <Text style={styles.header}>Top Notch Artists</Text>
-              <Text style={styles.paragraph}>... all in one place</Text>
+              <Text style={styles.header}>High quality Art work</Text>
+              <Text style={styles.paragraph}>
+                ... for a fraction of the price
+              </Text>
             </View>
           </View>
-          <View style={{ width, height }}>
+          <View style={{ width, height,marginTop:150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
-              <Text style={styles.header}>Best deal on the market</Text>
-              <Text style={styles.paragraph}>... let's find your next art</Text>
+              <Text style={styles.header}>High quality Art work</Text>
+              <Text style={styles.paragraph}>
+                ... for a fraction of the price
+              </Text>
             </View>
           </View>
-          <View style={{ width, height }}>
+          <View style={{ width, height,marginTop:150 }}>
             <Image
               source={require("./src/assets/images/aircraft.png")}
               style={styles.imageStyle}
             />
             <View style={styles.wrapper}>
-              <Text style={styles.header}>It's all about art</Text>
-              <Text style={styles.paragraph}>... seriously, it is</Text>
+              <Text style={styles.header}>High quality Art work</Text>
+              <Text style={styles.paragraph}>
+                ... for a fraction of the price
+              </Text>
+            </View>
+          </View>
+          <View style={{ width, height,marginTop:150 }}>
+            <Image
+              source={require("./src/assets/images/aircraft.png")}
+              style={styles.imageStyle}
+            />
+            <View style={styles.wrapper}>
+              <Text style={styles.header}>High quality Art work</Text>
+              <Text style={styles.paragraph}>
+                ... for a fraction of the price
+              </Text>
             </View>
           </View>
         </ScrollView>
@@ -189,9 +203,9 @@ const App = () => {
 
 const styles = StyleSheet.create({
   imageStyle: {
-    height: PixelRatio.getPixelSizeForLayoutSize(135),
+    height: "20%",
     width: "100%",
-    padding: 125,
+justifyContent:"center",
     alignSelf: "center",
   },
   wrapper: {
