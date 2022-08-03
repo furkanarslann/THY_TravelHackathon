@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./FlightCard.style";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const FlightCard = ({ item }) => {
   const dateString = "20200515";
@@ -19,9 +20,9 @@ const FlightCard = ({ item }) => {
   const hour=date.slice(8,10)
   const last = year + month + day;
   */
-
+  
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image
         source={require("../../assets/images/thy.png")}
         style={styles.logo}
@@ -33,7 +34,7 @@ const FlightCard = ({ item }) => {
       </Text>
 
       <Text style={styles.date}>{date.toDateString()}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
