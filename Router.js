@@ -43,7 +43,11 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="home" component={Carousel} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="home"
+          component={Carousel}
+        />
         <Stack.Screen name="flights" component={FlightsPage} />
       </Stack.Navigator>
     </NavigationContainer>
