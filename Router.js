@@ -26,7 +26,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Carousel from "./src/pages/Carousel/Carousel";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import { createStackNavigator } from "@react-navigation/stack";
-import FlightsPage from './src/pages/FlightsPage'
+import FlightsPage from "./src/pages/FlightsPage";
 const App = () => {
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -42,13 +42,8 @@ const App = () => {
   console.log(tags);
   return (
     <NavigationContainer>
-      <Stack.Navigator
-       screenOptions={{
-        headerShown: false
-      }}>
-        <Stack.Screen       screenOptions={{
-        headerShown: false
-      }} name="home" component={Carousel} />
+      <Stack.Navigator>
+        <Stack.Screen name="home" component={Carousel} />
         <Stack.Screen name="flights" component={FlightsPage} />
       </Stack.Navigator>
     </NavigationContainer>
