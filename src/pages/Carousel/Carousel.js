@@ -38,6 +38,8 @@ const Carousel = ({ navigation }) => {
           justifyContent: "center",
           alignItems: "center",
           paddingTop: "70%",
+         
+          
         }}
         horizontal
         scrollEventThrottle={16}
@@ -48,26 +50,34 @@ const Carousel = ({ navigation }) => {
         }}
       >
         <Card
-          header="selam dünya"
-          paragraph="ben massaka"
+          header="Merhaba! THY serüvenine hoşgeldin !"
+          paragraph="THY serüveni sizlere maksimum düzeyde hizmeti hedefleyerek birden fazla fırsatlar sunar. Fırsatlar ve genel bilgi için kaydırınız."
+          imageLocation={require("../../assets/images/welcoming.png")}
+        />
+        <Card
+          header="Bilet Al"
+          paragraph="299.99 TRY'den başlayan fiyatlarla uçmaya hazır olun!"
+          imageLocation={require("../../assets/images/sales.png")}
+        />
+        <Card
+          header="Uçuş Bul"
+          paragraph="Gitmek istediğiniz varış yerini seçerek uçuşlar hakkında genel bilgiye ulaşabilirsiniz."
           imageLocation={require("../../assets/images/aircraft.png")}
         />
         <Card
-          header="selam dünya"
-          paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
-        />
-        <Card
-          header="selam dünya"
-          paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
-        />
-        <Card
-          header="selam dünya"
-          paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
+        
+          header="Miles&Smiles üyesi misiniz?"
+          paragraph="Ödül bilet ve ücretsiz kabin yükseltme gibi benzersiz avantajlardan faydalanmak istiyorsanız bu fırsatı kaçırmayın!"
+          imageLocation={require("../../assets/images/membership.png")}
         />
       </ScrollView>
+
+        <Text
+          style={{ textAlign: "center",  fontSize: 17 }}
+        >Uçuş bulmak için tıklayınız !
+        </Text>
+       
+
 
       <TouchableOpacity
         style={styles.button}
@@ -75,17 +85,23 @@ const Carousel = ({ navigation }) => {
         onPress={() => console.log("Next page")}
       >
         <Text
-          style={{ textAlign: "center" }}
-          onPress={() => navigation.navigate("flights")}
+          style={{ textAlign: "center"}}
+         onPress={() => navigation.navigate("flights")}
         >
+
+ 
           <Ionicons
             name="arrow-forward-circle-outline"
             size={55}
-            color="#6CC2F4E1"
+            color="red"
           />
         </Text>
       </TouchableOpacity>
-      <Pagination pageIndex={pageIndex} />
+
+
+
+
+      <Pagination pageIndex={pageIndex}/>
     </SafeAreaView>
   );
 };
@@ -101,14 +117,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 30,
+    
+    
   },
   header: {
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20,
+   
+    
   },
   paragraph: {
     fontSize: 17,
+    
   },
   paginationWrapper: {
     position: "absolute",
@@ -118,6 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    
   },
   paginationDots: {
     height: 10,
@@ -127,7 +149,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   button: {
-    paddingBottom: 20,
+    paddingBottom: 50,
+    
   },
 });
 

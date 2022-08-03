@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    
   },
   paginationDots: {
     height: 10,
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
     borderRadius: 10 / 2,
     backgroundColor: "#6CC2F4E1",
     marginLeft: 10,
+    backgroundColor:"red",
   },
 });
 

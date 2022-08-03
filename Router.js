@@ -27,6 +27,7 @@ import Carousel from "./src/pages/Carousel/Carousel";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 
+
 const App = () => {
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -36,16 +37,23 @@ const App = () => {
   const dispatch = useDispatch();
 
   const airports = useSelector((state) => state.airport.airports);
+
+  
+
   React.useEffect(() => {
     dispatch(getAirports());
   }, []);
   console.log(airports);
   return (
+   
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="home" component={Carousel} />
+        <Stack.Screen name="Anasayfa" component={Carousel} 
+        />
+       
         <Stack.Screen name="flights" component={Flights} />
       </Stack.Navigator>
+    
     </NavigationContainer>
   );
 };

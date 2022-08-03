@@ -53,6 +53,7 @@ function DrawerNav() {
             headerTitleStyle: { color: "red" },
             drawerActiveTintColor: "red",
             drawerLabel: "Anasayfa",
+            
           }}
         />
         <Drawer.Screen name="Article" component={Article} />
