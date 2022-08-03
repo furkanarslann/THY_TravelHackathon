@@ -26,7 +26,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Carousel from "./src/pages/Carousel/Carousel";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import { createStackNavigator } from "@react-navigation/stack";
-
+import FlightsPage from './src/pages/FlightsPage'
 const App = () => {
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -35,11 +35,11 @@ const App = () => {
   const Stack = createStackNavigator();
   const dispatch = useDispatch();
 
-  const airports = useSelector((state) => state.airport.airports);
+  const tags = useSelector((state) => state.airport.tags);
   React.useEffect(() => {
     dispatch(getAirports());
   }, []);
-  console.log(airports);
+  console.log(tags);
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -49,7 +49,7 @@ const App = () => {
         <Stack.Screen       screenOptions={{
         headerShown: false
       }} name="home" component={Carousel} />
-        <Stack.Screen name="flights" component={Flights} />
+        <Stack.Screen name="flights" component={FlightsPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

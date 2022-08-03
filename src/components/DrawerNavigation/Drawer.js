@@ -26,9 +26,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 function Feed() {
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(getFlightsByDate());
-  }, []);
+
   return <Flights />;
 }
 
