@@ -7,10 +7,8 @@ const Calender = ({ selectedDate, setSelectedDate,changeDateModalVisibility }) =
   console.log(selectedDate);
   const onDateChanged = (newDate) => {
     const date = getFormatedDate(newDate, "YYYY/MM/DD").toString();
-    const year = date.slice(0, 4);
-    const month = date.slice(5, 7);
-    const day = date.slice(8, 10);
-    setSelectedDate(year + month + day);
+    
+    setSelectedDate(date);
     changeDateModalVisibility(false);
   };
   return (
