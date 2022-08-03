@@ -176,7 +176,6 @@ const Search = () => {
 
           <Text
             style={{ textAlign: "center" }}
-            onPress={() => navigation.navigate("flights")}
           >
             <AntDesign name="calendar" size={24} color="black" />
           </Text>
