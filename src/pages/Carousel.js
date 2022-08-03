@@ -52,23 +52,23 @@ const Carousel = ({ navigation }) => {
         <Card
           header="Merhaba! THY serüvenine hoşgeldin !"
           paragraph="THY serüveni sizlere maksimum düzeyde hizmeti hedefleyerek birden fazla fırsatlar sunar. Fırsatlar ve genel bilgi için kaydırınız."
-          imageLocation={require("../../assets/images/welcoming.png")}
+          imageLocation={require("../assets/images/welcoming.png")}
         />
         <Card
           header="Bilet Al"
           paragraph="299.99 TRY'den başlayan fiyatlarla uçmaya hazır olun!"
-          imageLocation={require("../../assets/images/sales.png")}
+          imageLocation={require("../assets/images/sales.png")}
         />
         <Card
           header="Uçuş Bul"
           paragraph="Gitmek istediğiniz varış yerini seçerek uçuşlar hakkında genel bilgiye ulaşabilirsiniz."
-          imageLocation={require("../../assets/images/aircraft.png")}
+          imageLocation={require("../assets/images/aircraft.png")}
         />
         <Card
         
           header="Miles&Smiles üyesi misiniz?"
           paragraph="Ödül bilet ve ücretsiz kabin yükseltme gibi benzersiz avantajlardan faydalanmak istiyorsanız bu fırsatı kaçırmayın!"
-          imageLocation={require("../../assets/images/membership.png")}
+          imageLocation={require("../assets/images/membership.png")}
         />
       </ScrollView>
 
