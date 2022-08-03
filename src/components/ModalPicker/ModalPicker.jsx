@@ -8,8 +8,6 @@ const ModalPicker = ({ changeModalVisibility, setWhere,setCity }) => {
   const WIDTH = Dimensions.get("window").width;
   const HEIGHT = Dimensions.get("window").height;
   const tags = useSelector((state) => state.airport.tags);
-  const where = useSelector((state) => state.airport.where);
-  const dispatch = useDispatch();
   const onPressItem = (option) => {
    setWhere(option.code);
    setCity(option.city)

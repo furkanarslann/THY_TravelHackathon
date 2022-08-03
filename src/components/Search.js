@@ -1,4 +1,12 @@
-import { View, Text, StyleSheet, Modal, SafeAreaView, Pressable, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  SafeAreaView,
+  Pressable,
+  Button,
+} from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalPicker from "./ModalPicker/ModalPicker";
@@ -6,28 +14,34 @@ import ToModalPicker from "./ModalPicker/ToModalPicker";
 import Calender from "./DatePicker/Calendar";
 import { useDispatch } from "react-redux";
 import { getFlightsByDate } from "../redux/api/flight";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { AntDesign } from '@expo/vector-icons';
 const Search = () => {
   const [where, setWhere] = useState("SELECT");
   const [to, setTo] = useState("SELECT");
   const [toCity, setToCity] = useState("SELECT");
   const [city, setCity] = useState("SELECT");
- 
+
   const [isVisible, setIsVisible] = useState(false);
   const [toIsVisible, setToIsVisible] = useState(false);
-
+  const [dateIsVisible, setDateIsVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
 
-  const dispatch=useDispatch();
-  
+  const dispatch = useDispatch();
+
   const changeModalVisibility = (bool) => {
     setIsVisible(bool);
   };
   const changeModalVisibilityTo = (bool) => {
     setToIsVisible(bool);
   };
+  const changeDateModalVisibility = (bool) => {
+    setDateIsVisible(bool);
+  };
+
   console.log(where);
   return (
-    <View style={{height:"100%",backgroundColor:"#FFFFFF"}}>
+    <View style={{ height: "100%", backgroundColor: "#FFFFFF" }}>
       <Modal
         transparent={true}
         animationType="fade"
@@ -129,9 +143,45 @@ const Search = () => {
           setToCity={setToCity}
         />
       </Modal>
-      <Calender selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-          <Button onPress={()=>dispatch(getFlightsByDate({date:selectedDate,scheduledDepartureAirport:where,scheduledArrivalAirport:to})) } title="asd"></Button>
-     </View>
+      <TouchableOpacity
+        onPress={() => {
+          changeDateModalVisibility(true);
+          console.log("to");
+        }}
+      >
+      
+        <Text
+          style={{ textAlign: "center" }}
+          onPress={() => navigation.navigate("flights")}
+        >
+          <AntDesign name="calendar" size={24} color="black" />
+        </Text>
+  
+      </TouchableOpacity>
+      <Modal
+        animationType="fade"
+        visible={dateIsVisible}
+        onRequestClose={() => changeDateModalVisibility(false)}
+      >
+        <Calender
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          changeDateModalVisibility={changeDateModalVisibility}
+        />
+      </Modal>
+      <Button
+        onPress={() =>
+          dispatch(
+            getFlightsByDate({
+              date: selectedDate,
+              scheduledDepartureAirport: where,
+              scheduledArrivalAirport: to,
+            })
+          )
+        }
+        title="asd"
+      ></Button>
+    </View>
   );
 };
 
