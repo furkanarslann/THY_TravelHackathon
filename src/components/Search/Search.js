@@ -52,7 +52,7 @@ const Search = () => {
   };
 
   return (
-    <View style={{ height: "100%", backgroundColor: "#FFFFFF" }}>
+    <View style={{ backgroundColor: "#FFFFFF",borderBottomColor:"black",borderBottomWidth:.3,paddingVertical:10 }}>
       <Modal
         transparent={true}
         animationType="fade"
@@ -212,7 +212,7 @@ const Search = () => {
         }
       >
         {loadingState == "loading" ? (
-          <ActivityIndicator size="small" color="#b91c1c" />
+          <ActivityIndicator size="small" color="#ffffff" />
         ) : (
           <Text
             style={{

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Flights from '../components/Flights/Flights';
@@ -7,10 +7,13 @@ import { getAirports } from '../redux/api/airport';
 import Search from '../components/Search/Search';
 import Calender from '../components/DatePicker/Calendar';
 import { setTags } from '../redux/slices/airportSlice';
+import FlightsList from '../components/FlightsList/FlightsList';
+import NoFlightsFound from '../components/NoFlightsFound/NoFlightsFound';
 
 const FlightsPage = () => {
   const dispatch=useDispatch();
   
+  const flights=useSelector((state)=>state.flight.flights);
 
   const airports=useSelector((state)=>state.airport.airports)
  
@@ -27,9 +30,9 @@ const FlightsPage = () => {
       console.log(arr);
     }, []);
  
- 
+ console.log(flights);
   return (
-    <SafeAreaView style={{height:"100%"}}>
+    <SafeAreaView style={{flex:1}}>
 
     <View
         style={{
@@ -45,7 +48,7 @@ const FlightsPage = () => {
         </Text>
       </View>
       <Search/>
-     
+      {Array.isArray(flights)?<FlightsList flights={flights}/>:<NoFlightsFound/>}
       </SafeAreaView>
       
   )
