@@ -28,6 +28,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import FlightsPage from "./src/pages/FlightsPage";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 
+
 const App = () => {
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -42,6 +43,7 @@ const App = () => {
   }, []);
   console.log(tags);
   return (
+   
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -55,6 +57,7 @@ const App = () => {
           component={DrawerNav}
         />
       </Stack.Navigator>
+    
     </NavigationContainer>
   );
 };
