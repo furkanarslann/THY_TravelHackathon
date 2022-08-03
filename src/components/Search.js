@@ -19,7 +19,6 @@ const Search = () => {
 
   const dispatch=useDispatch();
   
-console.log(selectedDate.replaceAll("/",""));
   const changeModalVisibility = (bool) => {
     setIsVisible(bool);
   };
@@ -131,7 +130,7 @@ console.log(selectedDate.replaceAll("/",""));
         />
       </Modal>
       <Calender selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-          <Button onPress={()=>dispatch(getFlightsByDate({date:selectedDate.replaceAll("/",""),scheduledDepartureAirport:where,scheduledArrivalAirport:to})) } title="asd"></Button>
+          <Button onPress={()=>dispatch(getFlightsByDate({date:selectedDate,scheduledDepartureAirport:where,scheduledArrivalAirport:to})) } title="asd"></Button>
      </View>
   );
 };
