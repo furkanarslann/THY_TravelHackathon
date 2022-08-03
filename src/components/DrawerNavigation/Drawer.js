@@ -10,7 +10,7 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  Button
+  Button,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -23,6 +23,7 @@ import Flights from "../Flights/Flights";
 import { getFlightsByDate } from "../../redux/api/flight";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import FlightsPage from "../../pages/FlightsPage";
 
 function Feed() {
   const dispatch = useDispatch();
@@ -42,21 +43,18 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNav() {
   return (
-    <>
-      <Drawer.Navigator>
-        <Drawer.Screen
-          name="Home"
-          component={Feed}
-          options={{
-            headerTitleStyle: { color: "red" },
-            drawerActiveTintColor: "red",
-            drawerLabel: "Anasayfa",
-          }}
-        />
-        <Drawer.Screen name="Article" component={Article} />
-      </Drawer.Navigator>
-      <Button title="Press"></Button>
-    </>
+    <Drawer.Navigator initialRouteName="Flights">
+      <Drawer.Screen
+        name="Flights"
+        component={FlightsPage}
+        options={{
+          headerTitleStyle: { color: "red" },
+          drawerActiveTintColor: "red",
+          drawerLabel: "Uçuş Bul",
+          drawerContentStyle: { backgroundColor: "#EEEEEE39" },
+        }}
+      />
+    </Drawer.Navigator>
   );
 }
 
