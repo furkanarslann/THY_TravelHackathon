@@ -69,11 +69,7 @@ const Carousel = ({ navigation }) => {
         />
       </ScrollView>
 
-      <TouchableOpacity
-        style={styles.button}
-        opacity={0.5}
-        onPress={() => console.log("Next page")}
-      >
+      <TouchableOpacity style={styles.button} opacity={0.5}>
         <Text
           style={{ textAlign: "center" }}
           onPress={() => navigation.navigate("flights")}

@@ -24,9 +24,10 @@ import { getFlightsByDate } from "./src/redux/api/flight";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Carousel from "./src/pages/Carousel/Carousel";
-import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import FlightsPage from "./src/pages/FlightsPage";
+import DrawerNav from "./src/components/DrawerNavigation/Drawer";
+
 const App = () => {
   axios.defaults.headers.common = {
     apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
@@ -43,8 +44,16 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="home" component={Carousel} />
-        <Stack.Screen name="flights" component={FlightsPage} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="home"
+          component={Carousel}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="flights"
+          component={DrawerNav}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
