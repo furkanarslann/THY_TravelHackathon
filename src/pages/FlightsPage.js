@@ -27,6 +27,8 @@ const FlightsPage = () => {
             code: item.Code,
             city: Array.isArray(item.City.LanguageInfo.Language)
               ? item.City.LanguageInfo.Language[0].Name
+              : Array.isArray(item.City.LanguageInfo.Language.Name)
+              ? item.City.LanguageInfo.Language[0].Name
               : item.City.LanguageInfo.Language.Name,
           }
         : {

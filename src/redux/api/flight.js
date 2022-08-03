@@ -8,8 +8,8 @@ export const getFlightsByDate = createAsyncThunk("api/flights", async (data) => 
 "https://api.turkishairlines.com/test/aodb-rest/searchFlightByDate",
 {
 	 date:data.date,
-	scheduledDepartureAirport:"IST",
-	scheduledArrivalAirport:"BER", 
+	scheduledDepartureAirport:data.scheduledDepartureAirport,
+	scheduledArrivalAirport:data.scheduledArrivalAirport, 
 }
   );
   console.log(response.data);
