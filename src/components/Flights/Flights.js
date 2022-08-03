@@ -26,7 +26,7 @@ const Flights = () => {
         </Text>
       </View>
       <Search/>
-      <AirportList/>
+      
       <FlatList
       style={{backgroundColor:"red"}}
         numColumns={2}

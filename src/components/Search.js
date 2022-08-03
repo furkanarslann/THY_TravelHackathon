@@ -1,18 +1,25 @@
-import { View, Text, StyleSheet, Modal, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Modal, SafeAreaView, Pressable, Button } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalPicker from "./ModalPicker/ModalPicker";
 import ToModalPicker from "./ModalPicker/ToModalPicker";
-
+import Calender from "./DatePicker/Calendar";
+import { useDispatch } from "react-redux";
+import { getFlightsByDate } from "../redux/api/flight";
 const Search = () => {
   const [where, setWhere] = useState("SELECT");
   const [to, setTo] = useState("SELECT");
   const [toCity, setToCity] = useState("SELECT");
   const [city, setCity] = useState("SELECT");
-
+ 
   const [isVisible, setIsVisible] = useState(false);
   const [toIsVisible, setToIsVisible] = useState(false);
 
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const dispatch=useDispatch();
+  
+console.log(selectedDate.replaceAll("/",""));
   const changeModalVisibility = (bool) => {
     setIsVisible(bool);
   };
@@ -21,7 +28,7 @@ const Search = () => {
   };
   console.log(where);
   return (
-    <SafeAreaView>
+    <View style={{height:"100%",backgroundColor:"#FFFFFF"}}>
       <Modal
         transparent={true}
         animationType="fade"
@@ -123,7 +130,9 @@ const Search = () => {
           setToCity={setToCity}
         />
       </Modal>
-    </SafeAreaView>
+      <Calender selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+          <Button onPress={()=>dispatch(getFlightsByDate({date:selectedDate.replaceAll("/",""),scheduledDepartureAirport:where,scheduledArrivalAirport:to})) } title="asd"></Button>
+     </View>
   );
 };
 
