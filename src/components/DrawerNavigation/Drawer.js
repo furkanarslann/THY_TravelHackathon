@@ -24,6 +24,7 @@ import { getFlightsByDate } from "../../redux/api/flight";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FlightsPage from "../../pages/FlightsPage";
+import { MaterialIcons } from "@expo/vector-icons";
 
 function Feed() {
   const dispatch = useDispatch();
@@ -45,15 +46,44 @@ function DrawerNav() {
   return (
     <Drawer.Navigator
       initialRouteName="Flights"
-      screenOptions={{ drawerStyle: { backgroundColor: "#FEFEFE" } }}
+      screenOptions={{
+        drawerStyle: { backgroundColor: "#5F0505F3" },
+        drawerActiveBackgroundColor: "#B71E06",
+        drawerInactiveBackgroundColor: "#AFAFAF",
+        drawerActiveTintColor: "white",
+        drawerInactiveTintColor: "black",
+      }}
     >
+      <Drawer.Screen
+        name="Home"
+        component={FlightsPage} // degiscek
+        options={{
+          headerTitleStyle: { color: "#EA2D10" },
+          drawerLabel: "Anasayfa",
+          drawerActiveTintColor: "white",
+          drawerIcon: ({ focused, size }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={22}
+              color={focused ? "#ffffff" : "#000000"}
+            />
+          ),
+        }}
+      />
       <Drawer.Screen
         name="Flights"
         component={FlightsPage}
         options={{
-          headerTitleStyle: { color: "red" },
-          drawerActiveTintColor: "red",
-          drawerLabel: "Uçuş Bul",
+          headerTitleStyle: { color: "#EA2D10" },
+          drawerLabel: "Uçuş bul",
+
+          drawerIcon: ({ focused, size }) => (
+            <Ionicons
+              name={focused ? "airplane" : "airplane-outline"}
+              size={22}
+              color={focused ? "white" : "black"}
+            />
+          ),
         }}
       />
     </Drawer.Navigator>

@@ -9,6 +9,7 @@ import Calender from "../components/DatePicker/Calendar";
 import { setTags } from "../redux/slices/airportSlice";
 import FlightsList from "../components/FlightsList/FlightsList";
 import NoFlightsFound from "../components/NoFlightsFound/NoFlightsFound";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const FlightsPage = () => {
   const dispatch = useDispatch();
@@ -44,10 +45,12 @@ const FlightsPage = () => {
       <View
         style={{
           flexDirection: "row",
-          alignItems: "center",
-          paddingVertical: 20,
+          justifyContent: "center",
+          paddingVertical: 10,
           paddingHorizontal: 10,
-          backgroundColor: "#b91c1c",
+          backgroundColor: "#D52A10",
+          borderBottomEndRadius: 10,
+          borderBottomStartRadius: 10,
         }}
       >
         <Text
@@ -57,7 +60,7 @@ const FlightsPage = () => {
             fontWeight: "bold",
           }}
         >
-          Uçuş Bul
+          <MaterialIcons name="flight" size={30} color="white" />
         </Text>
       </View>
       <Search />

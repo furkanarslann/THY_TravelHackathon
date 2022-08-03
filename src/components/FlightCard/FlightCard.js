@@ -2,6 +2,8 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import styles from "./FlightCard.style";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { MaterialIcons } from "@expo/vector-icons";
+
 const FlightCard = ({ item }) => {
   const dateString = "20200515";
   const year = +item.date.substring(0, 4);
@@ -26,11 +28,7 @@ const FlightCard = ({ item }) => {
       />
       <Text style={styles.airports}>
         {item.actualDepartureAirport}{" "}
-        <Ionicons
-          name="arrow-forward"
-          size={21}
-          color="#EA2E12E1"
-        />{" "}
+        {<Ionicons name="arrow-forward" size={21} color="#EA2E12E1" />}{" "}
         {item.actualArrivalAirport}
       </Text>
 
