@@ -1,33 +1,58 @@
-import { View, Text, StyleSheet, Modal, SafeAreaView, Pressable, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  SafeAreaView,
+  Pressable,
+  Button,
+  ActivityIndicator,
+} from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalPicker from "./ModalPicker/ModalPicker";
 import ToModalPicker from "./ModalPicker/ToModalPicker";
 import Calender from "./DatePicker/Calendar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getFlightsByDate } from "../redux/api/flight";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { AntDesign } from "@expo/vector-icons";
 const Search = () => {
   const [where, setWhere] = useState("SELECT");
   const [to, setTo] = useState("SELECT");
   const [toCity, setToCity] = useState("SELECT");
   const [city, setCity] = useState("SELECT");
- 
+
   const [isVisible, setIsVisible] = useState(false);
   const [toIsVisible, setToIsVisible] = useState(false);
-
+  const [dateIsVisible, setDateIsVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
+  const loadingState = useSelector((state) => state.flight.loadingState);
+  console.log(loadingState);
+  const dispatch = useDispatch();
+  const dateConvert = (date) => {
+    const year = date.slice(0, 4);
+    const month = date.slice(5, 7);
+    const day = date.slice(8, 10);
+    console.log(year + month + day);
 
-  const dispatch=useDispatch();
-  
+    return year + month + day;
+  };
+
+  dateConvert(selectedDate);
+
   const changeModalVisibility = (bool) => {
     setIsVisible(bool);
   };
   const changeModalVisibilityTo = (bool) => {
     setToIsVisible(bool);
   };
-  console.log(where);
+  const changeDateModalVisibility = (bool) => {
+    setDateIsVisible(bool);
+  };
+  
   return (
-    <View style={{height:"100%",backgroundColor:"#FFFFFF"}}>
+    <View style={{ height: "100%", backgroundColor: "#FFFFFF" }}>
       <Modal
         transparent={true}
         animationType="fade"
@@ -52,7 +77,7 @@ const Search = () => {
             position: "absolute",
             left: 4,
             top: 4,
-            fontSize: 20,
+            fontSize: 24,
             fontWeight: "600",
             color: "#64748b",
           }}
@@ -69,7 +94,7 @@ const Search = () => {
             fontWeight: "300",
           }}
         >
-          {city}
+          {city.toLocaleUpperCase()}
         </Text>
         <TouchableOpacity
           style={styles.touchableOpacity}
@@ -94,7 +119,7 @@ const Search = () => {
             position: "absolute",
             right: 4,
             top: 4,
-            fontSize: 20,
+            fontSize: 24,
             fontWeight: "600",
             color: "#64748b",
           }}
@@ -113,7 +138,7 @@ const Search = () => {
             fontWeight: "300",
           }}
         >
-          {toCity}
+          {toCity.toLocaleUpperCase()}
         </Text>
       </View>
 
@@ -129,9 +154,77 @@ const Search = () => {
           setToCity={setToCity}
         />
       </Modal>
-      <Calender selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-          <Button onPress={()=>dispatch(getFlightsByDate({date:selectedDate,scheduledDepartureAirport:where,scheduledArrivalAirport:to})) } title="asd"></Button>
-     </View>
+      <View>
+        <TouchableOpacity
+          onPress={() => {
+            changeDateModalVisibility(true);
+            console.log("to");
+          }}
+          style={{ paddingVertical: 5 }}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+              paddingVertical: 15,
+              fontSize: 24,
+              fontWeight: "bold",
+              color: "#64748b",
+            }}
+          >
+            {selectedDate != "" ? selectedDate : "Select Date"}
+          </Text>
+
+          <Text
+            style={{ textAlign: "center" }}
+            onPress={() => navigation.navigate("flights")}
+          >
+            <AntDesign name="calendar" size={24} color="black" />
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <Modal
+        animationType="fade"
+        visible={dateIsVisible}
+        onRequestClose={() => changeDateModalVisibility(false)}
+      >
+        <Calender
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          changeDateModalVisibility={changeDateModalVisibility}
+        />
+      </Modal>
+      <TouchableOpacity
+        style={{ flexDirection: "row", alignSelf: "center", borderRadius: 30,marginTop: 20, }}
+        onPress={() =>
+          dispatch(
+            getFlightsByDate({
+              date: dateConvert(selectedDate),
+              scheduledDepartureAirport: where,
+              scheduledArrivalAirport: to,
+            })
+          )
+        }
+      >
+        {loadingState == "loading" ? (
+          <ActivityIndicator size="small" color="#b91c1c" />
+        ) : (
+          <Text
+            style={{
+              backgroundColor: "red",
+              paddingVertical: 10,
+              fontSize: 16,
+              textAlign: "center",
+              color: "#ffffff",
+              padding: 10,
+              fontWeight: "700",
+              
+            }}
+          >
+            Search
+          </Text>
+        )}
+      </TouchableOpacity>
+    </View>
   );
 };
 
