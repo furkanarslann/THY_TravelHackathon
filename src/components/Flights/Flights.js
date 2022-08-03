@@ -4,7 +4,7 @@ import { FlatList } from "react-native-gesture-handler";
 import FlightCard from "../FlightCard/FlightCard";
 import { useSelector } from "react-redux";
 import { SearchBar } from "react-native-screens";
-import Search from "../Search";
+import Search from "../Search/Search";
 import AirportList from "../AirportList/AirportList";
 
 const Flights = () => {

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Flights from '../components/Flights/Flights';
 import AirportList from '../components/AirportList/AirportList';
 import { getAirports } from '../redux/api/airport';
-import Search from '../components/Search';
+import Search from '../components/Search/Search';
 import Calender from '../components/DatePicker/Calendar';
 import { setTags } from '../redux/slices/airportSlice';
 

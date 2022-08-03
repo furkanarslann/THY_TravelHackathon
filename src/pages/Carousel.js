@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Card from "../../components/CarouselCard/Card";
-import Pagination from "../../components/PaginationDots/Pagination";
+import Card from "../components/CarouselCard/Card";
+import Pagination from "../components/PaginationDots/Pagination";
 
 const Carousel = ({ navigation }) => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
@@ -50,22 +50,22 @@ const Carousel = ({ navigation }) => {
         <Card
           header="selam dünya"
           paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
+          imageLocation={require("../assets/images/aircraft.png")}
         />
         <Card
           header="selam dünya"
           paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
+          imageLocation={require("../assets/images/aircraft.png")}
         />
         <Card
           header="selam dünya"
           paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
+          imageLocation={require("../assets/images/aircraft.png")}
         />
         <Card
           header="selam dünya"
           paragraph="ben massaka"
-          imageLocation={require("../../assets/images/aircraft.png")}
+          imageLocation={require("../assets/images/aircraft.png")}
         />
       </ScrollView>
 

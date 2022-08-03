@@ -23,7 +23,7 @@ import Flights from "./src/components/Flights/Flights";
 import { getFlightsByDate } from "./src/redux/api/flight";
 import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Carousel from "./src/pages/Carousel/Carousel";
+import Carousel from "./src/pages/Carousel";
 import { createStackNavigator } from "@react-navigation/stack";
 import FlightsPage from "./src/pages/FlightsPage";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";

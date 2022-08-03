@@ -43,7 +43,10 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNav() {
   return (
-    <Drawer.Navigator initialRouteName="Flights">
+    <Drawer.Navigator
+      initialRouteName="Flights"
+      screenOptions={{ drawerStyle: { backgroundColor: "#FEFEFE" } }}
+    >
       <Drawer.Screen
         name="Flights"
         component={FlightsPage}
@@ -51,7 +54,6 @@ function DrawerNav() {
           headerTitleStyle: { color: "red" },
           drawerActiveTintColor: "red",
           drawerLabel: "Uçuş Bul",
-          drawerContentStyle: { backgroundColor: "#EEEEEE39" },
         }}
       />
     </Drawer.Navigator>

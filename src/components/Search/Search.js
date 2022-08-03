@@ -10,11 +10,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import ModalPicker from "./ModalPicker/ModalPicker";
-import ToModalPicker from "./ModalPicker/ToModalPicker";
-import Calender from "./DatePicker/Calendar";
+import ModalPicker from "../ModalPicker/ModalPicker";
+import ToModalPicker from "../ModalPicker/ToModalPicker";
+import Calender from "../DatePicker/Calendar";
 import { useDispatch, useSelector } from "react-redux";
-import { getFlightsByDate } from "../redux/api/flight";
+import { getFlightsByDate } from "../../redux/api/flight";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 const Search = () => {
@@ -50,7 +50,7 @@ const Search = () => {
   const changeDateModalVisibility = (bool) => {
     setDateIsVisible(bool);
   };
-  
+
   return (
     <View style={{ height: "100%", backgroundColor: "#FFFFFF" }}>
       <Modal
@@ -194,7 +194,13 @@ const Search = () => {
         />
       </Modal>
       <TouchableOpacity
-        style={{ flexDirection: "row", alignSelf: "center", borderRadius: 30,marginTop: 20, }}
+        style={{
+          alignSelf: "center",
+          marginTop: 20,
+          padding: 10,
+          backgroundColor: "red",
+          borderRadius: 10,
+        }}
         onPress={() =>
           dispatch(
             getFlightsByDate({
@@ -210,14 +216,10 @@ const Search = () => {
         ) : (
           <Text
             style={{
-              backgroundColor: "red",
-              paddingVertical: 10,
               fontSize: 16,
               textAlign: "center",
               color: "#ffffff",
-              padding: 10,
               fontWeight: "700",
-              
             }}
           >
             Search
