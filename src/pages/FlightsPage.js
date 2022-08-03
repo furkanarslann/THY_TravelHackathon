@@ -1,40 +1,47 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import Flights from '../components/Flights/Flights';
-import AirportList from '../components/AirportList/AirportList';
-import { getAirports } from '../redux/api/airport';
-import Search from '../components/Search/Search';
-import Calender from '../components/DatePicker/Calendar';
-import { setTags } from '../redux/slices/airportSlice';
-import FlightsList from '../components/FlightsList/FlightsList';
-import NoFlightsFound from '../components/NoFlightsFound/NoFlightsFound';
+import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Flights from "../components/Flights/Flights";
+import AirportList from "../components/AirportList/AirportList";
+import { getAirports } from "../redux/api/airport";
+import Search from "../components/Search/Search";
+import Calender from "../components/DatePicker/Calendar";
+import { setTags } from "../redux/slices/airportSlice";
+import FlightsList from "../components/FlightsList/FlightsList";
+import NoFlightsFound from "../components/NoFlightsFound/NoFlightsFound";
 
 const FlightsPage = () => {
-  const dispatch=useDispatch();
-  
-  const flights=useSelector((state)=>state.flight.flights);
+  const dispatch = useDispatch();
 
-  const airports=useSelector((state)=>state.airport.airports)
- 
+  const flights = useSelector((state) => state.flight.flights);
+
+  const airports = useSelector((state) => state.airport.airports);
+
   useEffect(() => {
-    dispatch(getAirports())
-    
-      const arr = airports.map((item) => {
-        return item.City.LanguageInfo!==""
-          ? {code:item.Code,city:(Array.isArray(item.City.LanguageInfo.Language)?item.City.LanguageInfo.Language[0].Name:(item.City.LanguageInfo.Language.Name))}
-          : {code:item.City.PortsInCity.Port.Code,city:item.LanguageInfo.Language };
-      });
-      dispatch(setTags(arr)); 
-  console.log(airports);
-      console.log(arr);
-    }, []);
- 
- console.log(flights);
-  return (
-    <SafeAreaView style={{flex:1}}>
+    dispatch(getAirports());
 
-    <View
+    const arr = airports.map((item) => {
+      return item.City.LanguageInfo !== ""
+        ? {
+            code: item.Code,
+            city: Array.isArray(item.City.LanguageInfo.Language)
+              ? item.City.LanguageInfo.Language[0].Name
+              : item.City.LanguageInfo.Language.Name,
+          }
+        : {
+            code: item.City.PortsInCity.Port.Code,
+            city: item.LanguageInfo.Language,
+          };
+    });
+    dispatch(setTags(arr));
+    console.log(airports);
+    console.log(arr);
+  }, []);
+
+  console.log(flights);
+  return (
+    <SafeAreaView style={{ flex: 1, paddingHorizontal: 2 }}>
+      <View
         style={{
           flexDirection: "row",
           alignItems: "center",
@@ -43,15 +50,24 @@ const FlightsPage = () => {
           backgroundColor: "#b91c1c",
         }}
       >
-        <Text style={{ color: "#ffffff", fontSize: 24, fontWeight: "bold" }}>
+        <Text
+          style={{
+            color: "#ffffff",
+            fontSize: 24,
+            fontWeight: "bold",
+          }}
+        >
           Uçuş Bul
         </Text>
       </View>
-      <Search/>
-      {Array.isArray(flights)?<FlightsList flights={flights}/>:<NoFlightsFound/>}
-      </SafeAreaView>
-      
-  )
-}
+      <Search />
+      {Array.isArray(flights) ? (
+        <FlightsList flights={flights} />
+      ) : (
+        <NoFlightsFound />
+      )}
+    </SafeAreaView>
+  );
+};
 
-export default FlightsPage
+export default FlightsPage;

@@ -52,7 +52,14 @@ const Search = () => {
   };
 
   return (
-    <View style={{ backgroundColor: "#FFFFFF",borderBottomColor:"black",borderBottomWidth:.3,paddingVertical:10 }}>
+    <View
+      style={{
+        backgroundColor: "#FFFFFF",
+        borderBottomColor: "black",
+        borderBottomWidth: 0.3,
+        paddingVertical: 10,
+      }}
+    >
       <Modal
         transparent={true}
         animationType="fade"
@@ -174,9 +181,7 @@ const Search = () => {
             {selectedDate != "" ? selectedDate : "Select Date"}
           </Text>
 
-          <Text
-            style={{ textAlign: "center" }}
-          >
+          <Text style={{ textAlign: "center" }}>
             <AntDesign name="calendar" size={24} color="black" />
           </Text>
         </TouchableOpacity>
@@ -196,8 +201,9 @@ const Search = () => {
         style={{
           alignSelf: "center",
           marginTop: 20,
-          padding: 10,
-          backgroundColor: "red",
+          paddingHorizontal: 20,
+          paddingVertical: 10,
+          backgroundColor: "#EA2E12E1",
           borderRadius: 10,
         }}
         onPress={() =>
@@ -218,7 +224,7 @@ const Search = () => {
               fontSize: 16,
               textAlign: "center",
               color: "#ffffff",
-              fontWeight: "700",
+              fontWeight: "400",
             }}
           >
             Search
