@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getWeather } from "../api/weather";
   
 const initialState = {
-  weather: [],
+  weather: null,
   loadingState:"idle" //"idle"|"loading"|"failed"|"succeeded";
  };
 

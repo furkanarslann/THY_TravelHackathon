@@ -1,35 +1,43 @@
-import { View, Text, SafeAreaView } from 'react-native'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import FlightDetails from '../components/FlightDetails/FlightDetails';
-import RecommendationCard from '../components/Recommendation/RecommendationCard';
-import WeatherCard from '../components/WeatherCard/WeatherCard';
-import { getWeather } from '../redux/api/weather';
+import { View, Text, SafeAreaView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import FlightDetails from "../components/FlightDetails/FlightDetails";
+import RecommendationCard from "../components/Recommendation/RecommendationCard";
+import WeatherCard from "../components/WeatherCard/WeatherCard";
+import { getWeather } from "../redux/api/weather";
 
 const Details = () => {
-  const dispatch=useDispatch();
-/*    useEffect(() => {
-    dispatch(getWeather("istanbul"))
-   }, []) */
-  const flight = useSelector((state) => state.flightDetails.details);
+  const dispatch = useDispatch();
   const weather = useSelector((state) => state.weather.weather);
 
+  const tags = useSelector((state) => state.airport.tags);
+  const flight = useSelector((state) => state.flightDetails.details);
+  const [departureCity, setDepartureCity] = useState("");
+  const [arrivalCity, setArrivalCity] = useState("");
   console.log(flight);
 
-  const tags=useSelector((state)=>state.airport.tags);
-  tags.forEach((item)=>{
-    if(
-      item.code==flight.actualArrivalAirport
-    ) console.log(item.city);
-  })
+  useEffect(() => {
+    tags.forEach((item) => {
+      if (item.code == flight.scheduledArrivalAirport) {
+        setArrivalCity(item.city);
+        dispatch(getWeather(item.city));
+      }
+      if (item.code == flight.scheduledDepartureAirport)
+        setDepartureCity(item.city);
+    });
+  }, []);
+
   return (
-    <SafeAreaView style={{flex:1,justifyContent:"space-around"}} >
-
-     <FlightDetails />
-     <WeatherCard weather={weather}/>
-     <RecommendationCard/>
+    <SafeAreaView style={{ flex: 1, justifyContent: "space-around" }}>
+      <FlightDetails
+        departureCity={departureCity}
+        arrivalCity={arrivalCity}
+        flight={flight}
+      />
+      <WeatherCard />
+      <RecommendationCard />
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default Details
+export default Details;

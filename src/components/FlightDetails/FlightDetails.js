@@ -1,10 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const FlightDetails = () => {
+const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
   return (
     <View style={styles.container}>
       <View
@@ -16,16 +15,16 @@ const FlightDetails = () => {
       >
         <View style={styles.airport}>
           <MaterialIcons name="flight-takeoff" size={48} color="#475569" />
-          <Text style={styles.code}>SAW</Text>
-          <Text style={styles.city}>ISTANBUL</Text>
+          <Text style={styles.code}>{flight.scheduledDepartureAirport}</Text>
+          <Text style={styles.city}>{departureCity}</Text>
           <Text style={styles.time}>09:10</Text>
         </View>
         <AntDesign name="rightcircle" size={64} color="#dc2626" />
         <View style={styles.airport}>
           <MaterialIcons name="flight-land" size={48} color="#475569" />
 
-          <Text style={styles.code}>BER</Text>
-          <Text style={styles.city}>BERLIN</Text>
+          <Text style={styles.code}>{flight.scheduledArrivalAirport}</Text>
+          <Text style={styles.city}>{arrivalCity}</Text>
           <Text style={styles.time}>10:50</Text>
         </View>
       </View>
