@@ -184,18 +184,25 @@ const Search = () => {
               DEPARTURE DATE
             </Text>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text
-                style={{
-                  fontSize: 48,
-                  fontWeight: "bold",
-                  color: "black",
-                  marginRight: 10,
-                }}
-              >
-                {selectedDate != ""
-                  ? new Date(selectedDate).getDate()
-                  : "Select Date"}
-              </Text>
+              {selectedDate != "" ? (
+                <Text
+                  style={{
+                    fontSize: 48,
+                    fontWeight: "bold",
+                    color: "black",
+                    marginRight: 10,
+                  }}
+                >
+                  {new Date(selectedDate).getDate()}
+                </Text>
+              ) : (
+                <Text
+                  style={{ fontSize: 24, fontWeight: "300", color: "#64748b" }}
+                >
+                  SELECT
+                </Text>
+              )}
+
               <View style={{ alignItems: "center" }}>
                 <Text
                   style={{
