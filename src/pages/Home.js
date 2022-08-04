@@ -1,12 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text } from "react-native";
+import React from "react";
 
 const Home = () => {
   return (
-    <View>
+    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
       <Text>Home</Text>
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

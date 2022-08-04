@@ -29,6 +29,7 @@ import FlightsPage from "./src/pages/FlightsPage";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import FlightDetails from "./src/components/FlightDetails/FlightDetails";
 import Details from "./src/pages/Details";
+import Home from "./src/pages/Home";
 
 
 const App = () => {
@@ -62,6 +63,11 @@ const App = () => {
           options={{ headerShown: false }}
           name="flightDetails"
           component={Details}
+        />
+         <Stack.Screen
+          options={{ headerShown: false }}
+          name="heome"
+          component={Home}
         />
       </Stack.Navigator>
     

@@ -15,7 +15,9 @@ import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
 
 const Carousel = ({ navigation }) => {
-
+useEffect(() => {
+  navigation.navigate("heome");
+}, [])
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   const setSliderPage = (event) => {
