@@ -96,5 +96,5 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
   },
-  option: {},
+  option: {   borderBottomWidth:.3},
 });
