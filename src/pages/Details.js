@@ -28,7 +28,7 @@ const Details = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: "space-around" }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <FlightDetails
         departureCity={departureCity}
         arrivalCity={arrivalCity}

@@ -3,9 +3,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeather } from "../../redux/api/weather";
 import styles from "./WeatherCard.style";
+import { Ionicons } from "@expo/vector-icons";
 
 const WeatherCard = () => {
-  const weather = useSelector((state) => state.weather.weather);
+    const weather = useSelector((state) => state.weather.weather);
   const flight = useSelector((state) => state.flightDetails.details);
   console.log(flight);
 
@@ -19,21 +20,25 @@ const WeatherCard = () => {
 
   const daySpecified = days?.filter((item) => item.date == flightDate)[0];
   console.log(daySpecified);
-  console.log(weather);
+  console.log(weather); 
 
   return (
     <View style={styles.container}>
       <View style={styles.left}>
         <View style={styles.left_top}>
-          <Text>{weather?.location.name}</Text>
-          <Text style={styles.left_bottom}>
+          <Text style={styles.city}>{weather?.location.name}</Text>
+          <Text style={styles.date}>
             {new Date(daySpecified?.date).toDateString()}
           </Text>
         </View>
-        <Text>{daySpecified?.day.avgtemp_c} C</Text>
+        <View style={styles.left_bottom}>
+          <Text style={styles.degree}>{daySpecified?.day.avgtemp_c}°C</Text>
+        </View>
       </View>
-      <Text style={styles.right}>{daySpecified?.day.condition.text}</Text>
-      {/*    <Image style={{ width: 100, height: 100 }} /> */}
+
+      <View style={styles.right}>
+        <Ionicons name="partly-sunny-outline" size={100} color="#FFFFFF" />
+      </View>
     </View>
   );
 };

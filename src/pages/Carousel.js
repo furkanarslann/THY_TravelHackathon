@@ -9,12 +9,13 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
 
 const Carousel = ({ navigation }) => {
+
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   const setSliderPage = (event) => {
@@ -38,8 +39,6 @@ const Carousel = ({ navigation }) => {
           justifyContent: "center",
           alignItems: "center",
           paddingTop: "70%",
-         
-          
         }}
         horizontal
         scrollEventThrottle={16}
@@ -71,12 +70,9 @@ const Carousel = ({ navigation }) => {
         />
       </ScrollView>
 
-        <Text
-          style={{ textAlign: "center",  fontSize: 17 }}
-        >Uçuş bulmak için tıklayınız !
-        </Text>
-       
-
+      <Text style={{ textAlign: "center", fontSize: 17 }}>
+        Uçuş bulmak için tıklayınız !
+      </Text>
 
       <TouchableOpacity
         style={styles.button}
@@ -84,23 +80,14 @@ const Carousel = ({ navigation }) => {
         onPress={() => console.log("Next page")}
       >
         <Text
-          style={{ textAlign: "center"}}
-         onPress={() => navigation.navigate("flights")}
+          style={{ textAlign: "center" }}
+          onPress={() => navigation.navigate("flights")}
         >
-
- 
-          <Ionicons
-            name="arrow-forward-circle-outline"
-            size={55}
-            color="red"
-          />
+          <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
         </Text>
       </TouchableOpacity>
 
-
-
-
-      <Pagination pageIndex={pageIndex}/>
+      <Pagination pageIndex={pageIndex} />
     </SafeAreaView>
   );
 };
@@ -116,19 +103,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 30,
-    
-    
   },
   header: {
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20,
-   
-    
   },
   paragraph: {
     fontSize: 17,
-    
   },
   paginationWrapper: {
     position: "absolute",
@@ -138,7 +120,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    
   },
   paginationDots: {
     height: 10,
@@ -149,7 +130,6 @@ const styles = StyleSheet.create({
   },
   button: {
     paddingBottom: 50,
-    
   },
 });
 
