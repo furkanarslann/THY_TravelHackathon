@@ -25,8 +25,8 @@ import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FlightsPage from "../../pages/FlightsPage";
 import { MaterialIcons } from "@expo/vector-icons";
-
-function Feed() {
+import CustomDrawer from "../CustomDrawer/CustomDrawer";
+/* function Feed() {
   const dispatch = useDispatch();
 
   return <Flights />;
@@ -38,15 +38,17 @@ function Article() {
       <AirportList />
     </View>
   );
-}
+} */
 
 const Drawer = createDrawerNavigator();
 
 function DrawerNav() {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
       initialRouteName="Flights"
       screenOptions={{
+        headerTintColor: 'black',
         drawerStyle: { backgroundColor: "#5F0505F3" },
         drawerActiveBackgroundColor: "#B71E06",
         drawerInactiveBackgroundColor: "#AFAFAF",
@@ -74,9 +76,9 @@ function DrawerNav() {
         name="Flights"
         component={FlightsPage}
         options={{
+          drawerStatusBarAnimation: "slide",
           headerTitleStyle: { color: "#EA2D10" },
           drawerLabel: "Uçuş bul",
-
           drawerIcon: ({ focused, size }) => (
             <Ionicons
               name={focused ? "airplane" : "airplane-outline"}

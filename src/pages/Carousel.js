@@ -65,7 +65,6 @@ const Carousel = ({ navigation }) => {
           imageLocation={require("../assets/images/aircraft.png")}
         />
         <Card
-        
           header="Miles&Smiles üyesi misiniz?"
           paragraph="Ödül bilet ve ücretsiz kabin yükseltme gibi benzersiz avantajlardan faydalanmak istiyorsanız bu fırsatı kaçırmayın!"
           imageLocation={require("../assets/images/membership.png")}
