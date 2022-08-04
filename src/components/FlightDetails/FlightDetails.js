@@ -4,6 +4,10 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
+  const departureHour = flight.scheduledLocalDepartureDatetime.slice(8, 10);
+  const departureMinute = flight.scheduledLocalDepartureDatetime.slice(10, 12);
+  const arrivalHour = flight.scheduledLocalArrivalDatetime.slice(8, 10);
+  const arrivalMinute = flight.scheduledLocalArrivalDatetime.slice(10, 12);
   return (
     <View style={styles.container}>
       <View
@@ -11,13 +15,13 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-        }}
+        }} 
       >
         <View style={styles.airport}>
           <MaterialIcons name="flight-takeoff" size={48} color="#475569" />
           <Text style={styles.code}>{flight.scheduledDepartureAirport}</Text>
           <Text style={styles.city}>{departureCity}</Text>
-          <Text style={styles.time}>09:10</Text>
+          <Text style={styles.time}>{departureHour}:{departureMinute}</Text>
         </View>
         <AntDesign name="rightcircle" size={64} color="#dc2626" />
         <View style={styles.airport}>
@@ -25,7 +29,7 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
 
           <Text style={styles.code}>{flight.scheduledArrivalAirport}</Text>
           <Text style={styles.city}>{arrivalCity}</Text>
-          <Text style={styles.time}>10:50</Text>
+          <Text style={styles.time}>{arrivalHour}:{arrivalMinute}</Text>
         </View>
       </View>
     </View>
