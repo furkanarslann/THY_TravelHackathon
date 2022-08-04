@@ -1,16 +1,20 @@
-import { View, Text, StyleSheet, Dimensions, FlatList, TextInput } from "react-native";
-import React, { useEffect, useState } from "react";
 import {
-  ScrollView,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  FlatList,
+  TextInput,
+} from "react-native";
+import React, { useEffect, useState } from "react";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
   const tags = useSelector((state) => state.airport.tags);
   const airports = useSelector((state) => state.airport.airports);
-console.log(airports);
+  console.log(airports);
   const [filteredData, setFilteredData] = useState(tags);
   const [search, setSearch] = useState("");
   const WIDTH = Dimensions.get("window").width;
@@ -22,7 +26,9 @@ console.log(airports);
   };
   const inputChangeHandler = (text) => {
     setSearch(text);
-    const newData = tags.filter((item) => item.code.includes(text.toUpperCase()));
+    const newData = tags.filter((item) =>
+      item.code.includes(text.toUpperCase())
+    );
     setSearch(text);
     setFilteredData(newData);
   };
@@ -32,8 +38,19 @@ console.log(airports);
       onPress={() => changeModalVisibility(false)}
       style={styles.touchableOpacity}
     >
-      <View style={[styles.modal, { width: WIDTH / 1.5,  height: HEIGHT/1.3}]}>
-        <Text style={{textAlign:"center",fontSize:32,marginBottom:10,fontWeight:"200"}}>Departure Airport</Text>
+      <View
+        style={[styles.modal, { width: WIDTH / 1.5, height: HEIGHT / 1.3 }]}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 32,
+            marginBottom: 10,
+            fontWeight: "200",
+          }}
+        >
+          Departure Airport
+        </Text>
         <TextInput
           onChangeText={(text) => inputChangeHandler(text)}
           value={search}
@@ -42,7 +59,7 @@ console.log(airports);
             margin: 12,
             borderWidth: 1,
             padding: 10,
-            borderRadius:10
+            borderRadius: 10,
           }}
         />
         {/*    {tags.map((option,index)=>{
@@ -73,7 +90,7 @@ console.log(airports);
 export default ModalPicker;
 const styles = StyleSheet.create({
   touchableOpacity: {
-    flex:1,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -89,5 +106,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 10,
   },
-  option: {   borderBottomWidth:.3},
+  option: {
+    backgroundColor: "#F7F5F5",
+    marginVertical: 8,
+    borderRadius: 10,
+    elevation: 4,
+  },
 });
