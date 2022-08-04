@@ -7,6 +7,7 @@ import {
   Pressable,
   Button,
   ActivityIndicator,
+  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -50,166 +51,199 @@ const Search = () => {
   const changeDateModalVisibility = (bool) => {
     setDateIsVisible(bool);
   };
+  const convertDateToString = (date) => {
+    const day = date.getDate();
+    const month = date.toDateString.slice(4, 7);
+    const year = date.getFullYear();
+  };
 
   return (
-    <View
-      style={{
-        backgroundColor: "#FFFFFF",
-        borderBottomColor: "black",
-        borderBottomWidth: 0.3,
-        paddingVertical: 10,
-      }}
-    >
-      <Modal
-        animationType="fade"
-        visible={isVisible}
-        onRequestClose={() => changeModalVisibility(false)}
-      >
-        <ModalPicker
-          changeModalVisibility={changeModalVisibility}
-          setWhere={setWhere}
-          setCity={setCity}
-        />
-      </Modal>
+    <View>
       <View
         style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          paddingVertical: 30,
+          backgroundColor: "#FFFFFF",
+          borderBottomColor: "black",
+          borderBottomWidth: 0.3,
+          paddingBottom: 10,
         }}
       >
-        <Text
-          style={{
-            position: "absolute",
-            left: 4,
-            top: 4,
-            fontSize: 24,
-            fontWeight: "600",
-            color: "#64748b",
-          }}
+        <Modal
+          animationType="fade"
+          visible={isVisible}
+          onRequestClose={() => changeModalVisibility(false)}
         >
-          FROM
-        </Text>
+          <ModalPicker
+            changeModalVisibility={changeModalVisibility}
+            setWhere={setWhere}
+            setCity={setCity}
+          />
+        </Modal>
 
-        <Text
-          style={{
-            position: "absolute",
-            width: "50%",
-            left: 4,
-            bottom: 4,
-            fontSize: 16,
-            fontWeight: "300",
-          }}
-        >
-          {city.toLocaleUpperCase()}
-        </Text>
-        <TouchableOpacity
-          style={styles.touchableOpacity}
-          onPress={() => changeModalVisibility(true)}
-        >
-          <Text style={styles.text}>{where}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.touchableOpacity,
-            { borderLeftWidth: 2, borderColor: "#cbd5e1" },
-          ]}
-          onPress={() => {
-            changeModalVisibilityTo(true);
-            console.log("to");
-          }}
-        >
-          <Text style={styles.text}>{to}</Text>
-        </TouchableOpacity>
-        <Text
-          style={{
-            position: "absolute",
-            right: 4,
-            top: 4,
-            fontSize: 24,
-            fontWeight: "600",
-            color: "#64748b",
-          }}
-        >
-          TO
-        </Text>
-
-        <Text
-          style={{
-            position: "absolute",
-            width: "50%",
-            textAlign: "right",
-            right: 6,
-            bottom: 6,
-            fontSize: 16,
-            fontWeight: "300",
-          }}
-        >
-          {toCity.toLocaleUpperCase()}
-        </Text>
-      </View>
-
-      <Modal
-        animationType="fade"
-        visible={toIsVisible}
-        onRequestClose={() => changeModalVisibility(false)}
-      >
-        <ToModalPicker
-          changeModalVisibilityTo={changeModalVisibilityTo}
-          setTo={setTo}
-          setToCity={setToCity}
-        />
-      </Modal>
-      <View>
-        <TouchableOpacity
-          onPress={() => {
-            changeDateModalVisibility(true);
-            console.log("to");
-          }}
-          style={{ paddingVertical: 5 }}
-        >
-          <Text
+        <View style={styles.selectContainer}>
+          <View
             style={{
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: 24,
-              color: "#64748b",
+              width: "50%",
+              justifyContent: "center",
+              alignItems: "center",
+              paddingVertical: 20,
             }}
           >
-            DATE
-          </Text>
-          <Text
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "300",
+                color: "#ffffff",
+              }}
+            >
+              FROM
+            </Text>
+
+            <TouchableOpacity
+              style={styles.touchableOpacity}
+              onPress={() => changeModalVisibility(true)}
+            >
+              <Text style={styles.text}>{where}</Text>
+            </TouchableOpacity>
+
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "300",
+                color: "#f1f5f9",
+              }}
+            >
+              {city.toLocaleUpperCase()}
+            </Text>
+          </View>
+          <AntDesign name="swapright" size={48} color="#cbd5e1" />
+          <View
             style={{
-              textAlign: "center",
-              paddingVertical: 10,
-              fontSize: 24,
-              fontWeight: "bold",
-              color: "#64748b",
+              width: "50%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {selectedDate != "" ? selectedDate : "Select Date"}
-          </Text>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: "300",
+                color: "#ffffff",
+              }}
+            >
+              TO
+            </Text>
+            <TouchableOpacity
+              style={styles.touchableOpacity}
+              onPress={() => {
+                changeModalVisibilityTo(true);
+                console.log("to");
+              }}
+            >
+              <Text style={styles.text}>{to}</Text>
+            </TouchableOpacity>
 
-          <Text style={{ textAlign: "center" }}>
-            <AntDesign name="calendar" size={24} color="black" />
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: "300",
+                color: "#ffffff",
+              }}
+            >
+              {toCity.toLocaleUpperCase()}
+            </Text>
+          </View>
+        </View>
+
+        <Modal
+          animationType="fade"
+          visible={toIsVisible}
+          onRequestClose={() => changeModalVisibility(false)}
+        >
+          <ToModalPicker
+            changeModalVisibilityTo={changeModalVisibilityTo}
+            setTo={setTo}
+            setToCity={setToCity}
+          />
+        </Modal>
+        <View>
+          <TouchableOpacity
+            onPress={() => {
+              changeDateModalVisibility(true);
+              console.log("to");
+            }}
+            style={{ padding: 20 }}
+          >
+            <Text
+              style={{
+                fontWeight: "400",
+                fontSize: 24,
+                color: "#64748b",
+                marginBottom: 15,
+              }}
+            >
+              DEPARTURE DATE
+            </Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{
+                  fontSize: 48,
+                  fontWeight: "bold",
+                  color: "black",
+                  marginRight: 10,
+                }}
+              >
+                {selectedDate != ""
+                  ? new Date(selectedDate).getDate()
+                  : "Select Date"}
+              </Text>
+              <View style={{ alignItems: "center" }}>
+                <Text
+                  style={{
+                    fontSize: 24,
+                    fontWeight: "bold",
+                    color: "#64748b",
+                    marginRight: 8,
+                  }}
+                >
+                  {selectedDate != ""
+                    ? new Date(selectedDate).toDateString().slice(4, 7)
+                    : ""}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 24,
+                    fontWeight: "bold",
+                    color: "#64748b",
+                  }}
+                >
+                  {selectedDate != ""
+                    ? new Date(selectedDate).getFullYear()
+                    : ""}
+                </Text>
+              </View>
+            </View>
+            <Text style={{}}>
+              {/*             <AntDesign name="calendar" size={24} color="black" />
+               */}{" "}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <Modal
+          animationType="fade"
+          visible={dateIsVisible}
+          onRequestClose={() => changeDateModalVisibility(false)}
+        >
+          <Calender
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            changeDateModalVisibility={changeDateModalVisibility}
+          />
+        </Modal>
       </View>
-      <Modal
-        animationType="fade"
-        visible={dateIsVisible}
-        onRequestClose={() => changeDateModalVisibility(false)}
-      >
-        <Calender
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          changeDateModalVisibility={changeDateModalVisibility}
-        />
-      </Modal>
       <TouchableOpacity
         style={{
           alignSelf: "center",
-          marginTop: 20,
+          marginVertical: 10,
           paddingHorizontal: 20,
           paddingVertical: 10,
           backgroundColor: "#EA2E12E1",
@@ -247,12 +281,18 @@ const Search = () => {
 export default Search;
 
 const styles = StyleSheet.create({
+  selectContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomWidth: 0.3,
+    backgroundColor: "#1e293b",
+  },
   touchableOpacity: {
     width: "100%",
-
-    backgroundColor: "white",
-
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingTop: 20,
+    paddingBottom: 30,
   },
-  text: { marginVertical: 20, fontSize: 24, fontWeight: "bold" },
+  text: { fontSize: 24, fontWeight: "bold", color: "#ffffff" },
 });
