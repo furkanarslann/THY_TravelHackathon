@@ -7,7 +7,7 @@ import { setTags } from "../../redux/slices/airportSlice";
 const AirportList = () => {
   const airports = useSelector((state) => state.airport.airports);
   const tags = useSelector((state) => state.airport.tags);
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
 
   /* useEffect(() => {
   airports.forEach((item)=>{
@@ -16,20 +16,26 @@ const AirportList = () => {
 }, []) */
   useEffect(() => {
     const arr = airports.map((item) => {
-      return item.City.LanguageInfo!==""
-        ? {code:item.Code,city:(Array.isArray(item.City.LanguageInfo.Language)?item.City.LanguageInfo.Language[0].Name:(item.City.LanguageInfo.Language.Name))}
-        : {code:item.City.PortsInCity.Port.Code,city:item.LanguageInfo.Language };
+      return item.City.LanguageInfo !== ""
+        ? {
+            code: item.Code,
+            city: Array.isArray(item.City.LanguageInfo.Language)
+              ? item.City.LanguageInfo.Language[0].Name
+              : item.City.LanguageInfo.Language.Name,
+          }
+        : {
+            code: item.City.PortsInCity.Port.Code,
+            city: item.LanguageInfo.Language,
+          };
     });
-    dispatch(setTags(arr)); 
-console.log(airports);
+    dispatch(setTags(arr));
+    console.log(airports);
     console.log(arr);
   }, []);
 
   return (
-    <View>
-
-    </View>
-   /*  <FlatList
+    <View></View>
+    /*  <FlatList
       numColumns={2}
       data={airports}
       initialNumToRender={7}

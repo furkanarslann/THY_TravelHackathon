@@ -20,8 +20,8 @@ import { AntDesign } from "@expo/vector-icons";
 const Search = () => {
   const [where, setWhere] = useState("SELECT");
   const [to, setTo] = useState("SELECT");
-  const [toCity, setToCity] = useState("SELECT");
-  const [city, setCity] = useState("SELECT");
+  const [toCity, setToCity] = useState("");
+  const [city, setCity] = useState("");
 
   const [isVisible, setIsVisible] = useState(false);
   const [toIsVisible, setToIsVisible] = useState(false);
@@ -61,7 +61,6 @@ const Search = () => {
       }}
     >
       <Modal
-        transparent={true}
         animationType="fade"
         visible={isVisible}
         onRequestClose={() => changeModalVisibility(false)}
@@ -95,6 +94,7 @@ const Search = () => {
         <Text
           style={{
             position: "absolute",
+            width: "50%",
             left: 4,
             bottom: 4,
             fontSize: 16,
@@ -150,7 +150,6 @@ const Search = () => {
       </View>
 
       <Modal
-        transparent={true}
         animationType="fade"
         visible={toIsVisible}
         onRequestClose={() => changeModalVisibility(false)}
@@ -172,7 +171,17 @@ const Search = () => {
           <Text
             style={{
               textAlign: "center",
-              paddingVertical: 15,
+              fontWeight: "bold",
+              fontSize: 24,
+              color: "#64748b",
+            }}
+          >
+            DATE
+          </Text>
+          <Text
+            style={{
+              textAlign: "center",
+              paddingVertical: 10,
               fontSize: 24,
               fontWeight: "bold",
               color: "#64748b",
