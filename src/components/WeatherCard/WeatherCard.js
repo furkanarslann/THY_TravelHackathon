@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeather } from "../../redux/api/weather";
@@ -21,41 +21,53 @@ const WeatherCard = () => {
   const daySpecified = days?.filter((item) => item.date == flightDate)[0];
   console.log(daySpecified);
   console.log(weather);
-
-  const [weatherMessage, setWeatherMessage] = useState(null);
+  const [message, setMessage] = useState();
+  let weatherMessage = null;
   const getWeatherCondition = () => {
     const weatherCondition = daySpecified?.day.condition.text;
-    
+
     switch (weatherCondition) {
       case "Patchy rain possible":
-        setWeatherMessage("Weather possibly will be raining when you land.");
+        weatherMessage = "Weather possibly will be raining when you land.";
         return "rainy-outline";
       case "Sunny":
-        setWeatherMessage("Weather possibly will be sunny when you land.");
+        weatherMessage = "Weather possibly will be sunny when you land.";
         return "sunny";
       case "Moderate rain":
-        setWeatherMessage("Weather bla bla");
+        weatherMessage = "Weather bla bla";
         return "sunny";
     }
   };
-
+  console.log(weatherMessage);
   return (
     <View style={styles.container}>
-      <View style={styles.left}>
-        <View style={styles.left_top}>
-          <Text style={styles.city}>{weather?.location.name}</Text>
-          <Text style={styles.date}>
-            {new Date(daySpecified?.date).toDateString()}
-          </Text>
-        </View>
-        <View style={styles.left_bottom}>
-          <Text style={styles.degree}>{daySpecified?.day.avgtemp_c}°C</Text>
-        </View>
-      </View>
+      {daySpecified ? (
+        <>
+          <View style={styles.left}>
+            <View style={styles.left_top}>
+              <Text style={styles.city}>{weather?.location.name}</Text>
+              <Text style={styles.date}>
+                {new Date(daySpecified?.date).toDateString()}
+              </Text>
+            </View>
+            <View style={styles.left_bottom}>
+              <Text style={styles.degree}>{daySpecified?.day.avgtemp_c}°C</Text>
+            </View>
+          </View>
 
-      <View style={styles.right}>
-       { daySpecified && <Ionicons name={getWeatherCondition} size={100} color="#FFFFFF" />}
-      </View>
+          <View style={styles.right}>
+            {daySpecified && (
+              <Ionicons
+                name={getWeatherCondition()}
+                size={100}
+                color="#FFFFFF"
+              />
+            )}
+          </View>
+        </>
+      ) : (
+        <ActivityIndicator style={{ width: 200, height: 200 }} />
+      )}
     </View>
   );
 };
