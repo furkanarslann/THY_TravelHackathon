@@ -28,6 +28,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import FlightsPage from "./src/pages/FlightsPage";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import FlightDetails from "./src/components/FlightDetails/FlightDetails";
+import Details from "./src/pages/Details";
 
 
 const App = () => {
@@ -60,7 +61,7 @@ const App = () => {
          <Stack.Screen
           options={{ headerShown: false }}
           name="flightDetails"
-          component={FlightDetails}
+          component={Details}
         />
       </Stack.Navigator>
     
