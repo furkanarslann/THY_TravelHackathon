@@ -7,17 +7,22 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch } from "react-redux";
 import { setFlightDetails } from "../../redux/slices/flightDetailsSlice";
 import FlightDetails from "../FlightDetails/FlightDetails";
-import { useNavigation } from '@react-navigation/native';
- 
+import { useNavigation } from "@react-navigation/native";
+
 const FlightCard = ({ item }) => {
-  
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const dateString = "20200515";
   const year = +item.date.substring(0, 4);
   const month = +item.date.substring(4, 6);
   const day = +item.date.substring(6, 8);
+  const departureHour = item.scheduledLocalDepartureDatetime.slice(8, 10);
+  const departureMinute = item.scheduledLocalDepartureDatetime.slice(10, 12);
+  const arrivalHour = item.scheduledLocalArrivalDatetime.slice(8, 10);
+  const arrivalMinute = item.scheduledLocalArrivalDatetime.slice(10, 12);
 
+  console.log(departureHour);
+  console.log(item.scheduledLocalDepartureDatetime);
   const date = new Date(year, month - 1, day);
   console.log(date);
   /*  const date = item.estimatedLocalDepartureDatetime;
@@ -27,19 +32,33 @@ const FlightCard = ({ item }) => {
   const hour=date.slice(8,10)
   const last = year + month + day;
   */
-  
+
   return (
-    <TouchableOpacity onPress={()=>{dispatch(setFlightDetails(item));navigation.navigate("flightDetails")}} style={styles.container}>
+    <TouchableOpacity
+      onPress={() => {
+        dispatch(setFlightDetails(item));
+        navigation.navigate("flightDetails");
+      }}
+      style={styles.container}
+    >
       <Image
         source={require("../../assets/images/thy.png")}
         style={styles.logo}
       />
-      <Text style={styles.airports}>
-        {item.actualDepartureAirport}{" "}
-        {<Ionicons name="arrow-forward" size={21} color="#EA2E12E1" />}{" "}
-        {item.actualArrivalAirport}
-      </Text>
+      <View style={{ alignItems: "center" }}>
+        <Text style={styles.airports}>{item.actualDepartureAirport} </Text>
+        <Text style={styles.airports}>
+          {departureHour}:{departureMinute}
+        </Text>
+      </View>
 
+      <Ionicons name="arrow-forward" size={21} color="#EA2E12E1" />
+      <View style={{ alignItems: "center" }}>
+        <Text style={styles.airports}>{item.actualArrivalAirport} </Text>
+        <Text style={styles.airports}>
+          {arrivalHour}:{arrivalMinute}
+        </Text>
+      </View>
       <Text style={styles.date}>{date.toDateString()}</Text>
     </TouchableOpacity>
   );
