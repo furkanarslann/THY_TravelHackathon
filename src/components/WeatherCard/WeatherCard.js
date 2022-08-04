@@ -2,6 +2,7 @@ import { View, Text, Image } from "react-native";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeather } from "../../redux/api/weather";
+import styles from "./WeatherCard.style";
 
 const WeatherCard = () => {
   const weather = useSelector((state) => state.weather.weather);
@@ -21,16 +22,18 @@ const WeatherCard = () => {
   console.log(weather);
 
   return (
-    <View>
-      <Text></Text>
-      <View>
-        <Text>{weather?.location.name}</Text>
+    <View style={styles.container}>
+      <View style={styles.left}>
+        <View style={styles.left_top}>
+          <Text>{weather?.location.name}</Text>
+          <Text style={styles.left_bottom}>
+            {new Date(daySpecified?.date).toDateString()}
+          </Text>
+        </View>
         <Text>{daySpecified?.day.avgtemp_c} C</Text>
-        <Text>{daySpecified?.day.condition.text}</Text>
-        <Text>{new Date(daySpecified?.date).toDateString()}</Text>
       </View>
-
-      <Image style={{ width: 100, height: 100 }} />
+      <Text style={styles.right}>{daySpecified?.day.condition.text}</Text>
+      {/*    <Image style={{ width: 100, height: 100 }} /> */}
     </View>
   );
 };
