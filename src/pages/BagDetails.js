@@ -19,10 +19,10 @@ const BagDetails = () => {
           <Text style={styles.text}>{bag.passengerInfo.pnr}</Text>
         </View>
       </View>
-
+    <Text style={{padding:20,fontSize:30,fontWeight:"bold",color:"#94a3b8"}}>LAST PROCESSES</Text>
       {   <FlatList
  
-       
+       style={{paddingHorizontal:10,marginTop:10}}
       data={bag.loadingStatus}
       initialNumToRender={7}
 
