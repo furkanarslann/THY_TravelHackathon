@@ -94,7 +94,10 @@ const BagTrack = () => {
         <Text>Search</Text>
       </View>:bag.length>0 ? (
           <TouchableOpacity style={{justifyContent:"center",alignItems:"center",padding:20,marginTop:10,backgroundColor:"#f1f5f9",}} onPress={() => navigation.navigate("bagDetails")}>
-              <Text>Your baggage is found</Text>
+              <Text>{bag[0].passengerInfo.name}</Text>
+              <Text>{bag[0].passengerInfo.surname}</Text>
+              <Text>{bag[0].passengerInfo.pnr}</Text>
+
         <Text>Click for details</Text>
           </TouchableOpacity>
         ): <View>
