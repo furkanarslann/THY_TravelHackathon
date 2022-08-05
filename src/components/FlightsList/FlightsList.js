@@ -7,8 +7,6 @@ import { FlatList } from "react-native-gesture-handler";
 const FlightsList = ({ flights }) => {
   const newdate = new Date();
   newdate.setUTCDate("202208050755");
-  console.log(newdate);
-  console.log(flights);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Available flights | {flights.length}</Text>

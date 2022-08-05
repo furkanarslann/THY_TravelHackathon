@@ -37,11 +37,8 @@ const FlightsPage = () => {
           };
     });
     dispatch(setTags(arr));
-    console.log(airports);
-    console.log(arr);
   }, []);
 
-  console.log(flights);
   return (
     <SafeAreaView style={{ flex: 1, paddingHorizontal: 2 }}>
       <View

@@ -8,7 +8,6 @@ import { Ionicons } from "@expo/vector-icons";
 const WeatherCard = () => {
   const weather = useSelector((state) => state.weather.weather);
   const flight = useSelector((state) => state.flightDetails.details);
-  console.log(flight);
 
   const year = flight.date.slice(0, 4) + "-";
   const month = flight.date.slice(4, 6) + "-";
@@ -16,11 +15,8 @@ const WeatherCard = () => {
 
   const flightDate = year + month + day;
   const days = weather?.forecast.forecastday;
-  console.log(days);
 
   const daySpecified = days?.filter((item) => item.date == flightDate)[0];
-  console.log(daySpecified);
-  console.log(weather);
   const [message, setMessage] = useState();
   let weatherMessage = null;
   const getWeatherCondition = () => {
@@ -38,7 +34,6 @@ const WeatherCard = () => {
         return "sunny";
     }
   };
-  console.log(weatherMessage);
   return (
     <View style={styles.container}>
       {daySpecified ? (

@@ -8,8 +8,7 @@ const Calender = ({
   setSelectedDate,
   changeDateModalVisibility,
 }) => {
-  console.log(selectedDate);
-  const onDateChanged = (newDate) => {
+   const onDateChanged = (newDate) => {
     const date = getFormatedDate(newDate, "YYYY/MM/DD").toString();
 
     setSelectedDate(date);

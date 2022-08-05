@@ -9,17 +9,16 @@ const AirportCard = ({ item }) => {
   const airports = useSelector((state) => state.airport.airports);
   //longer
   useEffect(() => {
-  //  item.City.LanguageInfo && console.log(item.City.LanguageInfo);
+    //  item.City.LanguageInfo && console.log(item.City.LanguageInfo);
     /*     console.log(item.LanguageInfo.Language);
 
  */ item.City.LanguageInfo !== "" &&
       (Array.isArray(item.City.LanguageInfo.Language)
         ? setCity(item.City.LanguageInfo.Language[0].Name)
-        : item.City.LanguageInfo != "" &&item.City.LanguageInfo.Language!==""&&
+        : item.City.LanguageInfo != "" &&
+          item.City.LanguageInfo.Language !== "" &&
           setCity(item.City.LanguageInfo.Language.Name));
     //  Array.isArray(item.City.LanguageInfo.Language)?setCity(item.City.LanguageInfo.Language[0].Name): item.City.LanguageInfo.Language?setCity(item.City.LanguageInfo.Language.Name):setCity("error")
-
-    console.log(city);
   }, []);
 
   return (

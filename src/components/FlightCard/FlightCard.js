@@ -21,11 +21,9 @@ const FlightCard = ({ item }) => {
   const arrivalHour = item.scheduledLocalArrivalDatetime.slice(8, 10);
   const arrivalMinute = item.scheduledLocalArrivalDatetime.slice(10, 12);
 
-  console.log(departureHour);
-  console.log(item.scheduledLocalDepartureDatetime);
+ 
   const date = new Date(year, month - 1, day);
-  console.log(date);
-  /*  const date = item.estimatedLocalDepartureDatetime;
+   /*  const date = item.estimatedLocalDepartureDatetime;
   const year = date.slice(0, 4) + "/";
   const month = date.slice(4, 6) + "/";
   const day = date.slice(6, 8);

@@ -9,11 +9,7 @@ const AirportList = () => {
   const tags = useSelector((state) => state.airport.tags);
   const dispatch = useDispatch();
 
-  /* useEffect(() => {
-  airports.forEach((item)=>{
-    console.log(item.City.LanguageInfo.Language[0].Name);
-  }) 
-}, []) */
+ 
   useEffect(() => {
     const arr = airports.map((item) => {
       return item.City.LanguageInfo !== ""
@@ -29,8 +25,6 @@ const AirportList = () => {
           };
     });
     dispatch(setTags(arr));
-    console.log(airports);
-    console.log(arr);
   }, []);
 
   return (

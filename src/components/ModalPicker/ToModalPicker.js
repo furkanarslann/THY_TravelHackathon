@@ -15,7 +15,6 @@ const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
   const tags = useSelector((state) => state.airport.tags);
 
   const [filteredData, setFilteredData] = useState(tags);
-  console.log(tags);
   const [search, setSearch] = useState("");
   const WIDTH = Dimensions.get("window").width;
   const HEIGHT = Dimensions.get("window").height;
@@ -38,8 +37,19 @@ const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
       onPress={() => changeModalVisibilityTo(false)}
       style={styles.touchableOpacity}
     >
-      <View style={[styles.modal, { width: WIDTH / 1.5, height: HEIGHT/1.3 }]}>
-      <Text style={{textAlign:"center",fontSize:32,marginBottom:10,fontWeight:"200"}}>Arrival Airport</Text>
+      <View
+        style={[styles.modal, { width: WIDTH / 1.5, height: HEIGHT / 1.3 }]}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 32,
+            marginBottom: 10,
+            fontWeight: "200",
+          }}
+        >
+          Arrival Airport
+        </Text>
 
         <TextInput
           onChangeText={(text) => inputChangeHandler(text)}
@@ -49,7 +59,7 @@ const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
             margin: 12,
             borderWidth: 1,
             padding: 10,
-            borderRadius:10
+            borderRadius: 10,
           }}
         />
         {/*    {tags.map((option,index)=>{

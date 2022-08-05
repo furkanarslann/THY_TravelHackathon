@@ -8,8 +8,10 @@ import { store } from "./src/redux/store";
 import axios from "axios";
 import { getAirports } from "./src/redux/api/airport";
 import Routes from "./Router";
+import { getBags } from "./src/redux/api/bag";
 
 export default function ReactApp() {
+ 
     return (
       <Provider store={store}>
        <Routes/>

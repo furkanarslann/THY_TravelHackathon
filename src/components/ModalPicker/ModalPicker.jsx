@@ -14,7 +14,6 @@ import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
   const tags = useSelector((state) => state.airport.tags);
   const airports = useSelector((state) => state.airport.airports);
-  console.log(airports);
   const [filteredData, setFilteredData] = useState(tags);
   const [search, setSearch] = useState("");
   const WIDTH = Dimensions.get("window").width;
@@ -111,8 +110,8 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderRadius: 10,
     elevation: 7,
-    shadowColor: '#171717',
-    shadowOffset: {width: -2, height: 4},
+    shadowColor: "#171717",
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },

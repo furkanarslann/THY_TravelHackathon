@@ -15,7 +15,6 @@ import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
 
 const Carousel = ({ navigation }) => {
-
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   const setSliderPage = (event) => {
@@ -74,11 +73,7 @@ const Carousel = ({ navigation }) => {
         Uçuş bulmak için tıklayınız !
       </Text>
 
-      <TouchableOpacity
-        style={styles.button}
-        opacity={0.5}
-        onPress={() => console.log("Next page")}
-      >
+      <TouchableOpacity style={styles.button} opacity={0.5}>
         <Text
           style={{ textAlign: "center" }}
           onPress={() => navigation.navigate("flights")}

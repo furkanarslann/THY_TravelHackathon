@@ -14,7 +14,6 @@ const Details = () => {
   const flight = useSelector((state) => state.flightDetails.details);
   const [departureCity, setDepartureCity] = useState("");
   const [arrivalCity, setArrivalCity] = useState("");
-  console.log(flight);
 
   useEffect(() => {
     tags.forEach((item) => {

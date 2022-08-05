@@ -29,13 +29,11 @@ const Search = () => {
   const [dateIsVisible, setDateIsVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState("");
   const loadingState = useSelector((state) => state.flight.loadingState);
-  console.log(loadingState);
   const dispatch = useDispatch();
   const dateConvert = (date) => {
     const year = date.slice(0, 4);
     const month = date.slice(5, 7);
     const day = date.slice(8, 10);
-    console.log(year + month + day);
 
     return year + month + day;
   };
@@ -136,7 +134,6 @@ const Search = () => {
               style={styles.touchableOpacity}
               onPress={() => {
                 changeModalVisibilityTo(true);
-                console.log("to");
               }}
             >
               <Text style={styles.text}>{to}</Text>
@@ -169,7 +166,6 @@ const Search = () => {
           <TouchableOpacity
             onPress={() => {
               changeDateModalVisibility(true);
-              console.log("to");
             }}
             style={{ padding: 20 }}
           >

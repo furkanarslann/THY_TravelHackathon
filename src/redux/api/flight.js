@@ -13,7 +13,6 @@ export const getFlightsByDate = createAsyncThunk(
         scheduledArrivalAirport,
       }
     );
-    console.log(response.data);
     return response.data.data;
   }
 );
