@@ -70,12 +70,12 @@ const App = () => {
         />
          <Stack.Screen
           options={{ headerShown: false }}
-          name="bagTrack"
+          name="Bag Track"
           component={BagTrack}
         />
          <Stack.Screen
-          options={{ headerShown: false }}
-          name="bagDetails"
+        
+          name="Bag Details"
           component={BagDetails}
         />
       </Stack.Navigator>

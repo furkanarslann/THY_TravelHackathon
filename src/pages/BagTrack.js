@@ -13,27 +13,17 @@ import { getBags } from "../redux/api/bag";
 import { useNavigation } from "@react-navigation/native";
 
 const BagTrack = () => {
-  const [pressed, setPressed] = useState(false);
   const navigation = useNavigation();
- 
+
   const bag = useSelector((state) => state.bag.bag);
 
   const loadingState = useSelector((state) => state.bag.loadingState);
-  console.log(loadingState);
-   
-  console.log(bag);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
-  console.log(search);
 
-  const onPress = async() => {
-     dispatch(getBags(search));
-   
-    
-  
-     
-    };
-  
+  const onPress = async () => {
+    dispatch(getBags(search));
+  };
 
   return (
     <View
@@ -76,34 +66,46 @@ const BagTrack = () => {
           style={styles.input}
         />
         <TouchableOpacity
-          onPress={()=>onPress()}
+          onPress={() => onPress()}
           style={search == "" ? styles.buttonDisabled : styles.button}
           disabled={search == ""}
         >
-         
           {loadingState == "loading" ? (
             <ActivityIndicator color="white" style={{}} />
           ) : (
             <Text style={styles.buttonText}>Search</Text>
           )}
         </TouchableOpacity>
-        
-        {!bag?<View>
-        <Text>Search Baggage</Text>
-        <Text>Search</Text>
-      </View>:bag.length>0 ? (
-          <TouchableOpacity style={{justifyContent:"center",alignItems:"center",padding:20,marginTop:10,backgroundColor:"#f1f5f9",}} onPress={() => navigation.navigate("bagDetails")}>
-              <Text>{bag[0].passengerInfo.name}</Text>
-              <Text>{bag[0].passengerInfo.surname}</Text>
-              <Text>{bag[0].passengerInfo.pnr}</Text>
 
-        <Text>Click for details</Text>
+        {!bag ? (
+          <View>
+            <Text>Search Baggage</Text>
+            <Text>Search</Text>
+          </View>
+        ) : bag.length > 0 ? (
+          <TouchableOpacity
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              padding: 20,
+              marginTop: 10,
+              backgroundColor: "#f1f5f9",
+            }}
+            onPress={() => navigation.navigate("Bag Details")}
+          >
+            <Text>{bag[0].passengerInfo.name}</Text>
+            <Text>{bag[0].passengerInfo.surname}</Text>
+            <Text>{bag[0].passengerInfo.pnr}</Text>
+
+            <Text>Click for details</Text>
           </TouchableOpacity>
-        ): <View>
-        <Text>No Baggages Found</Text>
-        <Text>Contact Us</Text>
-      </View>}
-     {/*  {bag&& <View style={{}}>
+        ) : (
+          <View>
+            <Text>No Baggages Found</Text>
+            <Text>Contact Us</Text>
+          </View>
+        )}
+        {/*  {bag&& <View style={{}}>
               <Text>Search for Baggages</Text>
               <Text>Click for details</Text>
             </View>} */}
