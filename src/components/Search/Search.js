@@ -167,8 +167,9 @@ const Search = () => {
             onPress={() => {
               changeDateModalVisibility(true);
             }}
-            style={{ padding: 20 }}
+            style={{ padding: 20,flexDirection:"row",justifyContent:"space-between",alignItems:"center" }}
           >
+            <View>
             <Text
               style={{
                 fontWeight: "400",
@@ -229,6 +230,8 @@ const Search = () => {
               {/*             <AntDesign name="calendar" size={24} color="black" />
                */}{" "}
             </Text>
+            </View>
+            <AntDesign name="calendar" size={64} color="black" />
           </TouchableOpacity>
         </View>
         <Modal
