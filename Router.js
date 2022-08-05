@@ -29,6 +29,7 @@ import FlightsPage from "./src/pages/FlightsPage";
 import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import FlightDetails from "./src/components/FlightDetails/FlightDetails";
 import Details from "./src/pages/Details";
+import { getBags } from "./src/redux/api/bag";
 
 
 const App = () => {
@@ -40,10 +41,13 @@ const App = () => {
   const dispatch = useDispatch();
 
   const tags = useSelector((state) => state.airport.tags);
+  
   React.useEffect(() => {
     dispatch(getAirports());
+    dispatch(getBags());
+
   }, []);
-  console.log(tags);
+
   return (
    
     <NavigationContainer>
@@ -69,20 +73,5 @@ const App = () => {
   );
 };
 export default App;
-
-/*  const dispatch = useDispatch();
-  const airports = useSelector((state) => state.airport.airports);
-  const loading = useSelector((state) => state.airport.loadingState);
-  console.log(loading);
-  const ct = useSelector((state) => state.counter.value);
-  console.log(ct);
-
-  axios.defaults.headers.common = {
-    apikey: "l7xxf90f2f436d3b48bba2a0d0ef5aec7008",
-    apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
-  };
-  React.useEffect(() => {
-    dispatch(getAirports());
-  }, []); */
 
 const styles = StyleSheet.create({});
