@@ -6,11 +6,10 @@ import {
   TextInput,
   ActivityIndicator,
 } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { getBags } from "../redux/api/bag";
-import { setSearchedBag } from "../redux/slices/bagSlice";
 import { useNavigation } from "@react-navigation/native";
 
 const BagTrack = () => {
