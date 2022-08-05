@@ -34,5 +34,5 @@ export const bagSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setSearchedBag } = bagSlice.actions;
+export const {} = bagSlice.actions;
 export default bagSlice.reducer;
