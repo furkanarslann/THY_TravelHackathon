@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
+import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const Carousel = ({ navigation }) => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
@@ -81,7 +82,7 @@ const Carousel = ({ navigation }) => {
           <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
         </Text>
       </TouchableOpacity>
-
+        <Pressable onPress={()=>navigation.navigate("bagTrack")}><Text>BagTrack</Text></Pressable>
       <Pagination pageIndex={pageIndex} />
     </SafeAreaView>
   );

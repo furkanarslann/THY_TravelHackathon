@@ -30,6 +30,8 @@ import DrawerNav from "./src/components/DrawerNavigation/Drawer";
 import FlightDetails from "./src/components/FlightDetails/FlightDetails";
 import Details from "./src/pages/Details";
 import { getBags } from "./src/redux/api/bag";
+import BagTrack from "./src/pages/BagTrack";
+import BagDetails from "./src/pages/BagDetails";
 
 
 const App = () => {
@@ -44,7 +46,6 @@ const App = () => {
   
   React.useEffect(() => {
     dispatch(getAirports());
-    dispatch(getBags());
 
   }, []);
 
@@ -66,6 +67,16 @@ const App = () => {
           options={{ headerShown: false }}
           name="flightDetails"
           component={Details}
+        />
+         <Stack.Screen
+          options={{ headerShown: false }}
+          name="bagTrack"
+          component={BagTrack}
+        />
+         <Stack.Screen
+          options={{ headerShown: false }}
+          name="bagDetails"
+          component={BagDetails}
         />
       </Stack.Navigator>
     

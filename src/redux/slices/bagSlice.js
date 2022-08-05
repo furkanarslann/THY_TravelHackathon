@@ -27,11 +27,12 @@ export const bagSlice = createSlice({
         // Add user to the state array
         state.loadingState = "idle";
         state.error = false;
+
         state.bag = action.payload;
       });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {} = bagSlice.actions;
+export const { setSearchedBag } = bagSlice.actions;
 export default bagSlice.reducer;
