@@ -1,12 +1,23 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
+import HomeCard from "../components/HomeCard/HomeCard";
 
 const Home = () => {
   return (
-    <View style={{ justifyContent: "center", alignItems: "center", flex: 1 }}>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <HomeCard />
+      <HomeCard />
+      <HomeCard />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
+});
 
 export default Home;
