@@ -49,10 +49,28 @@ const FlightsPage = () => {
   const listHeader = (
     <>
       <Search />
-      <Text style={styles.text}>Available flights | {flights.length}</Text>
+      {flights && Array.isArray(flights) && (
+        <Text style={styles.text}>Available flights | {flights.length}</Text>
+      )}
     </>
   );
-
+  const searchComponent = (
+    <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+      
+      <Text
+        style={{
+          fontSize: 28,
+          paddingHorizontal: 20,
+          paddingVertical: 10,
+          fontWeight: "bold",
+          color: "#64748b",
+        }}
+      >
+        SEARCH FLIGHT
+      </Text>
+    </View>
+  );
+  console.log(flights);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -76,7 +94,7 @@ const FlightsPage = () => {
           <MaterialIcons name="flight" size={30} color="white" />
         </Text>
       </View>
-
+      {!Array.isArray(flights) && listHeader}
       {Array.isArray(flights) ? (
         <FlatList
           ListHeaderComponent={listHeader}
@@ -87,8 +105,10 @@ const FlightsPage = () => {
             return <FlightCard item={item} />;
           }}
         />
-      ) : (
+      ) : flights ? (
         <NoFlightsFound />
+      ) : (
+        searchComponent
       )}
     </SafeAreaView>
   );

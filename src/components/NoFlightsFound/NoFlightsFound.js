@@ -11,7 +11,7 @@ const NoFlightsFound = () => {
         backgroundColor: "#ffffff",
       }}
     >
-      <Text>No flights for given parameters</Text>
+      <Text style={{fontSize:24,fontWeight:"bold",color:"#64748b",textAlign:"center"}}>No flights found for given parameters</Text>
     </View>
   );
 };

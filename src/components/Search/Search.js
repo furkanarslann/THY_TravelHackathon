@@ -56,7 +56,7 @@ const Search = () => {
   };
 
   return (
-    <View>
+    <View style={{ alignItems: "center" }}>
       <View
         style={{
           backgroundColor: "#FFFFFF",
@@ -84,6 +84,7 @@ const Search = () => {
               justifyContent: "center",
               alignItems: "center",
               paddingVertical: 20,
+              paddingLeft: 20,
             }}
           >
             <Text
@@ -117,8 +118,10 @@ const Search = () => {
           <View
             style={{
               width: "50%",
-              alignItems: "center",
               justifyContent: "center",
+              alignItems: "center",
+              paddingVertical: 20,
+              paddingRight: 20,
             }}
           >
             <Text
@@ -167,69 +170,79 @@ const Search = () => {
             onPress={() => {
               changeDateModalVisibility(true);
             }}
-            style={{ padding: 20,flexDirection:"row",justifyContent:"space-between",alignItems:"center" }}
+            style={{
+              paddingVertical: 20,
+              paddingHorizontal: 30,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
             <View>
-            <Text
-              style={{
-                fontWeight: "400",
-                fontSize: 24,
-                color: "#64748b",
-                marginBottom: 15,
-              }}
-            >
-              DEPARTURE DATE
-            </Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              {selectedDate != "" ? (
-                <Text
-                  style={{
-                    fontSize: 48,
-                    fontWeight: "bold",
-                    color: "black",
-                    marginRight: 10,
-                  }}
-                >
-                  {new Date(selectedDate).getDate()}
-                </Text>
-              ) : (
-                <Text
-                  style={{ fontSize: 24, fontWeight: "300", color: "#64748b" }}
-                >
-                  SELECT
-                </Text>
-              )}
+              <Text
+                style={{
+                  fontWeight: "400",
+                  fontSize: 24,
+                  color: "#64748b",
+                  marginBottom: 15,
+                }}
+              >
+                DEPARTURE DATE
+              </Text>
+              <View style={{ flexDirection: "row", alignItems: "center" }}>
+                {selectedDate != "" ? (
+                  <Text
+                    style={{
+                      fontSize: 48,
+                      fontWeight: "bold",
+                      color: "black",
+                      marginRight: 10,
+                    }}
+                  >
+                    {new Date(selectedDate).getDate()}
+                  </Text>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 24,
+                      fontWeight: "300",
+                      color: "#64748b",
+                    }}
+                  >
+                    SELECT
+                  </Text>
+                )}
 
-              <View style={{ alignItems: "center" }}>
-                <Text
-                  style={{
-                    fontSize: 24,
-                    fontWeight: "bold",
-                    color: "#64748b",
-                    marginRight: 8,
-                  }}
-                >
-                  {selectedDate != ""
-                    ? new Date(selectedDate).toDateString().slice(4, 7)
-                    : ""}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 24,
-                    fontWeight: "bold",
-                    color: "#64748b",
-                  }}
-                >
-                  {selectedDate != ""
-                    ? new Date(selectedDate).getFullYear()
-                    : ""}
-                </Text>
+                <View style={{ alignItems: "center" }}>
+                  <Text
+                    style={{
+                      fontSize: 24,
+                      fontWeight: "bold",
+                      color: "#64748b",
+                      marginRight: 8,
+                    }}
+                  >
+                    {selectedDate != ""
+                      ? new Date(selectedDate).toDateString().slice(4, 7)
+                      : ""}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 24,
+                      fontWeight: "bold",
+                      color: "#64748b",
+                    }}
+                  >
+                    {selectedDate != ""
+                      ? new Date(selectedDate).getFullYear()
+                      : ""}
+                  </Text>
+                </View>
               </View>
-            </View>
-            <Text style={{}}>
-              {/*             <AntDesign name="calendar" size={24} color="black" />
-               */}{" "}
-            </Text>
+              <Text style={{}}>
+                {/*             <AntDesign name="calendar" size={24} color="black" />
+                 */}{" "}
+              </Text>
             </View>
             <AntDesign name="calendar" size={64} color="black" />
           </TouchableOpacity>
@@ -249,9 +262,9 @@ const Search = () => {
       <TouchableOpacity
         style={{
           alignSelf: "center",
-          marginVertical: 10,
+          marginVertical: 20,
           paddingHorizontal: 20,
-          paddingVertical: 10,
+          paddingVertical: 15,
           backgroundColor: "#EA2E12E1",
           borderRadius: 10,
         }}

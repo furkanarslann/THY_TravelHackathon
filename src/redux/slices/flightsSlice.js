@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getFlightsByDate } from "../api/flight";
- 
+
 const initialState = {
-  flights: [],
+  flights: null,
   loadingState: "idle", //"idle"|"loading"|"failed"|"succeeded";
 };
 
@@ -14,20 +14,18 @@ export const flightSlice = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(getFlightsByDate.pending, (state, action) => {
       // Add user to the state array
-        state.loadingState="loading";
+      state.loadingState = "loading";
     }),
       builder.addCase(getFlightsByDate.rejected, (state, action) => {
         // Add user to the state array
-        state.loadingState="loading";
-
-       }),
+        state.loadingState = "loading";
+      }),
       builder.addCase(getFlightsByDate.fulfilled, (state, action) => {
         // Add user to the state array
-        state.loadingState="idle";
+        state.loadingState = "idle";
 
-        state.flights=action.payload
-
-       });
+        state.flights = action.payload;
+      });
   },
 });
 
