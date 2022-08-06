@@ -16,6 +16,7 @@ import Pagination from "../components/PaginationDots/Pagination";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const Carousel = ({ navigation }) => {
+
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   const setSliderPage = (event) => {
