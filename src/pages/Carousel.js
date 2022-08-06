@@ -7,18 +7,18 @@ import {
   SafeAreaView,
   ScrollView,
   Image,
-  TouchableOpacity,
 } from "react-native";
 import { useState, useEffect } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Carousel = ({ navigation }) => {
-
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
+  console.log(sliderState.currentPage);
   const setSliderPage = (event) => {
     const { currentPage } = sliderState;
     const { x } = event.nativeEvent.contentOffset;
@@ -75,12 +75,18 @@ const Carousel = ({ navigation }) => {
         Uçuş bulmak için tıklayınız !
       </Text>
 
-      <TouchableOpacity style={styles.button} opacity={0.5}>
-        <Text
-          style={{ textAlign: "center" }}
-          onPress={() => navigation.navigate("home")}
-        >
-          <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("home")}
+        disabled={sliderState.currentPage != 3}
+        style={styles.button}
+        opacity={0.5}
+      >
+        <Text style={{ textAlign: "center" }}>
+          <Ionicons
+            name="arrow-forward-circle-outline"
+            size={55}
+            color={sliderState.currentPage != 3 ? "grey" : "red"}
+          />
         </Text>
       </TouchableOpacity>
       <Pagination pageIndex={pageIndex} />
@@ -127,6 +133,7 @@ const styles = StyleSheet.create({
   button: {
     paddingBottom: 50,
   },
+  buttonInactive: {},
 });
 
 export default Carousel;
