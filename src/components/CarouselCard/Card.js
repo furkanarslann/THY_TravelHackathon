@@ -6,7 +6,7 @@ const { height } = Dimensions.get("window");
 const { width } = Dimensions.get("window");
 
 export default Card = ({ imageLocation, header, paragraph }) => (
-  <View style={{ width, height, marginTop: height / 6 }}>
+  <View style={{ width, height, marginTop: height / 6, padding:20, }}>
     <Image source={imageLocation} style={styles.imageStyle} />
     <View style={styles.wrapper}>
       <Text style={styles.header}>{header}</Text>
