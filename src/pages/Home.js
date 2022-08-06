@@ -6,36 +6,33 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <HomeCard
-          header="Uçuş Sorgulama"
-          imageLocation={require("../assets/images/searching_flights.png")}
-          destination={"flights"}
-        />
-        
-        <HomeCard
+        header="Uçuş Sorgulama"
+        imageLocation={require("../assets/images/searching_flights.png")}
+        destination={"flights"}
+      />
+
+      <HomeCard
         header="Bagaj Takibi"
         destination={"Bag Track"}
         imageLocation={require("../assets/images/bagajtakibi.png")}
       />
-      
-      <HomeCard
-      header="Kayıp Bagaj Bilgisi"
-      destination={"Lost Bag"}
-      imageLocation={require("../assets/images/kayıpbagaj.png")}
-    />
-    </View>
 
-    
+      <HomeCard
+        header="Kayıp Bagaj Bilgisi"
+        destination={"Lost Bag"}
+        imageLocation={require("../assets/images/kayıpbagaj.png")}
+      />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    alignItems:"center",
-    justifyContent:"center",
-    backgroundColor:"white",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
   },
-
 
   imageStyle: {
     height: "20%",
@@ -52,7 +49,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20,
-    
   },
   paragraph: {
     fontSize: 17,
@@ -73,7 +69,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#6CC2F4E1",
     marginLeft: 10,
   },
- 
 });
 
 export default Home;
