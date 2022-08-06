@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
   },
   lostBagImg: {
     borderRadius: 15,
-    width: "80%",
-    height: "40%",
+    width: "70%",
+    height: "30%",
   },
   title: {
     fontWeight: "300",
