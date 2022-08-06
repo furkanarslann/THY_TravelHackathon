@@ -7,9 +7,9 @@ import {
   ActivityIndicator,
   Button,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { getBags, getLostBaggage } from "../redux/api/bag";
 import { useNavigation } from "@react-navigation/native";
 
@@ -21,10 +21,13 @@ const BagTrack = () => {
   const loadingState = useSelector((state) => state.bag.loadingState);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
-
-  const onPress = async () => {
+  const onPress = () => {
     dispatch(getBags(search));
   };
+
+  useEffect(() => {
+    bag && navigation.navigate("Bag Details");
+  }, [bag]);
 
   return (
     <View
@@ -110,9 +113,11 @@ const BagTrack = () => {
               <Text>Search for Baggages</Text>
               <Text>Click for details</Text>
             </View>} */}
-
       </View>
-      <Button title="pres" onPress={()=>dispatch(getLostBaggage("TK111222"))}></Button>
+      <Button
+        title="pres"
+        onPress={() => dispatch(getLostBaggage("TK111222"))}
+      ></Button>
     </View>
   );
 };
