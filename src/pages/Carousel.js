@@ -82,7 +82,15 @@ const Carousel = ({ navigation }) => {
           <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
         </Text>
       </TouchableOpacity>
-        <Pressable onPress={()=>navigation.navigate("Bag Track")}><Text>BagTrack</Text></Pressable>
+      <Pressable onPress={() => navigation.navigate("Bag Track")}>
+        <Text>BagTrack</Text>
+      </Pressable>
+      <Pressable
+        onPress={() => navigation.navigate("Lost Baggage")}
+        style={{ padding: 5, backgroundColor: "green" }}
+      >
+        <Text>LostBaggage</Text>
+      </Pressable>
       <Pagination pageIndex={pageIndex} />
     </SafeAreaView>
   );

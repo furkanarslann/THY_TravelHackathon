@@ -12,8 +12,8 @@ export const getBags = createAsyncThunk("api/getBags", async (bagTagNumber) => {
 console.log(response);
   return response;
 });
-
-export const getLostBaggage = createAsyncThunk("api/getLostBag", async (bagTagNumber) => {
+/* 
+ export const getLostBaggage = createAsyncThunk("api/getLostBag", async (bagTagNumber) => {
   const URL = "https://api.turkishairlines.com/test/LostBaggageService";
   const requestBody = { 
     lastName:"BASOGLU",
@@ -24,5 +24,5 @@ export const getLostBaggage = createAsyncThunk("api/getLostBag", async (bagTagNu
 
 console.log(response.data.data.data.LostBaggageFile);
   return response;
-});
-
+}); 
+ */
