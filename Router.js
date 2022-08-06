@@ -33,6 +33,7 @@ import { getBags } from "./src/redux/api/bag";
 import BagTrack from "./src/pages/BagTrack";
 import BagDetails from "./src/pages/BagDetails";
 import LostBag from "./src/pages/LostBag";
+import Home from "./src/pages/Home";
 
 const App = () => {
   axios.defaults.headers.common = {
@@ -51,10 +52,15 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen
+          options={{ headerShown: false }}
+          name="carousel"
+          component={Carousel}
+        />
         <Stack.Screen
           options={{ headerShown: false }}
           name="home"
-          component={Carousel}
+          component={Home}
         />
         <Stack.Screen
           options={{ headerShown: false }}

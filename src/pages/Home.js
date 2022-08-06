@@ -19,7 +19,7 @@ const Home = () => {
       
       <HomeCard
       header="Kayıp Bagaj Bilgisi"
-      destination={"Bag Details"}
+      destination={"Lost Bag"}
       imageLocation={require("../assets/images/kayıpbagaj.png")}
     />
     </View>

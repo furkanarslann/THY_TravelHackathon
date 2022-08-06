@@ -32,7 +32,7 @@ const LostBag = () => {
   const getLostBagCard = () => {
     setBag(
       lostBaggageFile?.bagInformation.bagDetails.filter(
-        (item) => item.tagNumber === text
+        (item) => item.tagNumber === text.toLocaleUpperCase()
       )[0]
     );
   };
