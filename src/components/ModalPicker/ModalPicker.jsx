@@ -25,8 +25,14 @@ const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
   };
   const inputChangeHandler = (text) => {
     setSearch(text);
-    const newData = tags.filter((item) =>
-      item.code.includes(text.toUpperCase())
+    const newData = tags.filter(
+      (item) =>
+        item.code.includes(text.toUpperCase()) ||
+        (typeof item.city == "string" &&
+          item.city.includes(text.toUpperCase())) ||
+        (item.port &&
+          typeof item.port.Name == "string" &&
+          item.port.Name.toLocaleUpperCase().includes(text.toLocaleUpperCase()))
     );
     setSearch(text);
     setFilteredData(newData);
@@ -77,6 +83,11 @@ const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
                 onPress={() => onPressItem(item)}
               >
                 <Text style={styles.text}>{item.code}</Text>
+                <Text>
+                  {item.port
+                    ? item.port.Name
+                    : typeof item.city == "string" && item.city}
+                </Text>
               </Pressable>
             );
           }}

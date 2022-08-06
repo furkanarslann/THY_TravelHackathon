@@ -20,8 +20,11 @@ const FlightsPage = () => {
 
   useEffect(() => {
     dispatch(getAirports());
-
+    airports.map((item) => {
+      console.log(item.LanguageInfo.Language);
+    })
     const arr = airports.map((item) => {
+
       return item.City.LanguageInfo !== ""
         ? {
             code: item.Code,
@@ -30,13 +33,16 @@ const FlightsPage = () => {
               : Array.isArray(item.City.LanguageInfo.Language.Name)
               ? item.City.LanguageInfo.Language[0].Name
               : item.City.LanguageInfo.Language.Name,
+              port:item.LanguageInfo.Language,
           }
         : {
             code: item.City.PortsInCity.Port.Code,
             city: item.LanguageInfo.Language,
+            port:item.LanguageInfo.Language,
           };
     });
     dispatch(setTags(arr));
+    console.log(arr);
   }, []);
 
   return (
