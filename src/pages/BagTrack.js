@@ -26,7 +26,7 @@ const BagTrack = () => {
   };
 
   useEffect(() => {
-    bag && navigation.navigate("Bag Details");
+    bag?.length!=0&&bag && navigation.navigate("Bag Details");
   }, [bag]);
 
   return (
@@ -86,24 +86,7 @@ const BagTrack = () => {
             <Text>Search Baggage</Text>
             <Text>Search</Text>
           </View>
-        ) : bag.length > 0 ? (
-          <TouchableOpacity
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              padding: 20,
-              marginTop: 10,
-              backgroundColor: "#f1f5f9",
-            }}
-            onPress={() => navigation.navigate("Bag Details")}
-          >
-            <Text>{bag[0].passengerInfo.name}</Text>
-            <Text>{bag[0].passengerInfo.surname}</Text>
-            <Text>{bag[0].passengerInfo.pnr}</Text>
-
-            <Text>Click for details</Text>
-          </TouchableOpacity>
-        ) : (
+        ) :  (
           <View>
             <Text>No Baggages Found</Text>
             <Text>Contact Us</Text>
