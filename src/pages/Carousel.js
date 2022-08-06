@@ -77,16 +77,11 @@ const Carousel = ({ navigation }) => {
 
       <TouchableOpacity
         onPress={() => navigation.navigate("home")}
-        disabled={sliderState.currentPage != 3}
         style={styles.button}
         opacity={0.5}
       >
         <Text style={{ textAlign: "center" }}>
-          <Ionicons
-            name="arrow-forward-circle-outline"
-            size={55}
-            color={sliderState.currentPage != 3 ? "grey" : "red"}
-          />
+          <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
         </Text>
       </TouchableOpacity>
       <Pagination pageIndex={pageIndex} />
