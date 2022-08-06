@@ -32,7 +32,7 @@ import Details from "./src/pages/Details";
 import { getBags } from "./src/redux/api/bag";
 import BagTrack from "./src/pages/BagTrack";
 import BagDetails from "./src/pages/BagDetails";
-
+import LostBag from "./src/pages/LostBag";
 
 const App = () => {
   axios.defaults.headers.common = {
@@ -43,14 +43,12 @@ const App = () => {
   const dispatch = useDispatch();
 
   const tags = useSelector((state) => state.airport.tags);
-  
+
   React.useEffect(() => {
     dispatch(getAirports());
-
   }, []);
 
   return (
-   
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -63,23 +61,19 @@ const App = () => {
           name="flights"
           component={DrawerNav}
         />
-         <Stack.Screen
+        <Stack.Screen
           options={{ headerShown: false }}
           name="flightDetails"
           component={Details}
         />
-         <Stack.Screen
+        <Stack.Screen
           options={{ headerShown: false }}
           name="Bag Track"
           component={BagTrack}
         />
-         <Stack.Screen
-        
-          name="Bag Details"
-          component={BagDetails}
-        />
+        <Stack.Screen name="Bag Details" component={BagDetails} />
+        <Stack.Screen name="Lost Baggage" component={LostBag} />
       </Stack.Navigator>
-    
     </NavigationContainer>
   );
 };
