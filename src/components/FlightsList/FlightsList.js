@@ -10,14 +10,7 @@ const FlightsList = ({ flights }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Available flights | {flights.length}</Text>
-      <FlatList
-        scrollEnabled={true}
-        data={flights}
-        initialNumToRender={1}
-        renderItem={({ item }) => {
-          return <FlightCard item={item} />;
-        }}
-      />
+    
     </View>
   );
 };
