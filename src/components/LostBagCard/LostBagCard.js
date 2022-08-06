@@ -36,11 +36,11 @@ const LostBagCard = ({ bag }) => {
           source={require("../../assets/images/baggage.png")}
         />
         <View style={styles.right}>
-          <Text style={{ fontWeight: "400" }}>
+          <Text style={{ fontWeight: "400",fontSize:17 }}>
             Tag Number:{" "}
             <Text style={{ fontWeight: "300" }}>{bag.tagNumber}</Text>
           </Text>
-          <Text style={{ fontWeight: "400" }}>
+          <Text style={{ fontWeight: "400",fontSize:16 }}>
             Brand: <Text style={{ fontWeight: "300" }}>{bag.brand}</Text>
           </Text>
         </View>

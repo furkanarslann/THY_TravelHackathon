@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   top_container: {
-    height: "20%",
+    height: "25%",
+    padding: 10,
   },
   mid_container: {
     flex: 1,
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   bottom_container: {
+    marginBottom: 5,
     padding: 5,
     borderRadius: 3,
     justifyContent: "center",
@@ -27,8 +29,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#282828",
   },
   left: {
-    width: 130,
-    height: 120,
+    width: 140,
+    height: 140,
   },
   right: {
     justifyContent: "center",
