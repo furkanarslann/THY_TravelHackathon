@@ -72,7 +72,7 @@ const App = () => {
           component={BagTrack}
         />
         <Stack.Screen name="Bag Details" component={BagDetails} />
-        <Stack.Screen name="Lost Baggage" component={LostBag} />
+        <Stack.Screen name="Lost Bag" component={LostBag} />
       </Stack.Navigator>
     </NavigationContainer>
   );
