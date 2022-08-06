@@ -5,11 +5,12 @@ import {
   StyleSheet,
   TextInput,
   ActivityIndicator,
+  Button,
 } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { getBags } from "../redux/api/bag";
+import { getBags, getLostBaggage } from "../redux/api/bag";
 import { useNavigation } from "@react-navigation/native";
 
 const BagTrack = () => {
@@ -109,7 +110,9 @@ const BagTrack = () => {
               <Text>Search for Baggages</Text>
               <Text>Click for details</Text>
             </View>} */}
+
       </View>
+      <Button title="pres" onPress={()=>dispatch(getLostBaggage("TK111222"))}></Button>
     </View>
   );
 };
