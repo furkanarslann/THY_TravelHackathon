@@ -4,9 +4,7 @@ import {
   Image,
   StyleSheet,
   TextInput,
-  Button,
   TouchableOpacity,
-  FlatList,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { getLostBaggage } from "../redux/api/lostBaggage";

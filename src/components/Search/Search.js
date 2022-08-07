@@ -1,14 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Modal,
-  SafeAreaView,
-  Pressable,
-  Button,
-  ActivityIndicator,
-  Dimensions,
-} from "react-native";
+import { View, Text, StyleSheet, Modal, ActivityIndicator } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import ModalPicker from "../ModalPicker/ModalPicker";
@@ -16,7 +6,6 @@ import ToModalPicker from "../ModalPicker/ToModalPicker";
 import Calender from "../DatePicker/Calendar";
 import { useDispatch, useSelector } from "react-redux";
 import { getFlightsByDate } from "../../redux/api/flight";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 const Search = () => {
   const [where, setWhere] = useState("SELECT");
@@ -48,11 +37,6 @@ const Search = () => {
   };
   const changeDateModalVisibility = (bool) => {
     setDateIsVisible(bool);
-  };
-  const convertDateToString = (date) => {
-    const day = date.getDate();
-    const month = date.toDateString.slice(4, 7);
-    const year = date.getFullYear();
   };
 
   return (

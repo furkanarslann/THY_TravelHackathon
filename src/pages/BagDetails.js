@@ -6,9 +6,9 @@ import BagStatus from "../components/BagStatusCard/BagStatus";
 
 const BagDetails = () => {
   const bag = useSelector((state) => state.bag.bag);
-  console.log(bag);
+
   const lastProcess = bag?.loadingStatus[0];
-  console.log(bag);
+
   const date = lastProcess?.processDate;
   const hour = date?.slice(10, 16);
   const fullDate = date?.slice(0, 10);
@@ -85,7 +85,7 @@ const BagDetails = () => {
       </Text>
     </View>
   );
-  console.log(bag);
+
 
   return (
     <SafeAreaView style={styles.container}>

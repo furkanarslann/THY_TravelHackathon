@@ -1,33 +1,11 @@
 import * as React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  PixelRatio,
-  Dimensions,
-  StatusBar,
-  SafeAreaView,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Button,
-} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { store } from "../../redux/store";
-import axios from "axios";
-import { getAirports } from "../../redux/api/airport";
-import AirportList from "../AirportList/AirportList";
-import Flights from "../Flights/Flights";
-import { getFlightsByDate } from "../../redux/api/flight";
-import { useState } from "react";
+import {  useSelector } from "react-redux";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FlightsPage from "../../pages/FlightsPage";
-import { MaterialIcons } from "@expo/vector-icons";
 import CustomDrawer from "../CustomDrawer/CustomDrawer";
 import Home from "../../pages/Home";
-import FlightDetails from "../FlightDetails/FlightDetails";
 import BagTrack from "../../pages/BagTrack";
 import BagDetails from "../../pages/BagDetails";
 import LostBag from "../../pages/LostBag";
@@ -38,8 +16,8 @@ import Carousel from "../../pages/Carousel";
 const Drawer = createDrawerNavigator();
 
 function THY_Drawer() {
-  const drawerActive=useSelector((state)=>state.drawerTrigger.drawerActive);
-  console.log(drawerActive);
+  const drawerActive = useSelector((state) => state.drawerTrigger.drawerActive);
+
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -57,22 +35,24 @@ function THY_Drawer() {
           headerTitleStyle: { color: "#EA2D10", alignSelf: "center" },
         }}
       >
-       {drawerActive&& <Drawer.Screen
-          name="Carousel"
-          component={Carousel}
-          options={{
-            drawerItemStyle: { height: 0 },
-            headerShown: false,
-            drawerLabel: "Anasayfa",
-            drawerIcon: ({ focused, size }) => (
-              <Ionicons
-                name={focused ? "home" : "home-outline"}
-                size={22}
-                color={focused ? "#ffffff" : "#000000"}
-              />
-            ),
-          }}
-        />}
+        {drawerActive && (
+          <Drawer.Screen
+            name="Carousel"
+            component={Carousel}
+            options={{
+              drawerItemStyle: { height: 0 },
+              headerShown: false,
+              drawerLabel: "Anasayfa",
+              drawerIcon: ({ focused, size }) => (
+                <Ionicons
+                  name={focused ? "home" : "home-outline"}
+                  size={22}
+                  color={focused ? "#ffffff" : "#000000"}
+                />
+              ),
+            }}
+          />
+        )}
         <Drawer.Screen
           name="Home"
           component={Home}

@@ -1,8 +1,8 @@
-import { View, Text, Image, Dimensions, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./HomeCard.style";
 import { useNavigation } from "@react-navigation/native";
 
-const HomeCard = ({ imageLocation, header, paragraph, destination }) => {
+const HomeCard = ({ imageLocation, header, destination }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity

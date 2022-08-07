@@ -1,15 +1,14 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FlightDetails from "../components/FlightDetails/FlightDetails";
-import RecommendationCard from "../components/Recommendation/RecommendationCard";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
 import { getWeather } from "../redux/api/weather";
 import { ScrollView } from "react-native-gesture-handler";
 
 const Details = () => {
   const dispatch = useDispatch();
-  const weather = useSelector((state) => state.weather.weather);
+
 
   const tags = useSelector((state) => state.airport.tags);
   const flight = useSelector((state) => state.flightDetails.details);

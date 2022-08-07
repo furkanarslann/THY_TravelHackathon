@@ -5,20 +5,19 @@ import {
   StyleSheet,
   TextInput,
   ActivityIndicator,
-  Button,
   SafeAreaView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { batch, useDispatch, useSelector } from "react-redux";
-import { getBags, getLostBaggage } from "../redux/api/bag";
+import { useDispatch, useSelector } from "react-redux";
+import { getBags } from "../redux/api/bag";
 import { useNavigation } from "@react-navigation/native";
 
 const BagTrack = () => {
   const navigation = useNavigation();
 
   const bag = useSelector((state) => state.bag.bag);
-  console.log(bag);
+
   const loadingState = useSelector((state) => state.bag.loadingState);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
@@ -52,8 +51,11 @@ const BagTrack = () => {
       <Text style={styles.title}>Bag Tracker</Text>
 
       <View style={{ width: "75%", alignItems: "center" }}>
-
-      <Text style={{paddingVertical:10,alignSelf:"flex-start",fontSize:16}}>Tag number</Text>
+        <Text
+          style={{ paddingVertical: 10, alignSelf: "flex-start", fontSize: 16 }}
+        >
+          Tag number
+        </Text>
         <TextInput
           value={search}
           onChangeText={(text) => setSearch(text)}
@@ -87,10 +89,6 @@ const BagTrack = () => {
             </Text>
           </View>
         )}
-        {/*  {bag&& <View style={{}}>
-              <Text>Search for Baggages</Text>
-              <Text>Click for details</Text>
-            </View>} */}
       </View>
     </SafeAreaView>
   );
@@ -119,7 +117,7 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     height: 40,
-    marginBottom:12,
+    marginBottom: 12,
     borderWidth: 0.3,
     padding: 10,
     borderRadius: 10,

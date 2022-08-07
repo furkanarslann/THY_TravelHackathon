@@ -1,11 +1,9 @@
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import FlightCard from "../FlightCard/FlightCard";
 import { useSelector } from "react-redux";
-import { SearchBar } from "react-native-screens";
 import Search from "../Search/Search";
-import AirportList from "../AirportList/AirportList";
 
 const Flights = () => {
   const flights = useSelector((state) => state.flight.flights);

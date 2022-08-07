@@ -1,22 +1,10 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Image,
-} from "react-native";
+import { View, Text, SafeAreaView, StyleSheet, Image } from "react-native";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Flights from "../components/Flights/Flights";
-import AirportList from "../components/AirportList/AirportList";
 import { getAirports } from "../redux/api/airport";
 import Search from "../components/Search/Search";
-import Calender from "../components/DatePicker/Calendar";
 import { setTags } from "../redux/slices/airportSlice";
-import FlightsList from "../components/FlightsList/FlightsList";
 import NoFlightsFound from "../components/NoFlightsFound/NoFlightsFound";
-import { MaterialIcons } from "@expo/vector-icons";
 import { FlatList } from "react-native-gesture-handler";
 import FlightCard from "../components/FlightCard/FlightCard";
 
@@ -29,9 +17,7 @@ const FlightsPage = () => {
 
   useEffect(() => {
     dispatch(getAirports());
-    airports.map((item) => {
-      console.log(item.LanguageInfo.Language);
-    });
+
     const arr = airports.map((item) => {
       return item.City.LanguageInfo !== ""
         ? {
@@ -50,7 +36,6 @@ const FlightsPage = () => {
           };
     });
     dispatch(setTags(arr));
-    console.log(arr);
   }, []);
 
   const listHeader = (
@@ -61,23 +46,7 @@ const FlightsPage = () => {
       )}
     </>
   );
-  /*  const searchComponent = (
-    <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-      
-      <Text
-        style={{
-          fontSize: 28,
-          paddingHorizontal: 20,
-          paddingVertical: 10,
-          fontWeight: "bold",
-          color: "#64748b",
-        }}
-      >
-        SEARCH FLIGHT
-      </Text>
-    </View>
-  ); */
-  console.log(flights);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -102,23 +71,19 @@ const FlightsPage = () => {
         </View>
       </View>
       {!Array.isArray(flights) && listHeader}
-      {
-        Array.isArray(flights) ? (
-          <FlatList
-            ListHeaderComponent={listHeader}
-            scrollEnabled={true}
-            data={flights}
-            initialNumToRender={1}
-            renderItem={({ item }) => {
-              return <FlightCard item={item} />;
-            }}
-          />
-        ) : (
-          flights && <NoFlightsFound />
-        ) /* : (
-        searchComponent
-      ) */
-      }
+      {Array.isArray(flights) ? (
+        <FlatList
+          ListHeaderComponent={listHeader}
+          scrollEnabled={true}
+          data={flights}
+          initialNumToRender={1}
+          renderItem={({ item }) => {
+            return <FlightCard item={item} />;
+          }}
+        />
+      ) : (
+        flights && <NoFlightsFound />
+      )}
     </SafeAreaView>
   );
 };

@@ -1,8 +1,5 @@
 import { View, Text } from "react-native";
 import React from "react";
-import { useSelector } from "react-redux";
-import FlightCard from "../FlightCard/FlightCard";
-import { FlatList } from "react-native-gesture-handler";
 
 const FlightsList = ({ flights }) => {
   const newdate = new Date();

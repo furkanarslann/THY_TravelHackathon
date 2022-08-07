@@ -1,7 +1,6 @@
-import { View, Text, Image, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getWeather } from "../../redux/api/weather";
+import { useSelector } from "react-redux";
 import styles from "./WeatherCard.style";
 import { Ionicons } from "@expo/vector-icons";
 import RecommendationCard from "../Recommendation/RecommendationCard";
@@ -18,12 +17,8 @@ const WeatherCard = () => {
   const [recommendations, setRecommendations] = useState();
   const flightDate = year + month + day;
   const days = weather?.forecast.forecastday;
-  /*   const [header, setHeader] = useState(""); */
 
   const daySpecified = days?.filter((item) => item.date == flightDate)[0];
-  let weatherMessage = null;
-  console.log(recommendations);
-  console.log(daySpecified);
 
   useEffect(() => {
     setRecommendations(
@@ -36,14 +31,6 @@ const WeatherCard = () => {
     (item) => item.key == daySpecified?.day.condition.text
   )[0]?.title;
 
-  /* useEffect(() => {
-    setHeader(
-      data.filter((item) => item.key == daySpecified?.day.condition.text)[0]
-        ?.recommendations[0].content
-    );
-  }, [header]); */
-
-  console.log(recommendations);
   const getWeatherCondition = () => {
     const weatherCondition = daySpecified?.day.condition.text;
     switch (weatherCondition) {

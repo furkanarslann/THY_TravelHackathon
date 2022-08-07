@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 200,
     height: 60,
-    marginTop:Dimensions.get('window').height/31,
+    marginTop: Dimensions.get("window").height / 31,
   },
 });
 

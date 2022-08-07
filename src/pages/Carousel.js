@@ -1,25 +1,22 @@
 import * as React from "react";
 import {
-  View,
   Text,
   StyleSheet,
   Dimensions,
   SafeAreaView,
   ScrollView,
-  Image,
 } from "react-native";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
-import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 const Carousel = () => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
-  console.log(sliderState.currentPage);
+ 
   const navigation = useNavigation();
 
   const setSliderPage = (event) => {
@@ -35,7 +32,6 @@ const Carousel = () => {
   };
 
   const { currentPage: pageIndex } = sliderState;
-  console.log(pageIndex);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff" }}>

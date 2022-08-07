@@ -11,17 +11,16 @@ export const flightSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // Add reducers for additional action types here, and handle loading state as needed
     builder.addCase(getFlightsByDate.pending, (state, action) => {
-      // Add user to the state array
+
       state.loadingState = "loading";
     }),
       builder.addCase(getFlightsByDate.rejected, (state, action) => {
-        // Add user to the state array
+  
         state.loadingState = "loading";
       }),
       builder.addCase(getFlightsByDate.fulfilled, (state, action) => {
-        // Add user to the state array
+  
         state.loadingState = "idle";
 
         state.flights = action.payload;
@@ -29,6 +28,6 @@ export const flightSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
+
 export const {} = flightSlice.actions;
 export default flightSlice.reducer;

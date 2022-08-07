@@ -8,15 +8,12 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
   const departureMinute = flight.scheduledLocalDepartureDatetime.slice(10, 12);
   const arrivalHour = flight.scheduledLocalArrivalDatetime.slice(8, 10);
   const arrivalMinute = flight.scheduledLocalArrivalDatetime.slice(10, 12);
-  const date = flight.scheduledLocalDepartureDatetime;
   const year = flight.scheduledLocalDepartureDatetime.slice(0, 4) + "/";
   const month = flight.scheduledLocalDepartureDatetime.slice(4, 6) + "/";
   const day = flight.scheduledLocalDepartureDatetime.slice(6, 8);
-  const hour = flight.scheduledLocalDepartureDatetime.slice(8, 10);
   const last = year + month + day;
   const newDate = new Date(last).toDateString();
 
-  console.log(flight);
   return (
     <View style={styles.container}>
       <View

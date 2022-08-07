@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View } from "react-native";
 import DatePicker from "react-native-modern-datepicker";
 import { getToday, getFormatedDate } from "react-native-modern-datepicker";
 
 const Calender = ({
-  selectedDate,
   setSelectedDate,
   changeDateModalVisibility,
 }) => {

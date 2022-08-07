@@ -1,15 +1,14 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
-    paddingVertical:25,
+    paddingVertical: 25,
     paddingHorizontal: 15,
     backgroundColor: "#0f172a",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     marginHorizontal: 10,
-    borderRadius:10,
-
+    borderRadius: 10,
   },
   left: {
     flex: 1,

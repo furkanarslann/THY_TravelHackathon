@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
+import { View, StyleSheet, Image, SafeAreaView } from "react-native";
 import React, { useEffect } from "react";
 import HomeCard from "../components/HomeCard/HomeCard";
 import { useDispatch } from "react-redux";

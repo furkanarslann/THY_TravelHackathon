@@ -7,9 +7,9 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+
+import { useSelector } from "react-redux";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
@@ -19,8 +19,7 @@ const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
   const [search, setSearch] = useState("");
   const WIDTH = Dimensions.get("window").width;
   const HEIGHT = Dimensions.get("window").height;
-  const where = useSelector((state) => state.airport.where);
-  const dispatch = useDispatch();
+
   const onPressItem = (option) => {
     setTo(option.code);
     setToCity(option.city);
@@ -69,12 +68,7 @@ const ToModalPicker = ({ changeModalVisibilityTo, setTo, setToCity }) => {
             borderRadius: 10,
           }}
         />
-        {/*    {tags.map((option,index)=>{
-                return <TouchableOpacity     
-                style={styles.option} key={index}  onPress={()=>onPressItem(option)}>
-                    <Text style={styles.text}>{option}</Text>
-                </TouchableOpacity>
-            })} */}
+
         <FlatList
           data={filteredData}
           initialNumToRender={1}
