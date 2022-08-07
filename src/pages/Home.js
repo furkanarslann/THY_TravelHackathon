@@ -1,33 +1,41 @@
 import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
 import React from "react";
 import HomeCard from "../components/HomeCard/HomeCard";
- 
 
 const Home = () => {
   const cards = [
     {
-      header: "Uçuş Sorgulama",
+      header: "Search Flights",
       imageLocation: require("../assets/images/searching_flights.png"),
       destination: "Flights",
     },
     {
-      header: "Bagaj Takibi",
+      header: "Track your baggages",
       imageLocation: require("../assets/images/bagajtakibi.png"),
       destination: "Bag Track",
     },
     {
-      header: "Kayıp Bagaj Bilgisi",
+      header: "Lost Baggage Service",
       imageLocation: require("../assets/images/kayıpbagaj.png"),
       destination: "Lost Bag",
     },
   ];
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{borderBottomWidth:.3,width:"100%",justifyContent:"center",alignItems:"center",paddingVertical:5}}>
-      <Image
-              source={require("../assets/images/thy.png")}
-              style={{ width: 50, height: 50 }}
-            />
+      <View
+        style={{
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          elevation: 5,
+          backgroundColor: "#F7F5F5",
+          paddingVertical: 8,
+        }}
+      >
+        <Image
+          source={require("../assets/images/thy.png")}
+          style={{ width: 50, height: 50, padding: 5 }}
+        />
       </View>
       {cards.map((card) => (
         <HomeCard
@@ -44,9 +52,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-   justifyContent:"center",
+    justifyContent: "space-between",
     backgroundColor: "white",
-
   },
 
   imageStyle: {

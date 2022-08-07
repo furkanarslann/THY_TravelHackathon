@@ -1,10 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get("window").width / 1.3,
+    width: Dimensions.get("window").width / 1.4,
     height: Dimensions.get("window").height / 4,
     marginVertical: 15,
-    backgroundColor: "#f0eded",
+    backgroundColor: "#F7F5F5",
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
@@ -29,13 +29,12 @@ const styles = StyleSheet.create({
   imageStyle: {
     height: "80%",
     width: "100%",
-
     borderRadius: 2,
   },
 
   header: {
     fontSize: 14,
-    fontWeight: "bold",
+    fontWeight: "400",
     textAlign: "center",
   },
 });
