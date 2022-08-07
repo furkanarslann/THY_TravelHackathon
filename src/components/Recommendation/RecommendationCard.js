@@ -3,7 +3,6 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 const RecommendationCard = ({ recommendation }) => {
-  console.log(recommendation);
   return (
     <View style={styles.container}>
       <Ionicons name="information-circle-outline" size={24} color="black" />
@@ -21,9 +20,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#D4EDDA",
     alignItems: "center",
     padding: 10,
-    /*   borderTopColor: "#14b8a6",
-    borderTopWidth: "4", */
     margin: 5,
+    marginHorizontal: 10,
     borderRadius: 20,
     paddingHorizontal: 20,
     shadowColor: "#000",
