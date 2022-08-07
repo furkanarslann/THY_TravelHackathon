@@ -23,7 +23,7 @@ const Home = () => {
   ];
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{borderBottomWidth:.3,width:"100%",justifyContent:"center",alignItems:"center",paddingVertical:10}}>
+      <View style={{borderBottomWidth:.3,width:"100%",justifyContent:"center",alignItems:"center",paddingVertical:5}}>
       <Image
               source={require("../assets/images/thy.png")}
               style={{ width: 50, height: 50 }}
