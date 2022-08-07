@@ -25,7 +25,7 @@ const Carousel = () => {
   const setSliderPage = (event) => {
     const { currentPage } = sliderState;
     const { x } = event.nativeEvent.contentOffset;
-    const indexOfNextScreen = Math.floor(x / width);
+    const indexOfNextScreen = Math.ceil(x / width);
     if (indexOfNextScreen !== currentPage) {
       setSliderState({
         ...sliderState,
@@ -35,7 +35,7 @@ const Carousel = () => {
   };
 
   const { currentPage: pageIndex } = sliderState;
-
+console.log(pageIndex);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff" }}>
       <ScrollView
