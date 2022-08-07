@@ -8,7 +8,7 @@ const Home = () => {
     {
       header: "Uçuş Sorgulama",
       imageLocation: require("../assets/images/searching_flights.png"),
-      destination: "flights",
+      destination: "Flights",
     },
     {
       header: "Bagaj Takibi",
