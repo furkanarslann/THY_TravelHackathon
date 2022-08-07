@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     height: "80%",
     width: "100%",
     borderRadius: 2,
+    padding:5,
   },
 
   header: {

@@ -16,7 +16,7 @@ const Home = () => {
     },
     {
       header: "Lost Baggage Service",
-      imageLocation: require("../assets/images/kayıpbagaj.png"),
+      imageLocation: require("../assets/images/kayipbagaj.png"),
       destination: "Lost Bag",
     },
   ];
@@ -27,9 +27,17 @@ const Home = () => {
           width: "100%",
           justifyContent: "center",
           alignItems: "center",
-          elevation: 5,
           backgroundColor: "#F7F5F5",
           paddingVertical: 8,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 3.2,
+          
+          elevation: 5,
         }}
       >
         <Image

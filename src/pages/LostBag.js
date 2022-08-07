@@ -25,10 +25,6 @@ const LostBag = () => {
 
   const lostBaggageFile = useSelector((state) => state.lostBag.lostBaggageFile);
 
-  console.log("====================================");
-  console.log(bag);
-  console.log("====================================");
-
   const getLostBagCard = () => {
     setBag(
       lostBaggageFile?.bagInformation.bagDetails.filter(
@@ -41,7 +37,7 @@ const LostBag = () => {
     <View style={styles.container}>
       <Image
         style={styles.lostBagImg}
-        source={require("../assets/images/search.png")}
+        source={require("../assets/images/search2.png")}
       ></Image>
 
       <Text style={styles.title}>Lost Baggage Service</Text>
@@ -66,13 +62,15 @@ const LostBag = () => {
         <View
           style={{
             alignItems: "center",
-            marginVertical: 25,
+            marginTop: 50,
             backgroundColor: "#EC0A0A9F",
             borderRadius: 15,
             padding: 15,
           }}
         >
-          <Text style={{ color: "white" }}>Tag number is not found.</Text>
+          <Text style={{ color: "white", fontWeight: "bold" }}>
+            Tag number is not found.
+          </Text>
           <Text style={{ color: "white" }}>
             Please contact us about the issue.
           </Text>
@@ -110,13 +108,23 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   button: {
-    backgroundColor: "#5B93CB",
+    backgroundColor: "#FF9204",
     padding: 12,
     marginTop: 5,
     borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+
+    elevation: 7,
   },
   buttonText: {
     color: "white",
     fontSize: 13,
+    fontWeight: "400",
   },
 });

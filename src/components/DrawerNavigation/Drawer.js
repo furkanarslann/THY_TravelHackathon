@@ -43,6 +43,7 @@ function THY_Drawer() {
         drawerContent={(props) => <CustomDrawer {...props} />}
         initialRouteName="Home"
         screenOptions={{
+          headerTitleAlign: "center",
           drawerItemStyle: { marginVertical: 8, padding: 3 },
           headerTintColor: "black",
           drawerStyle: { backgroundColor: "#5F0505F3" },
@@ -50,7 +51,7 @@ function THY_Drawer() {
           drawerInactiveBackgroundColor: "#AFAFAF",
           drawerActiveTintColor: "white",
           drawerInactiveTintColor: "black",
-          headerTitleStyle: { color: "#EA2D10" },
+          headerTitleStyle: { color: "#EA2D10", alignSelf: "center" },
         }}
       >
         <Drawer.Screen
@@ -102,6 +103,7 @@ function THY_Drawer() {
           name="Lost Bag"
           component={LostBag}
           options={{
+            headerTitleStyle: { color: "#EA7610" },
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Lost Baggages",
             drawerIcon: ({ focused, size }) => (
