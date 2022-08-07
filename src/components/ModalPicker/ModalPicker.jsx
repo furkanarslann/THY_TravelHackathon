@@ -83,7 +83,7 @@ const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
                 onPress={() => onPressItem(item)}
               >
                 <Text style={styles.text}>{item.code}</Text>
-                <Text>
+                <Text style={styles.textSmaller}>
                   {item.port
                     ? item.port.Name
                     : typeof item.city == "string" && item.city}
@@ -109,6 +109,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  textSmaller: {
+    paddingVertical:5,
+    paddingHorizontal:10,
+   
+
+
   },
   modal: {
     justifyContent: "center",
