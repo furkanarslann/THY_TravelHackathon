@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginHorizontal: 5,
+    marginHorizontal: 10,
     borderRadius:10,
 
   },

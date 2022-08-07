@@ -6,6 +6,7 @@ import styles from "./WeatherCard.style";
 import { Ionicons } from "@expo/vector-icons";
 import RecommendationCard from "../Recommendation/RecommendationCard";
 import data from "../../assets/json/recommendation.json";
+import TitleCard from "../TitleCard/TitleCard";
 
 const WeatherCard = () => {
   const weather = useSelector((state) => state.weather.weather);
@@ -17,17 +18,31 @@ const WeatherCard = () => {
   const [recommendations, setRecommendations] = useState();
   const flightDate = year + month + day;
   const days = weather?.forecast.forecastday;
+  /*   const [header, setHeader] = useState(""); */
 
   const daySpecified = days?.filter((item) => item.date == flightDate)[0];
   let weatherMessage = null;
   console.log(recommendations);
   console.log(daySpecified);
+
   useEffect(() => {
     setRecommendations(
       data.filter((item) => item.key == daySpecified?.day.condition.text)[0]
         ?.recommendations
     );
   }, [weather]);
+
+  const title = data.filter(
+    (item) => item.key == daySpecified?.day.condition.text
+  )[0]?.title;
+
+  /* useEffect(() => {
+    setHeader(
+      data.filter((item) => item.key == daySpecified?.day.condition.text)[0]
+        ?.recommendations[0].content
+    );
+  }, [header]); */
+
   console.log(recommendations);
   const getWeatherCondition = () => {
     const weatherCondition = daySpecified?.day.condition.text;
@@ -95,7 +110,7 @@ const WeatherCard = () => {
         )}
       </View>
       {weather && (
-        <View style={{ flex: 1,backgroundColor:"#ffffff" }}>
+        <View style={{ flex: 1, backgroundColor: "#ffffff" }}>
           <Text
             style={{
               fontSize: 16,
@@ -105,9 +120,9 @@ const WeatherCard = () => {
               color: "#134e4a",
             }}
           >
-            Baggage Recommendations
+            Travel Recommendations
           </Text>
-
+          {weather && recommendations && title && <TitleCard title={title} />}
           {weather &&
             recommendations &&
             recommendations.map((item) => (
