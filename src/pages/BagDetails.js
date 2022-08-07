@@ -5,12 +5,13 @@ import { FlatList } from "react-native-gesture-handler";
 import BagStatus from "../components/BagStatusCard/BagStatus";
 
 const BagDetails = () => {
-  const bag = useSelector((state) => state.bag.bag)[0];
-  const lastProcess = bag.loadingStatus[0];
+  const bag = useSelector((state) => state.bag.bag);
   console.log(bag);
-  const date = lastProcess.processDate;
-  const hour = date.slice(10, 16);
-  const fullDate = date.slice(0, 10);
+  const lastProcess = bag?.loadingStatus[0];
+  console.log(bag);
+  const date = lastProcess?.processDate;
+  const hour = date?.slice(10, 16);
+  const fullDate = date?.slice(0, 10);
   const ListHeader = (
     <View>
       <View style={styles.personalInfoContainer}>
@@ -36,7 +37,7 @@ const BagDetails = () => {
               {/*               <Text style={styles.pnr}>PNR: {bag.passengerInfo.pnr}</Text>
                */}
               <Text style={styles.tag}>
-                Tag: {bag.baggageInfo.bagTagNumber}
+                Tag: {bag?.baggageInfo.bagTagNumber}
               </Text>
             </View>
           </View>
@@ -59,10 +60,10 @@ const BagDetails = () => {
         >
           <View>
             <Text style={styles.lastProcessStatus}>
-              {bag.baggageInfo.lastStatus}
+              {bag?.baggageInfo.lastStatus}
             </Text>
             <Text style={styles.carrierNumber}>
-              Carrier: {bag.baggageInfo.bagTagCarrierNumber}
+              Carrier: {bag?.baggageInfo.bagTagCarrierNumber}
             </Text>
           </View>
           <View style={{ alignItems: "center" }}>
@@ -88,11 +89,11 @@ const BagDetails = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {
+      {bag?.length!=0&&bag&&
         <FlatList
           ListHeaderComponent={ListHeader}
           style={{ paddingHorizontal: 10, marginTop: 10 }}
-          data={bag.loadingStatus}
+          data={ bag.loadingStatus}
           initialNumToRender={7}
           renderItem={({ item }) => {
             return <BagStatus item={item} />;

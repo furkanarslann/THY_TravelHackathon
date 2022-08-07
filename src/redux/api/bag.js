@@ -7,7 +7,7 @@ export const getBags = createAsyncThunk("api/getBags", async (bagTagNumber) => {
     departureAirport: "JFK", //0TK546736
     arrivalAirport: "WAW",
   };
-  const response = await axios.post(URL, requestBody).then(res=>res.data.data.filter((item)=>item.baggageInfo.bagTagNumber==bagTagNumber));
+  const response = await axios.post(URL, requestBody).then(res=>res.data.data.filter((item)=>item.baggageInfo.bagTagNumber==bagTagNumber)[0]);
 
 console.log(response);
   return response;
