@@ -38,6 +38,8 @@ import Carousel from "../../pages/Carousel";
 const Drawer = createDrawerNavigator();
 
 function THY_Drawer() {
+  const drawerActive=useSelector((state)=>state.drawerTrigger.drawerActive);
+  console.log(drawerActive);
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -55,7 +57,7 @@ function THY_Drawer() {
           headerTitleStyle: { color: "#EA2D10", alignSelf: "center" },
         }}
       >
-        <Drawer.Screen
+       {drawerActive&& <Drawer.Screen
           name="Carousel"
           component={Carousel}
           options={{
@@ -70,7 +72,7 @@ function THY_Drawer() {
               />
             ),
           }}
-        />
+        />}
         <Drawer.Screen
           name="Home"
           component={Home}

@@ -5,7 +5,7 @@ import flightDetailsReducer from "./slices/flightDetailsSlice";
 import weatherReducer from "./slices/weatherSlice";
 import bagReducer from "./slices/bagSlice";
 import lostBagReducer from "./slices/lostBagSlice";
-
+import drawerTriggerReducer  from "./slices/drawerTriggerSlice";
 export const store = configureStore({
   reducer: {
     airport: airportReducer,
@@ -14,6 +14,7 @@ export const store = configureStore({
     weather: weatherReducer,
     bag: bagReducer,
     lostBag: lostBagReducer,
+    drawerTrigger:drawerTriggerReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

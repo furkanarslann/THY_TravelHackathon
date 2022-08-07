@@ -1,8 +1,14 @@
 import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import HomeCard from "../components/HomeCard/HomeCard";
+import { useDispatch } from "react-redux";
+import { toggleDrawerState } from "../redux/slices/drawerTriggerSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(toggleDrawerState());
+  }, []);
   const cards = [
     {
       header: "Search Flights",
@@ -36,7 +42,7 @@ const Home = () => {
           },
           shadowOpacity: 0.2,
           shadowRadius: 3.2,
-          
+
           elevation: 5,
         }}
       >
