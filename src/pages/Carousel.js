@@ -35,7 +35,8 @@ const Carousel = () => {
   };
 
   const { currentPage: pageIndex } = sliderState;
-console.log(pageIndex);
+  console.log(pageIndex);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffffff" }}>
       <ScrollView
@@ -53,38 +54,43 @@ console.log(pageIndex);
         }}
       >
         <Card
-          header="Merhaba! THY serüvenine hoşgeldin !"
+          header="Merhaba! THY serüvenine hoşgeldin!"
           paragraph="THY serüveni sizlere maksimum düzeyde hizmeti hedefleyerek birden fazla fırsatlar sunar. Fırsatlar ve genel bilgi için kaydırınız."
           imageLocation={require("../assets/images/welcoming.png")}
         />
         <Card
-          header="Bilet Al"
-          paragraph="299.99 TRY'den başlayan fiyatlarla uçmaya hazır olun!"
-          imageLocation={require("../assets/images/sales.png")}
+          header="Flights and Weather Reports"
+          paragraph="Easily reach the available flights and latest weather reports at your destination location for the best travelling experience!"
+          imageLocation={require("../assets/images/flight-weather.png")}
         />
         <Card
-          header="Uçuş Bul"
-          paragraph="Gitmek istediğiniz varış yerini seçerek uçuşlar hakkında genel bilgiye ulaşabilirsiniz."
-          imageLocation={require("../assets/images/aircraft.png")}
+          header="Bag Track"
+          paragraph="Instant status of your baggage is now one tap away from you. Reach the latest information of your baggage with Bag Track feature."
+          imageLocation={require("../assets/images/bag-track.png")}
         />
         <Card
-          header="Miles&Smiles üyesi misiniz?"
-          paragraph="Ödül bilet ve ücretsiz kabin yükseltme gibi benzersiz avantajlardan faydalanmak istiyorsanız bu fırsatı kaçırmayın!"
+          header=" Lost Baggage"
+          paragraph="Have you lost your baggage? No worries, THY Lost Baggage System is ready for your service. Enter your tag number and search your baggage status."
           imageLocation={require("../assets/images/membership.png")}
         />
       </ScrollView>
 
       <Text style={{ textAlign: "center", fontSize: 17 }}>
-        Uçuş bulmak için tıklayınız !
+        Press to go to home page
       </Text>
 
       <TouchableOpacity
         onPress={() => navigation.navigate("Home")}
         style={styles.button}
         opacity={0.5}
+        disabled={pageIndex === 3 ? false : true}
       >
         <Text style={{ textAlign: "center" }}>
-          <Ionicons name="arrow-forward-circle-outline" size={55} color="red" />
+          <Ionicons
+            name="arrow-forward-circle-outline"
+            size={55}
+            color={pageIndex === 3 ? "red" : "grey"}
+          />
         </Text>
       </TouchableOpacity>
       <Pagination pageIndex={pageIndex} />
@@ -131,7 +137,6 @@ const styles = StyleSheet.create({
   button: {
     paddingBottom: 50,
   },
-  buttonInactive: {},
 });
 
 export default Carousel;
