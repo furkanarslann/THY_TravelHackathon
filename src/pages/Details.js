@@ -5,6 +5,7 @@ import FlightDetails from "../components/FlightDetails/FlightDetails";
 import RecommendationCard from "../components/Recommendation/RecommendationCard";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
 import { getWeather } from "../redux/api/weather";
+import { ScrollView } from "react-native-gesture-handler";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -24,17 +25,18 @@ const Details = () => {
       if (item.code == flight.scheduledDepartureAirport)
         setDepartureCity(item.city);
     });
-  }, []);
+  }, [flight]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <FlightDetails
-        departureCity={departureCity}
-        arrivalCity={arrivalCity}
-        flight={flight}
-      />
-      <WeatherCard />
-      <RecommendationCard />
+      <ScrollView style={{flex:1}}>
+        <FlightDetails
+          departureCity={departureCity}
+          arrivalCity={arrivalCity}
+          flight={flight}
+        />
+        <WeatherCard />
+      </ScrollView>
     </SafeAreaView>
   );
 };

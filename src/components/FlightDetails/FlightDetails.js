@@ -8,6 +8,15 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
   const departureMinute = flight.scheduledLocalDepartureDatetime.slice(10, 12);
   const arrivalHour = flight.scheduledLocalArrivalDatetime.slice(8, 10);
   const arrivalMinute = flight.scheduledLocalArrivalDatetime.slice(10, 12);
+  const date = flight.scheduledLocalDepartureDatetime;
+  const year = flight.scheduledLocalDepartureDatetime.slice(0, 4) + "/";
+  const month = flight.scheduledLocalDepartureDatetime.slice(4, 6) + "/";
+  const day = flight.scheduledLocalDepartureDatetime.slice(6, 8);
+  const hour = flight.scheduledLocalDepartureDatetime.slice(8, 10);
+  const last = year + month + day;
+  const newDate = new Date(last).toDateString();
+
+  console.log(flight);
   return (
     <View style={styles.container}>
       <View
@@ -15,23 +24,30 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-        }} 
+        }}
       >
         <View style={styles.airport}>
           <MaterialIcons name="flight-takeoff" size={48} color="#475569" />
           <Text style={styles.code}>{flight.scheduledDepartureAirport}</Text>
           <Text style={styles.city}>{departureCity}</Text>
-          <Text style={styles.time}>{departureHour}:{departureMinute}</Text>
+          <Text style={styles.time}>
+            {departureHour}:{departureMinute}
+          </Text>
         </View>
-        <AntDesign name="rightcircle" size={64} color="#dc2626" />
+        <AntDesign name="rightcircle" size={64} color="#475569" />
         <View style={styles.airport}>
           <MaterialIcons name="flight-land" size={48} color="#475569" />
 
           <Text style={styles.code}>{flight.scheduledArrivalAirport}</Text>
           <Text style={styles.city}>{arrivalCity}</Text>
-          <Text style={styles.time}>{arrivalHour}:{arrivalMinute}</Text>
+          <Text style={styles.time}>
+            {arrivalHour}:{arrivalMinute}
+          </Text>
         </View>
       </View>
+      <Text style={{ paddingBottom: 10, fontSize: 16, color: "#64748b" }}>
+        {newDate}
+      </Text>
     </View>
   );
 };
@@ -39,8 +55,22 @@ const FlightDetails = ({ flight, departureCity, arrivalCity }) => {
 export default FlightDetails;
 const styles = StyleSheet.create({
   container: {
-    borderTopWidth: 0.3,
-    borderBottomWidth: 0.3,
+    marginTop: 10,
+    marginBottom: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 5,
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   code: {
     fontSize: 32,
@@ -57,7 +87,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 0.5,
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 10,
     paddingHorizontal: 10,
   },
   time: {

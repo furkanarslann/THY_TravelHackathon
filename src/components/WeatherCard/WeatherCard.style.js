@@ -1,13 +1,15 @@
 import { Dimensions, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get("window").width / 1.1,
-    height: Dimensions.get("window").height / 5.5,
-    backgroundColor: "#7CADD8FA",
-    borderRadius: 8,
-    alignSelf: "center",
+    paddingVertical:25,
+    paddingHorizontal: 15,
+    backgroundColor: "#0f172a",
     flexDirection: "row",
-    padding: 5,
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 5,
+    borderRadius:10,
+
   },
   left: {
     flex: 1,
@@ -25,18 +27,22 @@ const styles = StyleSheet.create({
   },
   city: {
     color: "white",
-    fontSize: 23,
-    fontWeight:'300'
+    color: "#cbd5e1",
+    fontSize: 36,
+    fontWeight: "300",
+    marginBottom: 5,
   },
   date: {
-    marginTop: 5,
-    color: "white",
-    fontWeight:'21'
+    color: "#cbd5e1",
+    fontSize: 16,
+    fontWeight: "300",
+    marginBottom: 5,
   },
   degree: {
-    color: "white",
-    fontSize: 40,
-  
+    color: "#cbd5e1",
+    fontSize: 36,
+    fontWeight: "300",
+    marginBottom: 5,
   },
 });
 export default styles;

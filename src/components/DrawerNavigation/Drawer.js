@@ -122,9 +122,10 @@ function THY_Drawer() {
           }}
         />
         <Drawer.Screen
-          name="Details"
+          name="Flight Details"
           component={Details}
           options={{
+            headerTitleStyle:{color:"#0f172a"},
             drawerItemStyle: { height: 0 },
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Details",
