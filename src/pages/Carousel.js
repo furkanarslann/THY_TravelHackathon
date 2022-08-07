@@ -14,11 +14,14 @@ import Card from "../components/CarouselCard/Card";
 import Pagination from "../components/PaginationDots/Pagination";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
-const Carousel = ({ navigation }) => {
+const Carousel = () => {
   const [sliderState, setSliderState] = useState({ currentPage: 0 });
   const width = Dimensions.get("window").width;
   console.log(sliderState.currentPage);
+  const navigation = useNavigation();
+
   const setSliderPage = (event) => {
     const { currentPage } = sliderState;
     const { x } = event.nativeEvent.contentOffset;
@@ -76,7 +79,7 @@ const Carousel = ({ navigation }) => {
       </Text>
 
       <TouchableOpacity
-        onPress={() => navigation.navigate("home")}
+        onPress={() => navigation.navigate("Home")}
         style={styles.button}
         opacity={0.5}
       >

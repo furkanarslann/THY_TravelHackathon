@@ -33,6 +33,7 @@ import BagDetails from "../../pages/BagDetails";
 import LostBag from "../../pages/LostBag";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Details from "../../pages/Details";
+import Carousel from "../../pages/Carousel";
 
 const Drawer = createDrawerNavigator();
 
@@ -41,7 +42,7 @@ function THY_Drawer() {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <CustomDrawer {...props} />}
-        initialRouteName="Home"
+        initialRouteName="Carousel"
         screenOptions={{
           headerTitleAlign: "center",
           drawerItemStyle: { marginVertical: 8, padding: 3 },
@@ -54,6 +55,22 @@ function THY_Drawer() {
           headerTitleStyle: { color: "#EA2D10", alignSelf: "center" },
         }}
       >
+        <Drawer.Screen
+          name="Carousel"
+          component={Carousel}
+          options={{
+            drawerItemStyle: { height: 0 },
+            headerShown: false,
+            drawerLabel: "Anasayfa",
+            drawerIcon: ({ focused, size }) => (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={22}
+                color={focused ? "#ffffff" : "#000000"}
+              />
+            ),
+          }}
+        />
         <Drawer.Screen
           name="Home"
           component={Home}
@@ -127,7 +144,7 @@ function THY_Drawer() {
           name="Flight Details"
           component={Details}
           options={{
-            headerTitleStyle:{color:"#0f172a"},
+            headerTitleStyle: { color: "#0f172a" },
             drawerItemStyle: { height: 0 },
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Details",
