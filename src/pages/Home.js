@@ -1,28 +1,42 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
 import React from "react";
 import HomeCard from "../components/HomeCard/HomeCard";
+ 
 
 const Home = () => {
+  const cards = [
+    {
+      header: "Uçuş Sorgulama",
+      imageLocation: require("../assets/images/searching_flights.png"),
+      destination: "flights",
+    },
+    {
+      header: "Bagaj Takibi",
+      imageLocation: require("../assets/images/bagajtakibi.png"),
+      destination: "Bag Track",
+    },
+    {
+      header: "Kayıp Bagaj Bilgisi",
+      imageLocation: require("../assets/images/kayıpbagaj.png"),
+      destination: "Lost Bag",
+    },
+  ];
   return (
-    <View style={styles.container}>
-      <HomeCard
-        header="Uçuş Sorgulama"
-        imageLocation={require("../assets/images/searching_flights.png")}
-        destination={"flights"}
-      />
-
-      <HomeCard
-        header="Bagaj Takibi"
-        destination={"Bag Track"}
-        imageLocation={require("../assets/images/bagajtakibi.png")}
-      />
-
-      <HomeCard
-        header="Kayıp Bagaj Bilgisi"
-        destination={"Lost Bag"}
-        imageLocation={require("../assets/images/kayıpbagaj.png")}
-      />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={{borderBottomWidth:.3,width:"100%",justifyContent:"center",alignItems:"center",paddingVertical:10}}>
+      <Image
+              source={require("../assets/images/thy.png")}
+              style={{ width: 50, height: 50 }}
+            />
+      </View>
+      {cards.map((card) => (
+        <HomeCard
+          header={card.header}
+          imageLocation={card.imageLocation}
+          destination={card.destination}
+        />
+      ))}
+    </SafeAreaView>
   );
 };
 
@@ -30,12 +44,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+   
     backgroundColor: "white",
+
   },
 
   imageStyle: {
-    height: "20%",
+    height: "100%",
     width: "100%",
     justifyContent: "center",
     alignSelf: "center",

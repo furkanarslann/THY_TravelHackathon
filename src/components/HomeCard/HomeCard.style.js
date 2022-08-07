@@ -4,40 +4,40 @@ const styles = StyleSheet.create({
     width: Dimensions.get("window").width / 1.3,
     height: Dimensions.get("window").height / 4,
     marginVertical: 15,
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#f0eded",
     borderRadius: 10,
-    shadowColor: "#8b0000",
-    shadowOpacity: 10,
-    shadowRadius: 18,
-    
-    justifyContent:"center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+
+    justifyContent: "center",
   },
 
   bottomcontainer: {
-height:"20%",
-width:"100%",
-justifyContent:"center",
-alignItems:"center",
-
-
+    height: "20%",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   imageStyle: {
     height: "80%",
     width: "100%",
-    
+
     borderRadius: 2,
-  
   },
 
-  
   header: {
     fontSize: 14,
     fontWeight: "bold",
-    textAlign:"center",
-    
+    textAlign: "center",
   },
-
 });
 
 export default styles;
