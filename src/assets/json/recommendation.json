@@ -1,10 +1,8 @@
 [
   {
     "key": "Sunny",
+    "title": "Looks like it's going to be sunny day we have some recommendations for you to have a better day there!",
     "recommendations": [
-      {
-        "content": "Looks like it's going to be sunny day we have some recommendations for you to have a better day there!"
-      },
       { "content": "You may want to take your hat while going out." },
       {
         "content": "Wear light-colored clothes that are suitable for the season, that will not raise the body temperature too much, that will not make you sweat."
@@ -16,10 +14,8 @@
   },
   {
     "key": "Moderate rain",
+    "title": "Looks like it's going to be a rainy day we have some recommendations for you to have a better day there!",
     "recommendations": [
-      {
-        "content": "Looks like it's going to be a rainy day we have some recommendations for you to have a better day there!"
-      },
       { "content": "You may want to take your umbrella with you" },
       {
         "content": "Taking raincoat with you could be a good choice."
@@ -35,10 +31,8 @@
   },
   {
     "key": "Patchy rain possible",
+    "title": "It might be a rainy day, we have some recommendations for you to have a better day there!",
     "recommendations": [
-      {
-        "content": "It might be a rainy day, we have some recommendations for you to have a better day there!"
-      },
       { "content": "You may want to take your umbrella with you" },
       {
         "content": "Taking raincoat with you could be a good choice."
@@ -55,10 +49,8 @@
 
   {
     "key": "Light rain shower",
+    "title": "Looks like it could be a rainy day out there, we have some recommendations for you to have a better day",
     "recommendations": [
-      {
-        "content": "Looks like it could be a rainy day out there, we have some recommendations for you to have a better day"
-      },
       { "content": "You may want to take your umbrella with you" },
       {
         "content": "Taking raincoat with you could be a good choice."
@@ -74,10 +66,8 @@
   },
   {
     "key": "Partly cloudy",
+    "title": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day",
     "recommendations": [
-      {
-        "content": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day"
-      },
       { "content": "You may want to take your umbrella with you" },
       {
         "content": "You should not prefer thick clothes just incase it gets hotter during the day"
@@ -86,10 +76,8 @@
   },
   {
     "key": "Cloudy",
+    "title": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day",
     "recommendations": [
-      {
-        "content": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day"
-      },
       { "content": "You may want to take a jacket with you" },
       {
         "content": "You should not prefer thick clothes if it gets hotter during the day it might bother you"
@@ -98,10 +86,8 @@
   },
   {
     "key": "Clear",
+    "title": "Looks like weather will be clear when you land, thus we have some recommendations for you to have a better day.",
     "recommendations": [
-      {
-        "content": "Looks like weather will be clear when you land, thus we have some recommendations for you to have a better day."
-      },
       {
         "content": "Wear light-colored clothes that are suitable for the season, that will not raise the body temperature too much, that will not make you sweat."
       },
@@ -110,11 +96,8 @@
   },
   {
     "key": "Overcast",
+    "title": "Looks like weather will be overcasting, thus we have some recommendations for you to have a better day.",
     "recommendations": [
-      {
-        "content": "Looks like weather will be overcasting, thus we have some recommendations for you to have a better day."
-      },
-
       { "content": "You may want to take your umbrella with you" },
       {
         "content": "Taking raincoat with you could be a good choice."
@@ -126,11 +109,8 @@
   },
   {
     "key": "Light Drizzle",
+    "title": "Looks like weather will be drizzling, thus we have some recommendations for you to have a better day.",
     "recommendations": [
-      {
-        "content": "Looks like weather will be drizzling, thus we have some recommendations for you to have a better day."
-      },
-
       {
         "content": "Taking raincoat with you could be a good idea."
       },
