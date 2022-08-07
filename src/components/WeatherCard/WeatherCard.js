@@ -35,31 +35,22 @@ const WeatherCard = () => {
     const weatherCondition = daySpecified?.day.condition.text;
     switch (weatherCondition) {
       case "Patchy rain possible":
-        weatherMessage = "Weather possibly will be raining when you land.";
         return "rainy-outline";
       case "Sunny":
-        weatherMessage = "Weather possibly will be sunny when you land.";
         return "sunny";
       case "Moderate rain":
-        weatherMessage = "Weather bla bla";
         return "rainy-outline";
       case "Light rain shower":
-        weatherMessage = "Weather bla bla";
         return "rainy-outline";
       case "Partly cloudy":
-        weatherMessage = "Weather bla bla";
         return "cloudy-outline";
       case "Cloudy":
-        weatherMessage = "Weather bla bla";
         return "cloudy-outline";
       case "Clear":
-        weatherMessage = "Weather bla bla";
         return "sunny";
       case "Overcast":
-        weatherMessage = "Weather bla bla";
         return "cloudy-outline";
       case "Light Drizzle":
-        weatherMessage = "Weather bla bla";
         return "rainy-outline";
     }
   };
@@ -93,7 +84,7 @@ const WeatherCard = () => {
             </View>
           </>
         ) : (
-          <ActivityIndicator style={{ width: 200, height: 200 }} />
+          <ActivityIndicator size={32} style={{ alignSelf: "center" }} />
         )}
       </View>
       {weather && (
@@ -110,11 +101,13 @@ const WeatherCard = () => {
             Travel Recommendations
           </Text>
           {weather && recommendations && title && <TitleCard title={title} />}
-          {weather &&
-            recommendations &&
-            recommendations.map((item,index) => (
+          {weather && recommendations ? (
+            recommendations.map((item, index) => (
               <RecommendationCard recommendation={item} key={index} />
-            ))}
+            ))
+          ) : (
+            <ActivityIndicator size={32} />
+          )}
         </View>
       )}
     </>
