@@ -32,6 +32,7 @@ import BagTrack from "../../pages/BagTrack";
 import BagDetails from "../../pages/BagDetails";
 import LostBag from "../../pages/LostBag";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Details from "../../pages/Details";
 
 const Drawer = createDrawerNavigator();
 
@@ -103,6 +104,52 @@ function THY_Drawer() {
           options={{
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Lost Baggages",
+            drawerIcon: ({ focused, size }) => (
+              <>
+                <MaterialCommunityIcons
+                  name={focused ? "bag-suitcase" : "bag-suitcase-outline"}
+                  size={20}
+                  color={focused ? "white" : "black"}
+                />
+                <MaterialCommunityIcons
+                  name={focused ? "head-question" : "head-question-outline"}
+                  style={{ height: 20, marginRight: -11 }}
+                  size={16}
+                  color={focused ? "white" : "black"}
+                />
+              </>
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Details"
+          component={Details}
+          options={{
+            drawerStatusBarAnimation: "slide",
+            drawerLabel: "Details",
+            drawerIcon: ({ focused, size }) => (
+              <>
+                <MaterialCommunityIcons
+                  name={focused ? "bag-suitcase" : "bag-suitcase-outline"}
+                  size={20}
+                  color={focused ? "white" : "black"}
+                />
+                <MaterialCommunityIcons
+                  name={focused ? "head-question" : "head-question-outline"}
+                  style={{ height: 20, marginRight: -11 }}
+                  size={16}
+                  color={focused ? "white" : "black"}
+                />
+              </>
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Bag Details"
+          component={BagDetails}
+          options={{
+            drawerStatusBarAnimation: "slide",
+            drawerLabel: "Bag Details",
             drawerIcon: ({ focused, size }) => (
               <>
                 <MaterialCommunityIcons

@@ -35,7 +35,7 @@ const FlightCard = ({ item }) => {
     <TouchableOpacity
       onPress={() => {
         dispatch(setFlightDetails(item));
-        navigation.navigate("flightDetails");
+        navigation.navigate("Details");
       }}
       style={styles.container}
     >

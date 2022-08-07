@@ -7,6 +7,8 @@ import {
 import styles from "./CustomDrawer.style";
 
 const CustomDrawer = (props) => {
+  const names = [];
+  
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.header}>
