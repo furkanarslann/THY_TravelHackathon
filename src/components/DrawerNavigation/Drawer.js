@@ -43,7 +43,7 @@ function THY_Drawer() {
         drawerContent={(props) => <CustomDrawer {...props} />}
         initialRouteName="Home"
         screenOptions={{
-          drawerItemStyle: { marginVertical: 8, padding:3 },
+          drawerItemStyle: { marginVertical: 8, padding: 3 },
           headerTintColor: "black",
           drawerStyle: { backgroundColor: "#5F0505F3" },
           drawerActiveBackgroundColor: "#B71E06",
@@ -125,6 +125,7 @@ function THY_Drawer() {
           name="Details"
           component={Details}
           options={{
+            drawerItemStyle: { height: 0 },
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Details",
             drawerIcon: ({ focused, size }) => (
@@ -148,6 +149,7 @@ function THY_Drawer() {
           name="Bag Details"
           component={BagDetails}
           options={{
+            drawerItemStyle: { height: 0 },
             drawerStatusBarAnimation: "slide",
             drawerLabel: "Bag Details",
             drawerIcon: ({ focused, size }) => (
