@@ -52,6 +52,8 @@ const BagTrack = () => {
       <Text style={styles.title}>Bag Tracker</Text>
 
       <View style={{ width: "75%", alignItems: "center" }}>
+
+      <Text style={{paddingVertical:10,alignSelf:"flex-start",fontSize:16}}>Tag number</Text>
         <TextInput
           value={search}
           onChangeText={(text) => setSearch(text)}
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     height: 40,
-    margin: 12,
+    marginBottom:12,
     borderWidth: 0.3,
     padding: 10,
     borderRadius: 10,

@@ -96,7 +96,7 @@ const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
                 <Text style={styles.text}>{item.code}</Text>
                 <Text style={styles.textSmaller}>
                   {item.port
-                    ? item.port.Name.toLocaleUpperCase()
+                    ? item.port.Name?.toLocaleUpperCase()
                     : typeof item.city == "string" &&
                       item.city.toLocaleUpperCase()}
                 </Text>

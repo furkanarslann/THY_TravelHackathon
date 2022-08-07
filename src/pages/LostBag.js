@@ -92,6 +92,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
   },
+  line1:{
+    fontSize:16,
+    paddingVertical:10,
+  },
   lostBagImg: {
     borderRadius: 15,
     width: "70%",
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "300",
-    fontSize: 23,
+    fontSize: 32,
   },
   search_container: {
     marginVertical: 15,
@@ -107,9 +111,12 @@ const styles = StyleSheet.create({
   },
   input_box: {
     width: "100%",
-    padding: 5,
-    borderWidth: 0.8,
-    borderRadius: 6,
+    height: 40,
+  
+    borderWidth: 0.3,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: "#fafafa",
   },
   button: {
     backgroundColor: "#FF9204",

@@ -19,7 +19,7 @@ const BagStatus = ({ item }) => {
       </View>
     </TouchableOpacity>
   );
-};
+};  
 
 export default BagStatus;
 
