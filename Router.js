@@ -12,7 +12,7 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./src/redux/store";
@@ -49,6 +49,7 @@ const App = () => {
 
   React.useEffect(() => {
     dispatch(getAirports());
+    useNavigation().navigate("")
   }, []);
 
   return <THY_Drawer />;
