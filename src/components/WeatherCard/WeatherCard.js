@@ -112,8 +112,8 @@ const WeatherCard = () => {
           {weather && recommendations && title && <TitleCard title={title} />}
           {weather &&
             recommendations &&
-            recommendations.map((item) => (
-              <RecommendationCard recommendation={item} />
+            recommendations.map((item,index) => (
+              <RecommendationCard recommendation={item} key={index} />
             ))}
         </View>
       )}

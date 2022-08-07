@@ -51,8 +51,9 @@ const Home = () => {
           style={{ width: 50, height: 50, padding: 5 }}
         />
       </View>
-      {cards.map((card) => (
+      {cards.map((card,index) => (
         <HomeCard
+        key={index}
           header={card.header}
           imageLocation={card.imageLocation}
           destination={card.destination}
