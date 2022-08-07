@@ -26,7 +26,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Carousel from "./src/pages/Carousel";
 import { createStackNavigator } from "@react-navigation/stack";
 import FlightsPage from "./src/pages/FlightsPage";
-import DrawerNav from "./src/components/DrawerNavigation/Drawer";
+import THY_Drawer from "./src/components/DrawerNavigation/Drawer";
 import FlightDetails from "./src/components/FlightDetails/FlightDetails";
 import Details from "./src/pages/Details";
 import { getBags } from "./src/redux/api/bag";
@@ -34,6 +34,7 @@ import BagTrack from "./src/pages/BagTrack";
 import BagDetails from "./src/pages/BagDetails";
 import LostBag from "./src/pages/LostBag";
 import Home from "./src/pages/Home";
+import CustomDrawer from "./src/components/CustomDrawer/CustomDrawer";
 
 const App = () => {
   axios.defaults.headers.common = {
@@ -41,6 +42,7 @@ const App = () => {
     apisecret: "885c340e96ac4c7a9638c021ccbe8a01",
   };
   const Stack = createStackNavigator();
+  const Drawer = createDrawerNavigator();
   const dispatch = useDispatch();
 
   const tags = useSelector((state) => state.airport.tags);
@@ -49,39 +51,7 @@ const App = () => {
     dispatch(getAirports());
   }, []);
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen
-          options={{ headerShown: false }}
-          name="carousel"
-          component={Carousel}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="home"
-          component={Home}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="flights"
-          component={DrawerNav}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="flightDetails"
-          component={Details}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="Bag Track"
-          component={BagTrack}
-        />
-        <Stack.Screen name="Bag Details" component={BagDetails} />
-        <Stack.Screen name="Lost Bag" component={LostBag} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <THY_Drawer />;
 };
 export default App;
 

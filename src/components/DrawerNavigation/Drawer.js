@@ -26,70 +26,103 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FlightsPage from "../../pages/FlightsPage";
 import { MaterialIcons } from "@expo/vector-icons";
 import CustomDrawer from "../CustomDrawer/CustomDrawer";
-/* function Feed() {
-  const dispatch = useDispatch();
-
-  return <Flights />;
-}
-
-function Article() {
-  return (
-    <View>
-      <AirportList />
-    </View>
-  );
-} */
+import Home from "../../pages/Home";
+import FlightDetails from "../FlightDetails/FlightDetails";
+import BagTrack from "../../pages/BagTrack";
+import BagDetails from "../../pages/BagDetails";
+import LostBag from "../../pages/LostBag";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Drawer = createDrawerNavigator();
 
-function DrawerNav() {
+function THY_Drawer() {
   return (
-    <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawer {...props} />}
-      initialRouteName="Flights"
-      screenOptions={{
-        headerTintColor: 'black',
-        drawerStyle: { backgroundColor: "#5F0505F3" },
-        drawerActiveBackgroundColor: "#B71E06",
-        drawerInactiveBackgroundColor: "#AFAFAF",
-        drawerActiveTintColor: "white",
-        drawerInactiveTintColor: "black",
-      }}
-    >
-      <Drawer.Screen
-        name="Home"
-        component={FlightsPage} // degiscek
-        options={{
-          headerTitleStyle: { color: "#EA2D10" },
-          drawerLabel: "Anasayfa",
+    <NavigationContainer>
+      <Drawer.Navigator
+        drawerContent={(props) => <CustomDrawer {...props} />}
+        initialRouteName="Home"
+        screenOptions={{
+          drawerItemStyle: { marginVertical: 8, padding:3 },
+          headerTintColor: "black",
+          drawerStyle: { backgroundColor: "#5F0505F3" },
+          drawerActiveBackgroundColor: "#B71E06",
+          drawerInactiveBackgroundColor: "#AFAFAF",
           drawerActiveTintColor: "white",
-          drawerIcon: ({ focused, size }) => (
-            <Ionicons
-              name={focused ? "home" : "home-outline"}
-              size={22}
-              color={focused ? "#ffffff" : "#000000"}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Flights"
-        component={FlightsPage}
-        options={{
-          drawerStatusBarAnimation: "slide",
+          drawerInactiveTintColor: "black",
           headerTitleStyle: { color: "#EA2D10" },
-          drawerLabel: "Uçuş bul",
-          drawerIcon: ({ focused, size }) => (
-            <Ionicons
-              name={focused ? "airplane" : "airplane-outline"}
-              size={22}
-              color={focused ? "white" : "black"}
-            />
-          ),
         }}
-      />
-    </Drawer.Navigator>
+      >
+        <Drawer.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerShown: false,
+            drawerLabel: "Anasayfa",
+            drawerIcon: ({ focused, size }) => (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={22}
+                color={focused ? "#ffffff" : "#000000"}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Flights"
+          component={FlightsPage}
+          options={{
+            drawerStatusBarAnimation: "slide",
+            drawerLabel: "Search Flights",
+            drawerIcon: ({ focused, size }) => (
+              <Ionicons
+                name={focused ? "airplane" : "airplane-outline"}
+                size={22}
+                color={focused ? "white" : "black"}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Bag Track"
+          component={BagTrack}
+          options={{
+            drawerStatusBarAnimation: "slide",
+            drawerLabel: "Track Your Baggage",
+            drawerIcon: ({ focused, size }) => (
+              <MaterialCommunityIcons
+                name={focused ? "bag-suitcase" : "bag-suitcase-outline"}
+                size={22}
+                color={focused ? "white" : "black"}
+              />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Lost Bag"
+          component={LostBag}
+          options={{
+            drawerStatusBarAnimation: "slide",
+            drawerLabel: "Lost Baggages",
+            drawerIcon: ({ focused, size }) => (
+              <>
+                <MaterialCommunityIcons
+                  name={focused ? "bag-suitcase" : "bag-suitcase-outline"}
+                  size={20}
+                  color={focused ? "white" : "black"}
+                />
+                <MaterialCommunityIcons
+                  name={focused ? "head-question" : "head-question-outline"}
+                  style={{ height: 20, marginRight: -11 }}
+                  size={16}
+                  color={focused ? "white" : "black"}
+                />
+              </>
+            ),
+          }}
+        />
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 
-export default DrawerNav;
+export default THY_Drawer;
