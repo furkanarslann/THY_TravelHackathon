@@ -49,7 +49,6 @@ const App = () => {
 
   React.useEffect(() => {
     dispatch(getAirports());
-    useNavigation().navigate("")
   }, []);
 
   return <THY_Drawer />;
