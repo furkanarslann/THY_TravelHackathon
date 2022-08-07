@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Image,
+} from "react-native";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Flights from "../components/Flights/Flights";
@@ -54,7 +61,7 @@ const FlightsPage = () => {
       )}
     </>
   );
-  const searchComponent = (
+  /*  const searchComponent = (
     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
       
       <Text
@@ -69,7 +76,7 @@ const FlightsPage = () => {
         SEARCH FLIGHT
       </Text>
     </View>
-  );
+  ); */
   console.log(flights);
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -80,36 +87,38 @@ const FlightsPage = () => {
           paddingVertical: 10,
           paddingHorizontal: 10,
           backgroundColor: "#D52A10",
-          borderBottomEndRadius: 10,
-          borderBottomStartRadius: 10,
         }}
       >
-        <Text
+        <View
           style={{
-            color: "#ffffff",
-            fontSize: 24,
-            fontWeight: "bold",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <MaterialIcons name="flight" size={30} color="white" />
-        </Text>
+          <Image
+            source={require("../assets/images/thy.png")}
+            style={{ width: 25, height: 25 }}
+          />
+        </View>
       </View>
       {!Array.isArray(flights) && listHeader}
-      {Array.isArray(flights) ? (
-        <FlatList
-          ListHeaderComponent={listHeader}
-          scrollEnabled={true}
-          data={flights}
-          initialNumToRender={1}
-          renderItem={({ item }) => {
-            return <FlightCard item={item} />;
-          }}
-        />
-      ) : flights ? (
-        <NoFlightsFound />
-      ) : (
+      {
+        Array.isArray(flights) ? (
+          <FlatList
+            ListHeaderComponent={listHeader}
+            scrollEnabled={true}
+            data={flights}
+            initialNumToRender={1}
+            renderItem={({ item }) => {
+              return <FlightCard item={item} />;
+            }}
+          />
+        ) : (
+          flights && <NoFlightsFound />
+        ) /* : (
         searchComponent
-      )}
+      ) */
+      }
     </SafeAreaView>
   );
 };
