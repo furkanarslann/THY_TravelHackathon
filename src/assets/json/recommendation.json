@@ -2,45 +2,143 @@
   {
     "key": "Sunny",
     "recommendations": [
-      { "content": "Sıcak migreni tetikleyebilir" },
-      { "content": "Şapkasız çıkmayın" },
-      { "content": "Mevsime uygun, vücudun sıcaklığını çok yükseltmeyecek, terletmeyecek, açık renkli kıyafetler giyin"},
-      { "content": "Günlük sıvı ihtiyacınızı ihmal etmeyin. 2,5 - 3 litre su ile birlikte, vücudun kaybettiği elektrolitler için mineralli su tüketmeyi unutmayın."},
-      { "content": "lorem ipsum dolor sit" },
-      { "content": "lorem ipsum dolor sit" },{ "content": "lorem ipsum dolor sit" },{ "content": "lorem ipsum dolor sit" }
+      {
+        "content": "Looks like it's going to be sunny day we have some recommendations for you to have a better day there!"
+      },
+      { "content": "You may want to take your hat while going out." },
+      {
+        "content": "Wear light-colored clothes that are suitable for the season, that will not raise the body temperature too much, that will not make you sweat."
+      },
+      {
+        "content": "Do not neglect your daily fluid needs. Along with 2.5 - 3 liters of water, do not forget to consume mineral water for the electrolytes lost by the body."
+      }
     ]
   },
   {
     "key": "Moderate rain",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }] 
+    "recommendations": [
+      {
+        "content": "Looks like it's going to be a rainy day we have some recommendations for you to have a better day there!"
+      },
+      { "content": "You may want to take your umbrella with you" },
+      {
+        "content": "Taking raincoat with you could be a good choice."
+      },
+      {
+        "content": "Try wearing leather, rubber, vinyl or waterproof footwear."
+      },
+      { "content": "Prefer quick-dry clothings on daily wear." },
+      {
+        "content": "Don't forget to drive safe in a rainy day, your health is among our top priorities."
+      }
+    ]
   },
   {
     "key": "Patchy rain possible",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "It might be a rainy day, we have some recommendations for you to have a better day there!"
+      },
+      { "content": "You may want to take your umbrella with you" },
+      {
+        "content": "Taking raincoat with you could be a good choice."
+      },
+      {
+        "content": "Try wearing leather, rubber, vinyl or waterproof footwear."
+      },
+      { "content": "Prefer quick-dry clothings on your daily wear." },
+      {
+        "content": "Don't forget to drive safe in a rainy day, your health is among our top priorities."
+      }
+    ]
   },
 
   {
     "key": "Light rain shower",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "Looks like it could be a rainy day out there, we have some recommendations for you to have a better day"
+      },
+      { "content": "You may want to take your umbrella with you" },
+      {
+        "content": "Taking raincoat with you could be a good choice."
+      },
+      {
+        "content": "Try wearing leather, rubber, vinyl or waterproof footwear."
+      },
+      { "content": "Prefer quick-dry clothings on daily wear." },
+      {
+        "content": "Don't forget to drive safe in a rainy day, your health is among our top priorities."
+      }
+    ]
   },
   {
     "key": "Partly cloudy",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day"
+      },
+      { "content": "You may want to take your umbrella with you" },
+      {
+        "content": "You should not prefer thick clothes just incase it gets hotter during the day"
+      }
+    ]
   },
   {
     "key": "Cloudy",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "It looks cloudy out there but there's still a chance to rain, we have some recommendations for you to have a better day"
+      },
+      { "content": "You may want to take a jacket with you" },
+      {
+        "content": "You should not prefer thick clothes if it gets hotter during the day it might bother you"
+      }
+    ]
   },
   {
     "key": "Clear",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "Looks like weather will be clear when you land, thus we have some recommendations for you to have a better day."
+      },
+      {
+        "content": "Wear light-colored clothes that are suitable for the season, that will not raise the body temperature too much, that will not make you sweat."
+      },
+      { "content": "You may want to take your hat while going out." }
+    ]
   },
   {
     "key": "Overcast",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "Looks like weather will be overcasting, thus we have some recommendations for you to have a better day."
+      },
+
+      { "content": "You may want to take your umbrella with you" },
+      {
+        "content": "Taking raincoat with you could be a good choice."
+      },
+      {
+        "content": "Try wearing leather, rubber, vinyl or waterproof footwear."
+      }
+    ]
   },
   {
     "key": "Light Drizzle",
-    "recommendations": [{ "content": "lorem ipsum dolor sit" }]
+    "recommendations": [
+      {
+        "content": "Looks like weather will be drizzling, thus we have some recommendations for you to have a better day."
+      },
+
+      {
+        "content": "Taking raincoat with you could be a good idea."
+      },
+      {
+        "content": "Try wearing leather, rubber, vinyl or waterproof footwear."
+      },
+      { "content": "You may want to take your umbrella with you" },
+      { "content": "Prefer quick-dry clothings on your daily wear." }
+    ]
   }
 ]
