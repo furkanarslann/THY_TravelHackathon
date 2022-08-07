@@ -6,6 +6,7 @@ import {
   TextInput,
   ActivityIndicator,
   Button,
+  SafeAreaView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -17,7 +18,7 @@ const BagTrack = () => {
   const navigation = useNavigation();
 
   const bag = useSelector((state) => state.bag.bag);
-
+  console.log(bag);
   const loadingState = useSelector((state) => state.bag.loadingState);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
@@ -26,42 +27,30 @@ const BagTrack = () => {
   };
 
   useEffect(() => {
-    bag?.length!=0&&bag && navigation.navigate("Bag Details");
+    bag?.length != 0 && bag && navigation.navigate("Bag Details");
   }, [bag]);
 
   return (
-    <View
+    <SafeAreaView
       style={{
-        justifyContent: "center",
-        alignItems: "center",
         flex: 1,
-        backgroundColor: "#ffffff",
+        backgroundColor: "white",
+        alignItems: "center",
       }}
     >
-      <View
+      <Image
         style={{
           width: "100%",
           height: "30%",
-          paddingHorizontal: 20,
-          justifyContent: "center",
-          alignItems: "center",
+
+          resizeMode: "contain",
+          borderRadius: 30,
         }}
-      >
-        <Text style={styles.title}>Bag Tracker</Text>
-        <View style={styles.imageCard}>
-          <Image
-            style={{
-              flex: 1,
-              width: "100%",
-              height: "100%",
-              flex: 1,
-              resizeMode: "contain",
-              borderRadius: 30,
-            }}
-            source={require("../assets/images/bag-track.png")}
-          />
-        </View>
-      </View>
+        source={require("../assets/images/bag-track.png")}
+      />
+
+      <Text style={styles.title}>Bag Tracker</Text>
+
       <View style={{ width: "75%", alignItems: "center" }}>
         <TextInput
           value={search}
@@ -81,15 +70,19 @@ const BagTrack = () => {
           )}
         </TouchableOpacity>
 
-        {!bag ? (
-          <View>
-            <Text>Search Baggage</Text>
-            <Text>Search</Text>
-          </View>
-        ) :  (
-          <View>
-            <Text>No Baggages Found</Text>
-            <Text>Contact Us</Text>
+        {!bag && (
+          <View
+            style={{
+              backgroundColor: "#F8D7D9",
+              padding: 10,
+              paddingHorizontal: 15,
+              marginTop: 10,
+              borderRadius: 10,
+            }}
+          >
+            <Text style={{ color: "#721C23", textAlign: "center" }}>
+              Cannot find your baggage. Please contact us.
+            </Text>
           </View>
         )}
         {/*  {bag&& <View style={{}}>
@@ -97,11 +90,7 @@ const BagTrack = () => {
               <Text>Click for details</Text>
             </View>} */}
       </View>
-      <Button
-        title="pres"
-        onPress={() => dispatch(getLostBaggage("TK111222"))}
-      ></Button>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -109,7 +98,7 @@ export default BagTrack;
 const styles = StyleSheet.create({
   imageCard: {
     width: "100%",
-    height: "100%",
+    height: "30%",
     borderRadius: 20,
     shadowColor: "#000",
     shadowOffset: {

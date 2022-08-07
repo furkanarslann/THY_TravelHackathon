@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getBags } from "../api/bag";
 
 const initialState = {
-  bag: null,
+  bag: [],
   loadingState: "idle", //"idle"|"loading"|"failed"|"succeeded";
   error: false,
 };
