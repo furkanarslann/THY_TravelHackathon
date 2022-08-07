@@ -45,12 +45,16 @@ const LostBag = () => {
         <Text style={styles.line1}>Tag number</Text>
         <TextInput
           value={text}
-          onChangeText={setText}
+          onChangeText={(text) => setText(text)}
           placeholder="Enter your Tag number"
           style={styles.input_box}
         />
       </View>
-      <TouchableOpacity style={styles.button} onPress={getLostBagCard}>
+      <TouchableOpacity
+        style={text !== "" ? styles.button : styles.button_disabled}
+        onPress={getLostBagCard}
+        disabled={text === "" ? true : false}
+      >
         <Text style={styles.buttonText}>Get Baggage Info</Text>
       </TouchableOpacity>
 
@@ -109,6 +113,21 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#FF9204",
+    padding: 12,
+    marginTop: 5,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+
+    elevation: 7,
+  },
+  button_disabled: {
+    backgroundColor: "#909090",
     padding: 12,
     marginTop: 5,
     borderRadius: 10,
