@@ -54,8 +54,8 @@ const Carousel = () => {
         }}
       >
         <Card
-          header="Merhaba! THY serüvenine hoşgeldin!"
-          paragraph="THY serüveni sizlere maksimum düzeyde hizmeti hedefleyerek birden fazla fırsatlar sunar. Fırsatlar ve genel bilgi için kaydırınız."
+          header="Welcome to the privileged world of Turkish Airlines users"
+          paragraph="We offer you the best user experience in our application! Swipe to explore our splendid features."
           imageLocation={require("../assets/images/welcoming.png")}
         />
         <Card
@@ -69,9 +69,9 @@ const Carousel = () => {
           imageLocation={require("../assets/images/bag-track.png")}
         />
         <Card
-          header=" Lost Baggage"
+          header="Lost Baggage"
           paragraph="Have you lost your baggage? No worries, THY Lost Baggage System is ready for your service. Enter your tag number and search your baggage status."
-          imageLocation={require("../assets/images/membership.png")}
+          imageLocation={require("../assets/images/lost-bagg.png")}
         />
       </ScrollView>
 

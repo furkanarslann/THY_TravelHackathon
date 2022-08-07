@@ -67,15 +67,15 @@ const LostBag = () => {
           style={{
             alignItems: "center",
             marginTop: 50,
-            backgroundColor: "#EC0A0A9F",
+            backgroundColor: "#FA9CA2",
             borderRadius: 15,
             padding: 15,
           }}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>
+          <Text style={{ color: "#721C23", fontWeight: "bold" }}>
             Tag number is not found.
           </Text>
-          <Text style={{ color: "white" }}>
+          <Text style={{ color: "#721C23" }}>
             Please contact us about the issue.
           </Text>
         </View>
@@ -92,9 +92,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
   },
-  line1:{
-    fontSize:16,
-    paddingVertical:10,
+  line1: {
+    fontSize: 16,
   },
   lostBagImg: {
     borderRadius: 15,
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   input_box: {
     width: "100%",
     height: 40,
-  
+
     borderWidth: 0.3,
     padding: 10,
     borderRadius: 10,

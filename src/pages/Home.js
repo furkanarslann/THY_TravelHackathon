@@ -28,7 +28,7 @@ const Home = () => {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#F7F5F5",
-          paddingVertical: 8,
+          paddingVertical: 15,
           shadowColor: "#000",
           shadowOffset: {
             width: 0,

@@ -75,7 +75,7 @@ const BagTrack = () => {
         {!bag && (
           <View
             style={{
-              backgroundColor: "#F8D7D9",
+              backgroundColor: "#FA9CA2",
               padding: 10,
               paddingHorizontal: 15,
               marginTop: 10,
