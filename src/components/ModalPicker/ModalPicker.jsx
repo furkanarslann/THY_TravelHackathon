@@ -5,6 +5,7 @@ import {
   Dimensions,
   FlatList,
   TextInput,
+  Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -82,11 +83,22 @@ const ModalPicker = ({ changeModalVisibility, setWhere, setCity }) => {
                 style={styles.option}
                 onPress={() => onPressItem(item)}
               >
+                <Image
+                  source={require("../../assets/images/thy.png")}
+                  style={{
+                    width: 25,
+                    height: 25,
+                    position: "absolute",
+                    top: 10,
+                    left: 10,
+                  }}
+                />
                 <Text style={styles.text}>{item.code}</Text>
                 <Text style={styles.textSmaller}>
                   {item.port
-                    ? item.port.Name
-                    : typeof item.city == "string" && item.city}
+                    ? item.port.Name.toLocaleUpperCase()
+                    : typeof item.city == "string" &&
+                      item.city.toLocaleUpperCase()}
                 </Text>
               </Pressable>
             );
@@ -101,21 +113,23 @@ export default ModalPicker;
 const styles = StyleSheet.create({
   touchableOpacity: {
     flex: 1,
+
     alignItems: "center",
     justifyContent: "center",
   },
   text: {
+    color: "#cbd5e1",
     marginVertical: 20,
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
   },
   textSmaller: {
-    paddingVertical:5,
-    paddingHorizontal:10,
-   
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    color: "#cbd5e1",
 
-
+    textAlign: "center",
   },
   modal: {
     justifyContent: "center",
@@ -124,13 +138,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   option: {
-    backgroundColor: "#F7F5F5",
+    backgroundColor: "#334155",
+    paddingBottom: 10,
+
     marginVertical: 8,
     borderRadius: 10,
-    elevation: 7,
-    shadowColor: "#171717",
-    shadowOffset: { width: -2, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+
+    elevation: 14,
   },
 });
