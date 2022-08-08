@@ -58,7 +58,7 @@ function THY_Drawer() {
           component={Home}
           options={{
             headerShown: false,
-            drawerLabel: "Anasayfa",
+            drawerLabel: "Home",
             drawerIcon: ({ focused, size }) => (
               <Ionicons
                 name={focused ? "home" : "home-outline"}
