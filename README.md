@@ -1,6 +1,6 @@
 # THY_TravelHackathon
 - We have developed an application with JS and React-Native for a Hackathon event organized by Turkish Airlines.
-- Purpose of this application is to provide solutions to issues that can happen to any traveller.
+- Purpose of this application is to provide solutions to issues that can happen to any traveller using airlines.
 <h3>Our team members:</h3>
 <li><a href="https://github.com/erenilufer" target="_blank">Eren Nilüfer</a></li>
 <li><a href="https://github.com/furkanarslann" target="_blank">Furkan Arslan</a></li>
